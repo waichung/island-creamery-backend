@@ -22,6 +22,7 @@ body {
     }
 
     .announcements {
+
         &.hide {
             display: none;
         }
@@ -50,13 +51,14 @@ body {
             font-family: "NunitoSans","Helvetica Neue","Arial",Sans-serif;
             padding: none;
             max-width: 200px;
-            margin: none;
+            margin: 0;
             color: white;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
             font-size: 0.7em;
             font-weight: 600;
+            line-height: 2.4;
 
             @media screen and (min-width: $breakpoint-mobile-portrait) {
                 max-width: 300px;
