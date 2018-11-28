@@ -1,0 +1,95 @@
+// Config
+@import '../config/breakpoints';
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Components / Section
+ *
+ * Generic section used mainly on the content page
+ */
+.section {}
+
+.section__content {
+    width: 100%;
+    margin: auto;
+}
+
+.section__title {
+    margin-top: 0;
+    text-align: center;
+    font-size: rem(100px);
+    color: #ebaca6;
+    font-weight: 200;
+    word-break: break-all;
+}
+
+.section__links {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    list-style: none;
+    max-width: $breakpoint-laptop;
+    margin: auto;
+    text-align: center;
+}
+
+.section__link {
+    display: inline-block;
+    font-size: rem(22px);
+    color: #51413a;
+    font-weight: 300;
+    margin: 0 10px;
+    font-family: $fontstack-sans-primary;
+    padding-bottom: 10px;
+
+    @media screen and (max-width: $breakpoint-tablet-landscape) {
+        font-size: rem(20px);
+    }
+}
+
+.section__link--active {
+    border-bottom: 1px solid #51413a;
+}
+
+.section-content {
+    margin-top: 75px;
+    padding: 100px;
+    background-color: #f1e7e6;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        padding: 75px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-landscape) {
+        padding: 25px;
+    }
+
+}
+
+.section-content__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    color: #a8968d;
+    font-family: $fontstack-sans-primary;
+
+    p {
+        font-weight: 300;
+        font-family: $fontstack-sans-primary;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #000;
+        font-weight: 300;
+        font-size: rem(20px);
+    }
+
+}

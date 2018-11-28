@@ -1,0 +1,17 @@
+/**
+ * Components / Bloom Render
+ */
+.bloom-render {
+    width: 300px;
+    height: 300px;
+    background-color: #f8f8f8;
+    margin: 25px auto 50px;
+    background: url('../img/global/bloom-render.jpg') no-repeat center;
+    background-size: contain;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        width: 325px;
+        height: 325px;
+    }
+
+}

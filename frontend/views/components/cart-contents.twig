@@ -1,0 +1,86 @@
+{#
+
+    Cart Contents
+    Used on the cart page
+
+#}
+
+{% do action( 'woocommerce_before_cart_contents' ) %}
+
+<section class="cart-contents">
+
+    <ul class="cart-contents__list shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+
+        {% for product in cart_items %}
+
+            <li class="woocommerce-cart-form__cart-item cart-contents__item cart-item {% if loop.last %}cart-item--last{% endif %}">
+
+                <a href="{{ product.delete_permalink }}" class="cart-item__column cart-item__column--delete">
+                    <span>x</span>
+                </a>
+
+                <a href="{{ product.url }}" title="{{ product.title }}" class="cart-item__column cart-item__column--link">
+                    <img src="{{ product.thumbnail }}" class="cart-item__image" alt="{{ product.title }}" />
+                    <span class="cart-item__title">{{ product.title }}</span>
+                </a>
+
+                <span class="cart-item__column cart-item__column--unit">
+                    <small>Unit Price</small>
+                    <span>{{ product.price }}</span>
+                </span>
+
+                <span class="cart-item__column cart-item__column--quantity">
+                    <small>Quantity</small>
+                    {{ product.quantity }}
+                </span>
+
+                <span class="cart-item__column cart-item__column--price">
+                    <small>Total Price</small>
+                    <span>{{ product.total }}</span>
+                </span>
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% include 'components/personalisation.twig' %}
+
+    <div class="actions">
+
+        {% if (cart_items|length > 0) %}
+
+            {% if coupons_enabled %}
+
+                <div class="cart__coupons">
+
+                    <div class="coupon">
+                        {# <label for="coupon_code" class="coupon__label">{{ function('_e', 'Coupon:', 'woocommerce' ) }}</label> #}
+                        <input type="text" name="coupon_code" class="input-text coupon__input" id="coupon_code" value="" placeholder="{{ __( 'Coupon code', 'woocommerce' ) }}" />
+                        <input type="submit" class="button coupon__submit" name="apply_coupon" value="{{ __('Apply coupon', 'woocommerce') }}" />
+                        {% do action( 'woocommerce_cart_coupon' ) %}
+                    </div>
+
+                </div>
+            {% endif %}
+
+            <button type="submit" class="button cart__update-btn" name="update_cart" value="{{ function('wc_get_cart_url')|e('esc_url') }}">Update Cart</button>
+
+            {% do action( 'woocommerce_cart_actions' ) %}
+            {{ function('wp_nonce_field', 'woocommerce-cart') }}
+            {% do action('wp_nonce_field', 'woocommerce-cart', 'woocommerce-cart-nonce') %}
+
+        {% endif %}
+
+    </div>
+
+    <div class="cart__back">
+        <a href="{{ return_to_shop }}">{{ _e('- Back to shop', 'woocommerce') }}</a>
+    </div>
+
+    {% do action( 'woocommerce_cart_contents' ) %}
+
+</section>
+
+{% do action( 'woocommerce_after_cart_contents' ) %}

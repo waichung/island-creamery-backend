@@ -1,0 +1,70 @@
+// Utils
+@import '../utils/mixins/aspect-ratio';
+
+// Config
+@import '../config/palette';
+@import '../config/breakpoints';
+
+/**
+ * Components / Banner
+ */
+.banner {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: $color-brand-secondary;
+    font-family: $fontstack-serif-secondary;
+}
+
+.banner--shop {
+    position: relative;
+    top: -180px;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        top: -150px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        top: -80px;
+    }
+
+}
+
+.banner__title,
+.banner__subtitle {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    line-height: 1;
+    font-size: 8vw;
+    font-weight: 100;
+
+    @media screen and (max-width: $breakpoint-tablet-landscape) {
+        font-size: 12vw;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        font-size: 15vw;
+    }
+
+}
+
+.banner__title {
+    position: relative;
+    z-index: 1;
+}
+
+.banner__image {
+    display: block;
+    width: 100%;
+    margin: -50px auto;
+    background-size: cover;
+    background-position: center;
+    @include aspect-ratio(3, 1);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin: -20px auto;
+    }
+
+}

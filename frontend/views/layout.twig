@@ -1,0 +1,36 @@
+{#
+    Main Layout
+#}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1" />
+        <title>{{ site_title }} - NestBloom</title>
+        {{ wp_head() }}
+    </head>
+
+    <body class="{% if user %}logged-in{% endif %} page page--{{ site_title|lower|replace({' ':'-'}) }}">
+
+        {# Main Content #}
+        <main class="main main--{{ site_title|lower|replace({' ':'-'}) }}">
+            <div class="announcements" id="announcements">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                 <a class="close" id="close-announcements"></a>
+            </div>
+            {# Header #}
+            {% include 'layout/header.twig' %}
+
+            {% block page %}{% endblock %}
+
+            {# Footer #}
+            {% include 'layout/footer.twig' %}
+
+        </main>
+
+        {% block scripts %}{% endblock %}
+
+    </body>
+</html>

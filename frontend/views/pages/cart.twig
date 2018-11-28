@@ -1,0 +1,56 @@
+{#
+
+    Cart Page
+
+#}
+
+{% extends 'layout.twig' %}
+
+{% set site_title = 'cart' %}
+
+{% block page %}
+
+    {% do action( 'woocommerce_before_cart' ) %}
+
+        <section class="cart" data-cart="container">
+
+            <h1 class="cart__title">shopping<br /><em>Cart</em></h1>
+
+            {{ fn('wc_print_notices') }}
+
+            <section class="cart__content">
+
+                {% if not cart_is_empty %}
+
+                    <form class="cart-form" action="{{ fn('wc_get_cart_url')|e('esc_url') }}" method="post">
+
+                    	{% do action('woocommerce_before_cart_table') %}
+
+                        {% include 'components/cart-contents.twig' %}
+
+                    	{% do action( 'woocommerce_after_cart_table' ) %}
+
+                    </form>
+
+                    {% do action( 'woocommerce_cart_collaterals' ) %}
+
+                {% else %}
+
+                    <div class="cart__empty-message">
+                        <p>
+                            Your cart is empty.
+                    		<a class="button wc-backward" href="{{ return_to_shop }}">
+                    			{{ _e( 'Return to shop', 'woocommerce' ) }}
+                    		</a>
+                    	</p>
+                    </div>
+
+                {% endif %}
+
+            </section>
+
+        </section>
+
+    {% do action( 'woocommerce_after_cart' ) %}
+
+{% endblock %}

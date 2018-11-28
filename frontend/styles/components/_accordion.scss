@@ -1,0 +1,89 @@
+// Config
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Components / Accordion
+ */
+.accordion {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion-item {
+    display: flex;
+    width: 100%;
+    padding: 15px 0;
+    border-top: 1px solid #cccccc;
+    font-family: $fontstack-sans-primary;
+}
+
+.accordion-item__count {
+    display: block;
+    width: 20%;
+    font-size: rem(19px);
+    font-weight: 300;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(15px);
+    }
+
+}
+
+.accordion-item__content {
+    display: block;
+    width: 70%;
+    color: #a8968d;
+    font-weight: 300;
+}
+
+.accordion-item__title {
+    display: block;
+    margin-bottom: 10px;
+    font-size: rem(18px);
+    line-height: 1.4;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(15px);
+        line-height: 1.2;
+    }
+
+}
+
+.accordion-item__description {
+    font-size: rem(14px);
+    max-height: 0px;
+    overflow: hidden;
+
+    .active & {
+        overflow: auto;
+        max-height: initial;
+    }
+
+}
+
+.accordion-item__accent {
+    display: block;
+    width: 10%;
+
+    &::before {
+        content: '+';
+        width: 10px;
+        height: 10px;
+        display: block;
+        font-weight: 200;
+
+        .active & {
+            content: '-';
+            font-weight: 300;
+        }
+
+    }
+
+
+}

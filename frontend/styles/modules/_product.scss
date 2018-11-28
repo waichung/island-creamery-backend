@@ -1,0 +1,367 @@
+// Config
+@import '../config/breakpoints';
+@import '../config/fonts';
+
+// utils
+@import '../utils/mixins/aspect-ratio';
+@import '../utils/functions/rem';
+
+/**
+ * Module / Product
+ */
+.product {
+    width: 100%;
+    max-width: $breakpoint-laptop-large;
+    height: auto;
+    padding: 25px 25px 75px;
+    margin: auto;
+}
+
+.product-buy {
+    border-bottom: 1px solid #faf1ec;
+}
+
+.product-details {
+    text-align: center;
+    color: #97837a;
+    padding: 0 50px;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 0 10px;
+    }
+
+}
+
+.product-details__title {
+    font-family: $fontstack-serif-secondary;
+    font-weight: 200;
+    font-size: rem(60px);
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        font-size: rem(50px);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(30px);
+    }
+
+}
+
+.product-details__description {
+    font-family: $fontstack-sans-primary;
+    font-size: rem(16px);
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        font-size: rem(18px);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(16px);
+    }
+
+}
+
+.product-attributes {
+    padding: 25px 0;
+    display: flex;
+}
+
+.product-attributes__section {
+    display: inline-block;
+    width: 33.33%;
+    font-family: $fontstack-sans-primary;
+
+    small,
+    > span {
+        display: block;
+    }
+
+    small {
+        margin-bottom: 10px;
+        font-size: rem(14px);
+    }
+
+    > span {
+        font-size: rem(27px);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        small {
+            font-size: rem(12px);
+        }
+
+        > span {
+            font-size: rem(20px);
+        }
+
+    }
+
+}
+
+.product-variations {
+    display: block;
+}
+
+.product-variation {
+    margin: 10px auto 0;
+}
+
+.product-help {
+    text-align: center;
+}
+
+.product-help__link {
+    display: block;
+    margin: 0 auto 2px;
+    font-size: rem(14px);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(12px);
+    }
+
+}
+
+.product-ritual {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.product-ritual__title {
+    font-size: 24px;
+    color: #766361;
+    font-family: $fontstack-serif-secondary;
+    font-weight: 100;
+}
+
+.product-info {
+    padding: 75px 25px 50px;
+    position: relative;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 50px 0 25px;
+    }
+
+}
+
+.product-info--centered {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+.product-info__bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-color: #faf1ec;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        display: none;
+    }
+
+}
+
+.product-info__points {
+    font-family: $fontstack-sans-primary;
+    list-style: none;
+    padding: 0 10% 0 25%;
+    margin: 0;
+
+    li {
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-family: $fontstack-sans-primary;
+        font-size: rem(14px);
+        color: #a8968d;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $fontstack-sans-primary;
+        display: block;
+        font-size: rem(21px);
+        font-weight: 300;
+        color: #443a36;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 25px;
+        background-color: #faf1ec;
+    }
+
+}
+
+.product-ingredients {
+    padding: 50px;
+    text-align: center;
+}
+
+.product-ingredients__title {
+    margin-bottom: 30px;
+    font-size: rem(21px);
+    font-family: $fontstack-sans-primary;
+    font-weight: 300;
+    color: #443a36;
+}
+
+.product-ingredients__list {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    padding: 0;
+    list-style: none;
+
+    &::after {
+        position: relative;
+        top: -20px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 20px;
+        background-color: #faf1ec;
+    }
+
+}
+
+.product-ingredients__item {
+    display: inline-block;
+    font-size: rem(42px);
+    color: #ebaca6;
+    font-weight: 200;
+    margin-left: 5px;
+    transition: color 300ms ease;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(27px);
+    }
+
+    &:hover {
+        color: #f2c6c2;
+    }
+
+}
+
+.product-ad {
+    width: 100%;
+    height: auto;
+    @include aspect-ratio(5, 2.5);
+    background-color: #111111;
+    color: #faf1ec;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (max-width: $breakpoint-palm-landscape) {
+        @include aspect-ratio(3, 2);
+    }
+
+}
+
+.product-ad__content {
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 100px;
+
+    p,
+    a {
+        display: block;
+        font-family: $fontstack-sans-primary;
+        font-size: rem(18px);
+        font-weight: 300;
+    }
+
+    p {
+        max-width: 450px;
+        margin-bottom: 25px;
+    }
+
+    a {
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-landscape) {
+        padding: 25px;
+
+        p,
+        a {
+            font-size: rem(14px);
+        }
+
+    }
+
+}
+
+.product-ad__title {
+    font-size: rem(64px);
+    font-family: $fontstack-serif-secondary;
+    font-weight: 200;
+    margin: 20px 0;
+
+    @media screen and (max-width: $breakpoint-palm-landscape) {
+        font-size: rem(28px);
+    }
+
+}
+
+.products-related {
+    padding: 50px 25px;
+    text-align: center;
+}
+
+.products-related__title {
+    color: #97837a;
+    font-weight: 100;
+    font-size: rem(36px);
+}
+
+.product-related {
+    text-align: center;
+}
+
+.product-related__image {
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+.product-related__title {
+    font-size: rem(18px);
+    font-family: $fontstack-serif-primary;
+    color: #888888;
+    font-weight: 100;
+}
+
+.product-related__price {
+    font-size: rem(21px);
+    font-family: $fontstack-sans-primary;
+    color: #473127;
+}
+
+.product-sticky-buy {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 9999;
+    transform: translateY(200px);
+    transition: transform 500ms ease;
+
+    &.in-view {
+        transform: translateY(0);
+    }
+
+}

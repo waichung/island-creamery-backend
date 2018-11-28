@@ -1,0 +1,81 @@
+/**
+ * Components / Dropdown
+ *
+ * Dropdown component for custom dropdowns (similar to select boxes)
+ */
+.dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    list-style: none;
+    z-index: 9999;
+    font-family: $fontstack-sans-primary;
+
+    &:hover {
+
+        .dropdown__items {
+            display: block;
+        }
+
+    }
+
+}
+
+.dropdown__items {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    background-color: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    border-top: none;
+}
+
+.dropdown__item {
+    width: 100%;
+    padding: 15px;
+    color: #AAAAAA;
+    transition: color 250ms ease, border-color 400ms ease;
+    font-weight: 300;
+    background-color: #FFFFFF;
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        color: #d59a7c;
+        background-color: #F8F8F8;
+    }
+
+}
+
+.dropdown__item--current {
+    position: relative;
+    padding-right: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #AAAAAA;
+
+    &:hover {
+        background-color: #FFFFFF;
+    }
+
+    &::after {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #AAAAAA;
+    }
+
+}

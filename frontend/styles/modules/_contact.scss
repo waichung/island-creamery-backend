@@ -1,0 +1,98 @@
+// Utils
+@import '../utils/functions/rem';
+@import '../utils/mixins/aspect-ratio';
+
+// Config
+@import '../config/breakpoints';
+@import '../config/fonts';
+
+/**
+ * Modules / Contact
+ */
+.contact {
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    margin: auto;
+}
+
+.contact__title {
+    text-align: center;
+    font-weight: 300;
+    color: #ebaca6;
+}
+
+.contact__email {
+    display: block;
+    max-width: 320px;
+    margin: 25px auto;
+    text-align: center;
+    font-family: $fontstack-sans-primary;
+
+    small,
+    a {
+        display: block;
+        margin: 0 auto;
+        font-size: rem(16px);
+    }
+
+    small {
+        margin: 20px auto 5px;
+        color: #51413a;
+    }
+
+    a {
+        color: #a8968d;
+    }
+
+}
+
+.contact__email-icon {
+    display: block;
+    margin: 0 auto 30px;
+    width: 200px;
+    height: 200px;
+    background: #f5f1f0 url('../img/global/email.png') no-repeat center;
+    background-size: 75px;
+    border-radius: 50%;
+
+    &:hover {
+        background-image: url('../img/global/email-hover.png');
+        background-color: #ebaca6;
+    }
+
+}
+
+.contact__locations {
+    max-width: $breakpoint-laptop;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.contact-location {
+    padding: 0 20px;
+}
+
+.contact-location__link {
+    display: block;
+}
+
+.contact-location__image {
+    width: 100%;
+    @include aspect-ratio(1, 1);
+    background: #ebaca6 no-repeat center;
+    background-size: cover;
+}
+
+.contact-location__title {
+    display: block;
+    margin: 15px 0;
+    font-size: rem(21px);
+    font-family: $fontstack-sans-primary;
+    color: #a8968d;
+    font-weight: 300;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        font-size: rem(16px);
+    }
+
+}

@@ -1,0 +1,59 @@
+// Config
+@import '../config/breakpoints';
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Components / Notice
+ *
+ * Growl notice for cart activity (Success, errors, information etc)
+ */
+.notice {
+    position: relative;
+    margin-top: 50px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 25px 25px;
+    z-index: 9999;
+    color: #97837a;
+
+}
+
+.notice--success {
+
+    a {
+        color: #eb1717;
+    }
+
+}
+
+.notice--error {
+
+    a {
+        color: #eb1717;
+    }
+
+}
+
+.notice__content {
+    width: 100%;
+    max-width: $breakpoint-tablet-landscape;
+    height: auto;
+    margin: 0 auto 25px;
+    padding: 25px;
+    font-family: $fontstack-serif-primary;
+    text-align: center;
+    font-size: rem(16px);
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+
+    a {
+        border-bottom: 1px solid;
+        margin-right: 20px;
+        display: inline-block;
+    }
+
+}

@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = post.title %}
+
+{% block page %}
+
+    <section class="section">
+
+        <h1 class="section__title">{{ post.title }}</h1>
+
+        <ul class="section__links">
+            {% if post.get_field('page_links') %}
+
+                {% for item in post.get_field('page_links') %}
+
+                    <li class="section__link"><a href="{{ item.link.url }}">{{ item.link.title }}</a></li>
+                {% endfor %}
+
+            {% endif %}
+        </ul>
+
+        <section class="section-content">
+
+            <div class="section-content__inner">
+                {{ post.content }}
+            </div>
+
+        </section>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+// Config
+@import '../config/breakpoints';
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Components / Footer
+ */
+.footer {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 100px 25px 175px;
+    background-color: #ffffff;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 50px 25px;
+    }
+
+}
+
+.footer__items {
+    width: 100%;
+    max-width: $breakpoint-tablet-portrait;
+    margin: 0 auto;
+}
+
+.footer__accent {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 75px;
+}
+
+.footer__list {
+    display: block;
+    margin: 0 auto 25px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.footer__list-item {
+    display: inline-block;
+    margin-right: 25px;
+    text-transform: uppercase;
+    color: #a8968d;
+    font-family: $fontstack-serif-primary;
+    font-size: rem(20px);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(16px);
+        margin: 0 10px;
+    }
+
+}

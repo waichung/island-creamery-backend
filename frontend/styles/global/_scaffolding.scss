@@ -1,0 +1,71 @@
+// Config
+@import '../config/palette';
+
+/**
+ * Scaffolding / Global
+ *
+ * Global scaffolding declarations
+ */
+* {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+
+    &.logged-in {
+        margin-top: -32px;
+    }
+
+    .announcements {
+        &.hide {
+            display: none;
+        }
+        
+        .close {
+            float: right; 
+            color: white;
+            font-size: 23px;
+            font-weight: 300;
+            margin-top: 5px;
+            margin-right: 8px;
+
+            &:before {
+                content: "×"
+            }
+        }
+
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+        background-color: #E8A29C;
+        height: 2.5em;
+        text-align: center;
+
+        p {
+            font-family: "NunitoSans","Helvetica Neue","Arial",Sans-serif;
+            padding: none;
+            margin: none;
+            color: white;
+            font-size: 1em;
+            line-height: 0;
+            font-weight: 600;
+        }
+
+    }
+
+}
+
+.page {
+    width: 100%;
+    height: auto;
+}
+
+.page--shop {
+    overflow: scroll;
+    background-color: $color-brand-primary;
+}

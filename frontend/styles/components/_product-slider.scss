@@ -1,0 +1,61 @@
+// Utils
+@import '../utils/mixins/aspect-ratio';
+@import '../utils/functions/rem';
+
+/**
+ * Components / Product Slider
+ */
+.product-slider {
+    width: 100%;
+    height: auto;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 50px;
+    }
+
+}
+
+.product-slider__slides {
+    width: 100%;
+    height: 100%;
+    @include aspect-ratio(3, 2);
+}
+
+.product-slider__item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.product-slider__image {
+    width: 100%;
+}
+
+.product-slider__btn {
+    margin-top: 50px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    text-transform: uppercase;
+    text-align: center;
+    color: #97837a;
+    font-size: rem(21px);
+    font-family: $fontstack-serif-primary;
+    outline: none;
+    cursor: pointer;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 50px;
+        font-size: rem(18px);
+    }
+
+}

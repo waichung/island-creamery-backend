@@ -1,0 +1,50 @@
+/**
+ * Components / Hero
+ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    background-color: #a8a8a8;
+}
+
+.hero--full {
+    height: 85vh;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        height: 30vh;
+    }
+
+}
+
+.hero__content {
+    position: relative;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: $breakpoint-desktop;
+    margin: auto;
+    padding: 0 50px;
+    transform: translateY(-50%);
+    font-family: $fontstack-serif-secondary;
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        text-align: center;
+    }
+
+}
+
+.hero__title {
+    margin: 0;
+    font-weight: 200;
+    color: #51413a;
+    font-size: rem(60px);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(40px)
+    }
+
+}

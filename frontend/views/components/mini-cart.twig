@@ -1,0 +1,105 @@
+{#
+
+    Template: Mini Cart
+
+    Mini cart shown on all pages
+
+#}
+
+{% do action( 'woocommerce_before_mini_cart' ) %}
+
+<div class="mini-cart">
+
+        <div class="mini-cart__count">
+
+            <span>{{ cart_count }}</span>
+
+
+            <a href="{{ cart_url }}">
+                <svg class="mini-cart-decoration" x="0px" y="0px" viewBox="0 0 17 17" enable-background="new 0 0 17 17" xml:space="preserve">
+
+                    <g>
+                        <path class="mini-cart-decoration__circle mini-cart-decoration__circle--one" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,6.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,6.5,8.5,6.5z"></path>
+                        <path class="mini-cart-decoration__circle mini-cart-decoration__circle--two" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,0.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,0.5,8.5,0.5z"></path>
+                        <path class="mini-cart-decoration__circle mini-cart-decoration__circle--three" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M11.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S8.7,3.5,11.5,3.5z"></path>
+                        <path class="mini-cart-decoration__circle mini-cart-decoration__circle--four" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M5.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S2.7,3.5,5.5,3.5z"></path>
+                    </g>
+                </svg>
+            </a>
+
+        </div>
+
+        {% do action( 'woocommerce_before_mini_cart_contents' ) %}
+
+            <div class="mini-cart__content">
+
+                <ul class="mini-cart__list">
+
+                    {% if not cart_is_empty %}
+
+                        {% for key, item in cart %}
+
+                            {% set quantity = item.quantity %}
+                            {% set product = function('apply_filters', 'woocommerce_cart_item_product', item.data, item, key ) %}
+                            {% set id = function('apply_filters', 'woocommerce_cart_item_product_id', item.product_id, item, key ) %}
+                            {% set filters = function('apply_filters', 'woocommerce_widget_cart_item_visible', true, item, key ) %}
+
+                            {% if (product and product.exists and (item.quantity > 0) and filters) %}
+
+                                {% set product_name = fn('apply_filters', 'woocommerce_cart_item_name', product.get_name(), item, key ) %}
+                                {% set thumbnail = fn('apply_filters', 'woocommerce_cart_item_thumbnail', product.get_image(), item, key ) %}
+                                {% set product_price = fn('apply_filters', 'woocommerce_cart_item_price', product.get_price(), item, key ) %}
+                                {% set permalink = fn('apply_filters', 'woocommerce_cart_item_permalink', product.is_visible() ? product.get_permalink( item ) : '', item, key ) %}
+                                {% set remove_link = fn('wc_get_cart_remove_url', key) %}
+
+                                <li class="mini-cart-item {% if cart|length < 2 %} mini-cart-item--no-border {% endif %}{% if loop.last %}mini-cart-item--last{% endif %}">
+
+                                    <div class="mini-cart-item__column mini-cart-item__column--image">
+                                        {{ product.get_image() }}
+                                    </div>
+
+                                    <div class="mini-cart-item__column mini-cart-item__column--main">
+                                        <span class="mini-cart-item__title">{{ product_name }}</span>
+                                        <span class="mini-cart-item__quantity">{{ quantity }} x {{ currency }}{{ product_price }}</span>
+                                    </div>
+
+                                    <div class="mini-cart-item__column mini-cart-item__column--remove">
+                                        <a href="{{ remove_link }}">x</a>
+                                    </div>
+
+                                </li>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                        <li>
+                            <span class="mini-cart__total total">{{ _e( 'Subtotal', 'woocommerce' ) }}: {{ cart_subtotal }}</span>
+                        </li>
+
+                        <li>
+                            {% do action( 'woocommerce_widget_shopping_cart_before_buttons' ) %}
+
+                            <div class="mini-cart__buttons">
+                                {% do action( 'woocommerce_widget_shopping_cart_buttons' ) %}
+                            </div>
+
+                        </li>
+
+                    {% else %}
+
+                        <li>
+                            <p class="mini-cart__empty-message">{{ _e( 'No products in the cart.', 'woocommerce' ) }}</p>
+                        </li>
+
+                    {% endif %}
+
+                </ul>
+
+        </div>
+
+    {% do action( 'woocommerce_mini_cart_contents' ) %}
+
+</div>
+
+{% do action( 'woocommerce_after_mini_cart' ) %}

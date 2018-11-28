@@ -1,0 +1,67 @@
+// Config
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * WooComm Overrides
+ */
+
+.woocommerce-checkout {
+    font-family: $fontstack-serif-secondary;
+
+    h3 {
+        font-weight: 200;
+        font-size: rem(24px);
+    }
+
+}
+
+.woocommerce-billing-fields__field-wrapper,
+.woocommerce-shipping-fields__field-wrapper {
+
+    .form-row {
+        width: 100%;
+    }
+
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 0px;
+}
+
+.woocommerce-checkout-review-order-table {
+    border: 0px !important;
+
+    thead {
+        padding: 50px;
+    }
+
+}
+
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td,
+.woocommerce table.shop_table tbody th, .woocommerce table.shop_table tfoot td, .woocommerce table.shop_table tfoot th {
+    padding: 15px 0;
+    font-weight: 200;
+}
+
+.woocommerce ul#shipping_method .amount {
+    font-weight: 200;
+}
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+    background-color: transparent;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.woocommerce-checkout-review-order-table, .woocommerce-shipping-totals small {
+    font-size: 100%;
+}
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+    float: none;
+}

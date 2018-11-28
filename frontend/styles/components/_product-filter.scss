@@ -1,0 +1,77 @@
+// Config
+@import '../config/fonts';
+@import '../config/breakpoints';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Components / Product Filter
+ */
+.product-filter {
+    width: 100%;
+
+    &.grid {
+        padding: 70px;
+    }
+}
+
+.product-filter__categories-wrap {
+    text-align: left;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+}
+
+.product-filter__categories {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.product-filter__category {
+    margin-right: 25px;
+    display: inline-block;
+    transition: border-color 250ms ease, color 250ms ease;
+    border-bottom: 2px solid transparent;
+    font-family: $fontstack-sans-primary;
+    font-size: rem(20px);
+    font-weight: 200;
+    color: #AAAAAA;
+
+    &:hover,
+    &.product-filter__category--active {
+        color: #d59a7c;
+        border-color: #d59a7c;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+}
+
+.product-filter__order-wrap {
+    text-align: right;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        text-align: center;
+    }
+
+}
+
+.product-filter__order {
+    margin: 0;
+    padding: 0;
+    max-width: 250px;
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+}
+
+.product-filter__items {
+    list-style: none;
+}

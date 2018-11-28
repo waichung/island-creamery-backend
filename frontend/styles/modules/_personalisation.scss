@@ -1,0 +1,109 @@
+// Utils
+@import '../utils/mixins/aspect-ratio';
+
+/**
+ * Modules / Personalisation
+ */
+.personalisation {
+    width: 100%;
+    height: auto;
+    margin: 25px 0;
+    font-family: $fontstack-serif-primary;
+}
+
+.personalisation__content {
+    padding: 25px;
+    background-color: #f0f0f0;
+
+    p {
+        margin-top: 0;
+        font-family: $fontstack-sans-primary;
+        font-size: rem(14px);
+    }
+
+    strong {
+        font-weight: 400;
+    }
+
+}
+
+.personalisation__title {
+    font-size: rem(21px);
+    color: #97837a;
+    font-weight: 200;
+}
+
+
+.personalisation__option {
+    display: block;
+    margin-top: 10px;
+    font-family: $fontstack-sans-primary;
+    font-weight: 200;
+    font-size: rem(12px);
+}
+
+.personalisation__option-content {
+    display: inline-block;
+    margin: 0 10px;
+
+    img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        display: inline-block;
+    }
+
+    span {
+        display: block;
+        margin-top: 10px;
+    }
+
+}
+
+.personalisation__option--inline {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.personalisation__option-input {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.personalisation-image {
+    width: 100%;
+    @include aspect-ratio(1, 1);
+    background: #ffffff url('../img/global/personalisation-image.jpg') no-repeat center;
+    background-size: 250px;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 20px;
+    }
+
+}
+
+.personalisation-image__text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    transform: translateY(-50%);
+    border: 0;
+    appearance: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-family: 'Antro Vectra', Serif;
+    font-size: rem(35px);
+    line-height: 40px;
+    color: #000000;
+    overflow: hidden;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    }
+
+}

@@ -1,0 +1,182 @@
+/**
+ * Components / Handle
+ */
+.handle {
+    position: absolute;
+    display: block;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 500ms ease;
+
+    &.hover {
+        cursor: grab;
+    }
+
+    &.dragging {
+        cursor: grabbing;
+    }
+
+    &.hidden {
+        opacity: 0;
+    }
+
+    &.disabled {
+        display: none;
+    }
+
+}
+
+.handle__border {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    transform: scale(1);
+    pointer-events: none;
+    transition: transform .75s cubic-bezier(0.19, 1, 0.22, 1);
+
+    .hover & {
+        transform: scale(1.3);
+    }
+
+    .dragging & {
+        transform: scale(1);
+    }
+
+}
+
+.handle__arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: handle-arrow-bounce 1s infinite ease;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        width: 7px;
+        height: 7px;
+    }
+
+    &::after {
+        left: 30%;
+    	top: 75%;
+    	border: solid transparent;
+    	content: '';
+    	height: 0;
+    	width: 0;
+    	position: absolute;
+    	pointer-events: none;
+    	border-left-color: #000000;
+    	border-width: 7px;
+    	margin-top: -7px;
+        transform: translateY(-50%);
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            border-width: 4px;
+            margin-top: -4px;
+        }
+
+
+    }
+
+    .arrow-disabled & {
+
+        &::before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            content: '';
+            width: 7px;
+            height: 7px;
+            background-color: #000000;
+            border-radius: 50%;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+                width: 4px;
+                height: 4px;
+            }
+
+        }
+
+        &::after {
+            display: none;
+        }
+
+    }
+
+    .hover & {
+        animation-play-state: paused;
+    }
+
+}
+
+.handle__label {
+    position: absolute;
+    top: 50%;
+    left: 120%;
+    transform: translateY(-50%);
+    font-size: rem(13px);
+    font-family: $fontstack-sans-primary;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: opacity 250ms ease;
+    white-space: nowrap;
+    pointer-events: none;
+    cursor: default;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        text-align: center;
+        width: 80px;
+        white-space: normal;
+        word-wrap: break-word;
+        left: 50%;
+        transform: translateX(-50%);
+        right: 0;
+        margin: auto;
+        top: 120%;
+        font-size: rem(11px);
+    }
+
+    .hover &,
+    &.disabled {
+        opacity: 0;
+    }
+
+}
+
+.handle__label--left {
+    text-align: right;
+    left: auto;
+    right: 130%;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        text-align: center;
+        right: 0;
+        left: 50%;
+    }
+
+}
+
+@keyframes handle-arrow-bounce {
+
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+
+}

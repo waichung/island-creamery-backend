@@ -1,0 +1,86 @@
+// Config
+@import '../../config/fonts';
+
+// Utils
+@import '../../utils/functions/rem';
+
+/**
+ * Components / Quantity Field
+ * Quantity field for adjusting quantity of an item
+ */
+.quantity-field {
+    width: 130px;
+    display: block;
+    margin: auto;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        width: 100px;
+    }
+
+}
+
+.quantity-field__wrapper {
+    display: flex;
+    text-align: center;
+}
+
+.quantity-field__adjuster {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+
+    span {
+        position: relative;
+        top: 50%;
+        display: block;
+        margin: auto;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #f6f4f3;
+        cursor: pointer;
+        font-size: rem(18px);
+    }
+
+}
+
+.quantity-field__adjuster--inc {
+
+    span::before {
+        content: '+';
+    }
+
+}
+
+.quantity-field__adjuster--dec {
+
+    span::before {
+        content: '-';
+    }
+
+}
+
+.quantity-field__input {
+    width: 50%;
+    display: inline-block;
+    outline: none;
+    border: 0;
+    text-align: center;
+    font-size: rem(30px);
+    font-family: $fontstack-sans-primary;
+    color: #766361;
+    appearance: textfield;
+    margin: 0;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(20px);
+    }
+
+}

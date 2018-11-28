@@ -1,0 +1,34 @@
+/**
+ * Components / Tabs
+ */
+.tabs {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.tabs__nav {
+    width: 100%;
+    height: auto;
+}
+
+.tabs__navItem {
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+}
+
+.tabs__navItem--active {
+}
+
+.tabs__body {
+    padding: 20px;
+}
+
+.tabs__item {
+    display: none;
+}
+
+.tabs__item--active {
+    display: block;
+}

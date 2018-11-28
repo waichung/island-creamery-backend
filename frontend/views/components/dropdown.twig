@@ -1,0 +1,16 @@
+{#
+
+    Dropdown
+    Dropdown component for custom dropdowns (similar to select boxes)
+
+    Items - items, array of items to populate dropdown
+    Classes - classes, custom classes to add to dropdown
+
+#}
+
+<ul class="dropdown{% if classes %} {{ classes }} {% endif %}">
+    <li class="dropdown__item dropdown__item--current"></li>
+    {% for item in items %}
+        <li class="dropdown__item"></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,380 @@
+// Configs
+@import '../config/breakpoints';
+
+// Utils
+@import '../utils/functions/rem';
+@import '../utils/mixins/aspect-ratio';
+
+/**
+ * Module / Journey
+ */
+.journey {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.journey-title {
+    font-size: rem(21px);
+    font-weight: 300;
+    font-family: $fontstack-serif-secondary;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: rem(35px);
+        display: none;
+    }
+
+}
+
+.journey-section {
+    padding: 50px 25px;
+}
+
+.journey-section__content {
+    position: relative;
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    margin: auto;
+}
+
+.journey-nav {
+    display: block;
+    font-family: $fontstack-serif-secondary;
+}
+
+.journey-nav__item {
+    display: block;
+    font-size: rem(48px);
+    font-weight: 200;
+    color: #eee4e4;
+    transition: color 500ms ease;
+
+    &.active,
+    &:hover {
+        color: #ebaca6;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        font-size: rem(35px);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(28px);
+    }
+
+}
+
+.journey-making__content {
+    position: relative;
+    background-color: #faf1ec;
+    margin-top: 75px;
+    padding: 75px 50px;
+    min-height: 360px;
+
+    p {
+        font-size: rem(16px);
+        font-family: $fontstack-sans-primary;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+
+        p {
+            margin-top: 0;
+        }
+
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 20px;
+
+        .journey-section__content {
+            top: -60px;
+
+            p {
+                position: relative;
+                top: 40px;
+                font-size: rem(14px);
+            }
+
+        }
+
+    }
+
+
+}
+
+.journey-making__image {
+    position: absolute !important;
+    bottom: -50px;
+    right: 0;
+    width: 100%;
+    max-width: 490px;
+    @include aspect-ratio(1, 1.1);
+    background-size: cover;
+
+    @media screen and (max-width: $breakpoint-tablet-landscape) {
+        max-width: 350px;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        @include aspect-ratio(1, 1);
+        position: relative !important;
+        top: 0;
+        bottom: 0;
+        max-width: 90%;
+        margin: auto;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        max-width: 100%;
+    }
+
+}
+
+.journey-ingredients {}
+
+.journey-ingredients__image {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin: auto;
+    padding: 0 20px;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        max-width: 350px;
+    }
+
+}
+
+.journey-other-ingredients__title {
+    text-align: center;
+    font-family: $fontstack-serif-secondary;
+    font-weight: 300;
+    font-size: rem(36px);
+    color: #51413a;
+}
+
+.journey-accordion {
+    margin: 25px auto 0;
+    display: block;
+}
+
+.journey-tabs {
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    margin: 75px auto 25px;
+}
+
+.journey-tabs__nav {
+    width: 100%;
+    text-align: center;
+    margin: 25px auto;
+}
+
+.journey-bulletpoints {
+    list-style: none;
+    margin: 0 auto 25px;
+    padding: 0;
+    font-family: $fontstack-sans-primary;
+}
+
+.journey-bulletpoint {
+    width: 100%;
+    max-width: 350px;
+
+    strong {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        font-size: rem(21px);
+        color: #443a36;
+    }
+
+    p,
+    small {
+        display: block;
+        font-weight: 300;
+        font-size: rem(14px);
+        color: #a8968d;
+    }
+
+}
+
+.journey-tabs__navItem {
+    display: inline-block;
+    width: auto;
+    margin: 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 300ms ease;
+    color: #a8968d;
+    font-family: $fontstack-sans-primary;
+
+    &.tabs__navItem--active,
+    &:hover {
+        border-color: #a8968d;
+    }
+
+}
+
+.journey-process__content {
+    max-width: $breakpoint-desktop;
+    margin: auto;
+}
+
+.journey-process__intro {
+    width: 100%;
+    max-width: 450px;
+    margin: 75px auto 25px;
+    text-align: center;
+    color: #877b75;
+
+    p {
+        font-family: $fontstack-sans-primary;
+        font-weight: 100;
+    }
+
+}
+
+.journey-process__title {
+    font-size: rem(24px);
+    font-weight: 400;
+    margin: 0 auto 20px;
+}
+
+.journey-steps {
+    padding: 75px;
+    background-color: #faf1ec;
+    margin-top: 350px;
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        margin-top: 250px;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-landscape) {
+        padding: 75px 25px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 150px;
+    }
+
+}
+
+.journey-steps__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    margin: -350px auto 0;
+    padding-bottom: 450px;
+
+    .journey-step:nth-of-type(even) {
+        margin-top: 100px;
+    }
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        margin-top: -250px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: -150px;
+        padding-bottom: 0px;
+
+        .journey-step:nth-of-type(even) {
+            margin-top: 0px;
+        }
+
+    }
+
+}
+
+.journey-step {
+    display: block;
+    width: 50%;
+    padding: 0 75px;
+    font-family: $fontstack-sans-primary;
+    color: #a8968d;
+
+    p {
+        max-width: 75%;
+        margin: 0 0 20px;
+        font-size: rem(14px);
+        font-family: $fontstack-sans-primary;
+    }
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        padding: 0 25px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+
+        p {
+            max-width: 100%;
+        }
+
+    }
+
+}
+
+.journey-step__title {
+    font-size: rem(21px);
+    font-weight: 300;
+    margin: 25px 0 20px;
+}
+
+.journey-step__image {
+    @include aspect-ratio(2, 1.7);
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.journey-process__hero {
+    display: block;
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    padding: 0 50px;
+    height: auto;
+    margin: -350px auto 50px;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: -50px;
+        padding: 0 25px;
+    }
+
+}
+
+.journey-link {
+    position: relative;
+    height: 50vh;
+    text-align: center;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        height: 100px;
+    }
+
+}
+
+.journey-link__url {
+    position: relative;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: rem(72px);
+    color: #97837a;
+    font-family: $fontstack-serif-secondary;
+    transform: translateY(-50%);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(50px);
+    }
+
+}

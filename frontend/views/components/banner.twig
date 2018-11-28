@@ -1,0 +1,18 @@
+{#
+
+    Banner Component
+    Used site wide, optional elements:
+    type - Class modifier e.g. shop (banner--shop)
+    title - String
+    image - String (image url nnot image object)
+    subtitle String
+
+#}
+
+<section class="banner {% if type %}banner--{{ type }}{% endif %}">
+    {% if title %}<h3 class="banner__title">{{ title }}</h3>{% endif %}
+    {% if image %}
+        <div class="banner__image" style="background-image: url('{{ image }}')"></div>
+    {% endif %}
+    {% if subtitle %}<h4 class="banner__subtitle">{{ subtitle }}</h4>{% endif %}
+</section>

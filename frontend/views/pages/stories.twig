@@ -1,0 +1,141 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = 'Bloom Stories' %}
+{% set header_type = 'stationary' %}
+
+{% block page %}
+
+    {% set hero_video = post.get_field('hero_video') %}
+    {% set hero_image = post.get_field('hero_image') %}
+    {% set stories = post.get_field('stories') %}
+
+    <section class="hero hero--full" style="background-image: url('{{ hero_image.url }}')">
+
+        <div class="hero__content">
+            <h1 class="hero__title">{{ post.get_field('hero_title') }}</h1>
+            {% if hero_video %}<video src="{{ hero_video }}" autoplay poster="{{ hero_image.url }}" class="hero__video"></video>{% endif %}
+        </div>
+
+    </section>
+
+    <section class="stories" data-stories="container">
+
+        <nav class="stories-nav" data-stories="nav">
+
+            <ul class="stories-nav__list">
+                {% for story in stories %}
+                    <li><span class="stories-nav__item" data-stories="nav-item" data-index="{{ loop.index0 }}">{{ story.title }}</span></li>
+                {% endfor %}
+            </ul>
+
+        </nav>
+
+        {% for story in stories %}
+
+            {% if story.type == 2 %}
+
+                <section class="story story--{{ story.type }}" data-stories="item" data-index="{{ loop.index0 }}" data-inview="item">
+
+                    <div class="story-hero story-hero--short">
+                        <div class="story-hero__image" style="background-image: url('{{ story.main_image.url }}')"></div>
+                    </div>
+
+                    <div class="story__content grid">
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            <h2 class="story__title" style="color: {{ story.title_colour }}">{{ story.title }}</h2>
+                            <h3 class="story__subtitle" style="color: {{ story.subtitle_colour }}">{{ story.subtitle }}</h3>
+                        </div>
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            {{ story.information }}
+                        </div>
+                    </div>
+
+                </section>
+
+            {% elseif story.type == 3 %}
+
+                <section class="story story--{{ story.type }}" data-stories="item" data-index="{{ loop.index0 }}" data-inview="item">
+
+                    <div class="story__content grid">
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            <h2 class="story__title" style="color: {{ story.title_colour }}">{{ story.title }}</h2>
+                            <h3 class="story__subtitle" style="color: {{ story.subtitle_colour }}">{{ story.subtitle }}</h3>
+                            {{ story.information }}
+                        </div>
+
+                    </div>
+
+                    <div class="story__background" style="background-image: url('{{ story.main_image.url }}')"></div>
+
+                </section>
+
+            {% elseif story.type == 4 %}
+
+                <section class="story story--{{ story.type }}" data-stories="item" data-index="{{ loop.index0 }}" data-inview="item">
+
+                    <div class="story-hero">
+                        <div class="story-hero__image" style="background-image: url('{{ story.main_image.url }}')"></div>
+                    </div>
+
+                    <div class="story__content grid grid--rev">
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            <h2 class="story__title" style="color: {{ story.title_colour }}">{{ story.title }}</h2>
+                            <h3 class="story__subtitle" style="color: {{ story.subtitle_colour }}">{{ story.subtitle }}</h3>
+                            {{ story.information }}
+                        </div>
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+
+                            {% if story.secondary_image %}
+                                <img src="{{ story.secondary_image.url }}" alt="{{ story.secondary_image.alt }}" class="story__image" />
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            {% else %}
+
+                <section class="story story--{{ story.type }}" data-stories="item" data-index="{{ loop.index0 }}" data-inview="item">
+
+                    <div class="story-hero">
+                        <div class="story-hero__image" style="background-image: url('{{ story.main_image.url }}')"></div>
+                    </div>
+
+                    <div class="story__content grid">
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            <h2 class="story__title" style="color: {{ story.title_colour }}">{{ story.title }}</h2>
+                            <h3 class="story__subtitle" style="color: {{ story.subtitle_colour }}">{{ story.subtitle }}</h3>
+                        </div>
+
+                        <div class="grid__item 1/2 1/1--tablet-portrait">
+                            {{ story.information }}
+                        </div>
+                    </div>
+
+                </section>
+
+            {% endif %}
+
+        {% endfor %}
+
+        {% if post.get_field('link_url') %}
+
+            <section class="stories-link" style="background-image: url('{{ post.get_field('link_image').url }}')" data-inview="item">
+                <a href="{{ post.get_field('link_url').url }}" class="stories-link__url">
+                    <span>{{ post.get_field('link_url').title }}</span>
+                </a>
+            </section>
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}

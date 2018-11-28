@@ -1,0 +1,140 @@
+@import '../utils/functions/rem';
+
+$nav-color: #51413a;
+$nav-color-hover: #d59a7c;
+
+/**
+ * Components / Nav
+ */
+.nav {
+    width: 100%;
+    height: auto;
+}
+
+.nav--main  {
+    font-family: $fontstack-serif-primary;
+
+    .header--condensed & {
+        // background-color: #ffffff;
+    }
+
+    .nav__item {
+        display: block;
+        margin-bottom: 7px;
+    }
+
+}
+
+.nav__toggle {
+    position: relative;
+    display: none;
+    width: 30px;
+    height: 12px;
+    cursor: pointer;
+
+    .header--condensed & {
+        display: block;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        display: block;
+    }
+
+}
+
+.nav__toggle--toggled {
+
+    .nav__toggler:first-of-type {
+        top: 11px;
+        transform: rotate(45deg);
+        transform-origin: top;
+    }
+
+    .nav__toggler:last-of-type {
+        top: 10px;
+        transform: rotate(-45deg);
+        transform-origin: bottom;
+    }
+
+}
+
+.nav__toggler {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #333333;
+    transition: all 200ms ease;
+
+    &:first-of-type {
+        top: 0;
+    }
+
+    &:last-of-type {
+        bottom: 0;
+    }
+
+}
+
+.nav__items {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .header--condensed & {
+        position: absolute;
+        display: none;
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 200px;
+        padding: 15px;
+        top: calc(100% + 20px);
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        position: absolute;
+        display: none;
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 200px;
+        padding: 15px;
+        top: calc(100% + 20px);
+    }
+
+    &.toggled {
+        display: block;
+        z-index: $index-nav;
+    }
+
+}
+
+.nav__link {
+    display: inline-block;
+    color: $nav-color;
+    transition: color 350ms ease;
+    font-weight: 400;
+    font-size: rem(20px);
+
+    &:hover,
+    &.nav__link--current {
+        color: $nav-color-hover;
+
+        &::after {
+            width: 15px;
+            background-color: $nav-color-hover;
+        }
+
+    }
+
+    &::after {
+        display: inline-block;
+        width: 0;
+        height: 1px;
+        margin-left: 5px;
+        background-color: $nav-color;
+        vertical-align: middle;
+        content: '';
+        transition: color 250ms ease, width 200ms ease;
+    }
+
+}

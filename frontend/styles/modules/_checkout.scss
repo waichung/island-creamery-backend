@@ -1,0 +1,37 @@
+// Config
+@import '../config/fonts';
+
+// Utils
+@import '../utils/functions/rem';
+
+/**
+ * Modules / Checkout
+ */
+.checkout {
+    width: 100%;
+    height: auto;
+}
+
+.checkout__content {
+    margin: auto;
+    width: 100%;
+    padding: 0 20px;
+    max-width: $breakpoint-laptop;
+}
+
+.checkout__heading {
+    font-size: rem(24px);
+    font-family: $fontstack-serif-secondary;
+    font-weight: 200;
+}
+
+.checkout__btn-wrap {
+    width: 100%;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.checkout__btn {
+    display: block;
+    margin: 0 auto;
+}

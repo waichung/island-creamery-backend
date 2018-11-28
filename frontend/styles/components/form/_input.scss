@@ -1,0 +1,16 @@
+/**
+ * Components / Form / Input
+ */
+ .input-text {
+     width: 100%;
+     height: auto;
+     padding: 13px;
+     background-color: #fff;
+     border: 1px solid #e1e1e1;
+
+
+     &:focus {
+         background-color: #fafafa;
+     }
+
+ }

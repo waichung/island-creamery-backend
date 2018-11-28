@@ -1,0 +1,253 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = 'Product' %}
+
+{% block page %}
+
+{% do action('woocommerce_before_single_product') %}
+
+<section class="product" data-product="container">
+
+    <form class="product-buy" data-product="buy">
+
+        <div class="grid">
+
+            {# Product Gallery #}
+
+            <div class="grid__item 1/2 1/1--tablet-portrait">
+
+                <div class="product-gallery carousel" data-product="gallery" data-carousel="container">
+
+                    <div class="carousel__track" data-glide-el="track" data-carousel="content">
+
+                        <ul class="carousel__slides" data-carousel="items">
+
+                            {% if product.gallery_image_ids %}
+
+                                {% for item in product.gallery_image_ids %}
+
+                                    <li class="product-gallery__item carousel__slide" data-carousel="item">
+                                        <img src="{{ Image(item).src() }}" alt="{{ Image(item).alt }}" class="product-gallery__image" data-carousel="image" />
+                                    </li>
+
+                                {% endfor %}
+
+                            {% else %}
+
+                                <li class="product-gallery__item carousel__slide" data-carousel="item">
+                                    <img src="{{ post.thumbnail.src }}" alt="{{ post.thumnail.alt }}" data-carousel="image" />
+                                </li>
+
+                            {% endif %}
+
+                        </ul>
+
+                    </div>
+
+                    <div class="carousel__arrows" data-glide-el="controls">
+                        <button class="carousel__arrow carousel__arrow--left" data-glide-dir="<"></button>
+                        <button class="carousel__arrow carousel__arrow--right" data-glide-dir=">"></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {# Product Details #}
+
+            <div class="product-details grid__item 1/2 1/1--tablet-portrait">
+
+                <h1 class="product-details__title">{{ product.name }}</h1>
+                <p class="product-details__description">{{ product.description }}</p>
+
+                <div class="product-attributes">
+
+                    <div class="product-attributes__section product-price">
+
+                        <small>Price</small>
+                        <span>{{ currency }}{{ product.price }}</span>
+
+                    </div>
+
+                    <div class="product-attributes__section product-quantity">
+
+                        <small>Qty</small>
+
+                        {{ fn('do_action', 'woocommerce_before_add_to_cart_quantity' ) }}
+                        {{ fn('woocommerce_quantity_input') }}
+                        {{ fn('do_action', 'woocommerce_after_add_to_cart_quantity' ) }}
+
+                    </div>
+
+                    <div class="product-attributes__section product-help">
+
+                        {% for item in global_options.product_links %}
+                            <a href="{{ item.link.url }}" target="_blank" class="product-help__link">{{ item.link.title}}</a>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+                <div class="product-variations">
+
+                    {# If Variations exist, loop through them here #}
+
+                    {{ fn('do_action', 'woocommerce_before_variations_form' ) }}
+
+                    {% for attribute in attributes %}
+
+                        {% if attribute.variation == true %}
+
+                            {{ fn('wc_dropdown_variation_attribute_options', {
+                                'options': attribute.options,
+                                'attribute': attribute.name,
+                                'product': product,
+                                'class': 'select product-variation',
+                                'selected': product.get_variation_default_attribute(attribute.name),
+                                'show_option_none': __('Choose a flavour'),
+                            }) }}
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    {{ fn('do_action', 'woocommerce_after_variations_form' ) }}
+
+                </div>
+
+            </div>
+
+            <div class="grid__item 1/1">
+                {% include 'components/button-cart.twig' with { product_id: product.id, size: 'large' } only %}
+            </div>
+
+        </div>
+
+        <section class="product-sticky-buy" data-product="buy-btn" data-btn="sticky">
+            {% include 'components/button-cart.twig' with { product_id: product.id, size: 'large' } only %}
+        </section>
+
+    </form>
+
+    <section class="product-ritual" data-product="below-fold">
+
+        <h2 class="product-ritual__title">The Ritual</h2>
+        <div class="product-ritual__icons"></div>
+
+    </section>
+
+    <section class="product-info {% if not post.get_field('information_points') %}product-info--centered{% endif %}">
+
+        <div class="product-info__bg"></div>
+
+        <div class="grid grid--center">
+
+            {% if post.get_field('information_points') %}
+                <div class="grid__item 1/2 1/1--palm-portrait">
+                    <div class="product-info__points">
+                        {{ post.get_field('information_points') }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if post.get_field('information_gallery') %}
+
+                <div class="grid__item {% if not post.get_field('information_points') %} 2/3 {% else %} 1/2 {% endif %} 1/1--palm-portrait">
+
+                    <div class="product-slider" data-product="slider">
+
+                        <ul class="product-slider__slides" data-product="slider-items">
+
+                            {% for item in post.get_field('information_gallery') %}
+                                <li class="product-slider__item" data-product="slider-item" data-key="{{ loop.index0 }}">
+                                    <img src="{{ item.image }}" class="product-slider__image" />
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+
+                        <button class="product-slider__btn" data-product="slider-btn">next</button>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+    <section class="product-ingredients">
+
+        <h2 class="product-ingredients__title">Ingredients</h2>
+
+        {% if post.get_field('ingredients_link') %}
+
+            <ul class="product-ingredients__list">
+
+                {% for ingredient in post.get_field('ingredients_list') %}
+                    <li class="product-ingredients__item"><a href="{{ post.get_field('ingredients_list_link') ~ '#ingredients' }}">{{ ingredient.title }}{% if not loop.last %},{% endif %} </a></li>
+                {% endfor %}
+            </ul>
+
+        {% endif %}
+
+        </div>
+
+    </section>
+
+    {% if global_options.craft %}
+
+        <section class="product-ad" style="background-image: url('{{ global_options.craft.image }}')">
+
+            <div>
+
+                <div class="product-ad__content">
+                    <h3 class="product-ad__title">{{ global_options.craft.title }}</h3>
+                    <p>{{ global_options.craft.description }}</p>
+                    <a href="{{ global_options.craft.link.url }}">{{ global_options.craft.link.title }}</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+    {% if related_products %}
+
+        <section class="products-related grid">
+
+            <div class="grid__item 1/1">
+                <h2 class="products-related__title">
+                    You might be <br />
+                    <i>Interested In</i>
+                </h2>
+            </div>
+
+            {% for related in related_products %}
+
+                <div class="grid__item 1/3 1/1--palm-portrait">
+
+                    {% set price = fn('get_post_meta', related.id, '_price', 0) %}
+
+                    <a class="product-related" href="{{ related.get_permalink() }}">
+                        <img src="{{ related.thumbnail.src }}" alt="{{ related.thumbnail.alt }}" class="product-related__image" />
+                        <h3 class="product-related__title">{{ related.title }}</h3>
+                        <small class="product-related__price">{{ currency }}{{ price[0] }}</small>
+                    </a>
+                </div>
+
+            {% endfor %}
+
+        </section>
+
+    {% endif %}
+
+</section>
+
+{% do action('woocommerce_after_single_product') %}
+
+{% endblock %}

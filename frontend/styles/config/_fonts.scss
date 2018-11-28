@@ -1,0 +1,16 @@
+/**
+ * Config / Fonts
+ *
+ * Font variables used throughout the site.
+ *
+ * Don't declare the variables using the font name (e.g. $font-arial)
+ * but declare them by usage (e.g. $font-primary, $font-secondary)
+ * or by type ($font-primary-sans, $font-primary-serif).
+ */
+
+/* Sans Serif */
+$fontstack-sans-primary: 'NunitoSans', 'Helvetica Neue', 'Arial', Sans-serif;
+
+/* Serif */
+$fontstack-serif-primary: 'Baskerville', Serif;
+$fontstack-serif-secondary: 'Big Caslon', Serif;

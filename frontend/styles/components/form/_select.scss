@@ -1,0 +1,41 @@
+// Utils
+@import '../../utils/functions/rem';
+
+/**
+ * Components / Form / Select
+ */
+.select {
+    width: auto;
+    min-width: 200px;
+    display: inline-block;
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #AAAAAA;
+    color: #888;
+    font-weight: 300;
+    font-size: rem(14px);
+    background-color: #fff;
+    font-family: $fontstack-sans-primary;
+    appearance: none;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::after {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #AAAAAA;
+    }
+
+}

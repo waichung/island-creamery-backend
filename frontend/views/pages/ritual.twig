@@ -1,0 +1,172 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = 'Ritual' %}
+
+{% block page %}
+
+    <section class="ritual" data-ritual="container">
+
+        {# Section Unwrapping #}
+
+        <section class="ritual-stage ritual-stage--one" data-ritual="section" data-id="0">
+
+            <div class="ritual-stage__content" data-stage="content">
+                <h2 class="ritual-stage__title" data-stage="title">
+                    <span class="ritual-stage__instruction">Take the Time</span>
+                </h2>
+                <p class="ritual-stage__subtitle">Your 5 minute journey of pampering and rejuvenation begins here.</p>
+            </div>
+            <a href="/shop" class="btn btn--buy ritual-stage__btn">
+                Buy Now
+                <div class="btn__accent">
+                    <svg class="mini-cart-decoration" x="0px" y="0px" viewBox="0 0 17 17" enable-background="new 0 0 17 17" xml:space="preserve">
+
+                        <g>
+                            <path class="mini-cart-decoration__circle mini-cart-decoration__circle--one" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,6.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,6.5,8.5,6.5z"></path>
+                            <path class="mini-cart-decoration__circle mini-cart-decoration__circle--two" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,0.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,0.5,8.5,0.5z"></path>
+                            <path class="mini-cart-decoration__circle mini-cart-decoration__circle--three" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M11.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S8.7,3.5,11.5,3.5z"></path>
+                            <path class="mini-cart-decoration__circle mini-cart-decoration__circle--four" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M5.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S2.7,3.5,5.5,3.5z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </a>
+
+        </section>
+
+        {# Section Dissolving #}
+
+        <section class="ritual-stage ritual-stage--two" data-ritual="section" data-id="1">
+
+            <div class="ritual-stage__content" data-stage="content">
+                <div class="ritual-stage__info">
+                    <small class="ritual-stage__step" data-stage="step">Step 1</small>
+                    <h2 class="ritual-stage__title ritual-stage__title--small" data-stage="title">
+                        <span class="ritual-stage__instruction">Add hot water</span>
+                    </h2>
+                    <p>90°C is the temperature we’ve discovered that will give you the perfect consistency.</p>
+                </div>
+            </div>
+
+            <div class="ritual-background" data-wave="container"></div>
+
+        </section>
+
+        {# Section Stirring #}
+
+        <section class="ritual-stage ritual-stage--three" data-ritual="section" data-id="2">
+
+            <div class="ritual-stage__content" data-stage="content">
+                <h2 class="ritual-stage__title" data-stage="title">
+                    <small class="ritual-stage__step" data-stage="step">Step 2</small>
+                    <span class="ritual-stage__instruction">Stir Well</span>
+                </h2>
+                <div class="ritual-stage__info">
+                    <p>The dainty Camellia bloom is chosen for its otherworldly elegance.</p>
+                    <hr>
+                    <p>Sourced from some of the top plantations of Kyoto, our matcha is flavourful and filled with antioxidants.</p>
+                </div>
+            </div>
+
+        </section>
+
+        {# Section Pause #}
+
+        <section class="ritual-stage ritual-stage--four" data-ritual="section" data-id="3">
+
+            <div class="ritual-stage__content" data-stage="content">
+                <div class="ritual-stage__info">
+
+                    <small class="ritual-stage__step" data-stage="step">Step 3</small>
+                    <h2 class="ritual-stage__title ritual-stage__title--small" data-stage="title">
+                        <span class="ritual-stage__instruction">Pause for 5 minutes</span>
+                    </h2>
+                    <p>5 minutes. Perfect to get the best flavour out and take in a deep breath to just relax.</p>
+                </div>
+            </div>
+
+            <div class="ritual-background">
+
+                <svg class="ritual-triangle" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="50%" viewBox="0 0 950 1200" enable-background="new 0 0 950 1200"><path fill="#efe7e6" d="M0 0 l0 1200 L475 600 L950 0 v1200 Z"></path></svg>
+
+                <div class="ritual-pour">
+                    <div class="ritual-pour__inner"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        {# Section End #}
+
+        <section class="ritual-stage ritual-stage--five" data-ritual="section" data-id="4">
+
+            <div class="ritual-stage__content" data-stage="content">
+                <h2 class="ritual-stage__title" data-stage="title">
+                    <small class="ritual-stage__step" data-stage="step">Step 4</small>
+                    <span class="ritual-stage__instruction">Now indulge</span>
+                </h2>
+                <div class="ritual-stage__info ritual-stage__info--end">
+                    <h3>Enjoyed the experience?</h3>
+                    <p>Discover other flavours</p>
+                    <div class="ritual-flavours" data-ritual="flavours">
+                        <a class="ritual-flavour" href="/?flavour=vanillabean">
+                            <div class="ritual-flavour__colour" style="background-color: #f0eed2"></div>
+                            <small class="ritual-flavour__name">Vanilla Bean</small>
+                        </a>
+                        <a class="ritual-flavour" href="/?flavour=vanillabean">
+                            <div class="ritual-flavour__colour" style="background-color: #f0eed2"></div>
+                            <small class="ritual-flavour__name">Vanilla Bean</small>
+                        </a>
+                        <a class="ritual-flavour" href="/?flavour=vanillabean">
+                            <div class="ritual-flavour__colour" style="background-color: #f0eed2"></div>
+                            <small class="ritual-flavour__name">Vanilla Bean</small>
+                        </a>
+                        
+                        
+                    </div>
+                    <a href="/shop" class="btn btn--buy ritual-stage__btn">
+                        Buy Now
+                        <div class="btn__accent">
+                            <svg class="mini-cart-decoration" x="0px" y="0px" viewBox="0 0 17 17" enable-background="new 0 0 17 17" xml:space="preserve">
+
+                                <g>
+                                    <path class="mini-cart-decoration__circle mini-cart-decoration__circle--one" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,6.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,6.5,8.5,6.5z"></path>
+                                    <path class="mini-cart-decoration__circle mini-cart-decoration__circle--two" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M8.5,0.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S5.7,0.5,8.5,0.5z"></path>
+                                    <path class="mini-cart-decoration__circle mini-cart-decoration__circle--three" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M11.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S8.7,3.5,11.5,3.5z"></path>
+                                    <path class="mini-cart-decoration__circle mini-cart-decoration__circle--four" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#D59A7C" stroke-miterlimit="10" d="M5.5,3.5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S2.7,3.5,5.5,3.5z"></path>
+                                </g>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                </div>
+                <img src="{{ assets }}/img/ritual/spoon.png" alt="Spoon" class="ritual-stage__spoon" />
+            </div>
+
+        </section>
+
+        {# Product Section #}
+
+        <section class="ritual-productWrapper" data-ritual="product-container">
+
+            <div class="ritual-dissolving" data-product="dissolving">
+                <div class="ritual-dissolving__wrapper" data-dissolving="wrapper"></div>
+            </div>
+
+            <div class="ritual-product__packaging" data-product="packaging"></div>
+
+        </section>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+
+        window.flavours = {{ flavours|json_encode|raw }};
+
+    </script>
+
+{% endblock %}

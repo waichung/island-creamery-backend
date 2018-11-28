@@ -1,0 +1,320 @@
+// Utils
+@import '../utils/functions/rem';
+@import '../utils/mixins/aspect-ratio';
+
+
+/**
+ * Module / Stories
+ */
+.stories {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding-top: 50px;
+    overflow: auto;
+}
+
+.stories-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 50px 25px;
+    z-index: 9999;
+    background-color: #ffffff;
+    transition: padding 500ms ease;
+
+    &.fixed {
+        padding: 25px;
+        position: fixed;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 25px 10px;
+    }
+
+}
+
+.stories-nav__list {
+    width: 100%;
+    max-width: $breakpoint-desktop;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-family: $fontstack-serif-secondary;
+
+    li {
+        display: inline-block;
+    }
+
+}
+
+.stories-nav__item {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 0;
+    font-size: rem(24px);
+    color: #dfd3ce;
+    transition: color 300ms ease, font-size 300ms ease;
+    cursor: pointer;
+
+    .fixed & {
+        font-size: rem(18px);
+    }
+
+    &.active,
+    &:hover {
+        color: #51413a;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(16px);
+        margin: 0 5px;
+
+        .fixed & {
+            font-size: rem(15px);
+        }
+
+    }
+
+}
+
+.stories-link {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        height: 80vh;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        height: 50vh;
+    }
+
+}
+
+.stories-link__url {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: rem(72px);
+    font-weight: 200;
+    font-family: $fontstack-serif-secondary;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(40px);
+    }
+
+}
+
+.story {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 75px 0;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 75px 25px;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-portrait) {
+        padding: 25px 0;
+    }
+
+
+}
+
+.story--3 {
+    min-height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.story--4 {
+
+    .story__image {
+        position: relative;
+        width: 100%;
+        padding: 0 150px 0 0;
+        top: -250px;
+
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
+            top: 0;
+            width: 100%;
+            max-width: 250px;
+            margin: 25px auto 0;
+            padding: 0;
+        }
+
+    }
+
+}
+
+.story-hero {
+    position: relative;
+    width: 100%;
+    padding: 25px 75px;
+    margin: auto;
+    transition: transform 1500ms ease, opacity 1000ms ease;
+    transform: translateY(50px) translateZ(0);
+    opacity: 0;
+
+    .in-view & {
+        opacity: 1;
+        transform: translateY(0px) translateZ(0);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        padding: 25px 0;
+    }
+
+}
+
+.story-hero--short {
+
+    .story-hero__image {
+        width: 100%;
+        max-width: $breakpoint-tablet-landscape;
+        @include aspect-ratio(2, 1.5);
+        margin: 0;
+    }
+
+}
+
+.story-hero__image {
+    width: 100%;
+    max-width: $breakpoint-desktop;
+    height: auto;
+    margin: auto;
+    background-color: #111111;
+    background-size: cover;
+    background-position: center;
+    @include aspect-ratio(6, 3);
+}
+
+.story__content {
+    position: relative;
+    z-index: 1;
+    padding: 75px 50px;
+    width: 100%;
+    max-width: $breakpoint-laptop;
+    margin: auto;
+    color: #a8968d;
+
+    p {
+        font-size: rem(18px);
+        font-weight: 300;
+        font-family: $fontstack-sans-primary;
+        transition: opacity 1500ms;
+        opacity: 0;
+        transition-delay: 500ms;
+
+        .in-view & {
+            opacity: 1;
+        }
+
+    }
+
+    @media screen and (max-width: $breakpoint-laptop) {
+        padding: 50px 100px;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        text-align: center;
+        padding: 25px 50px;
+
+        p {
+            font-size: rem(22px);
+        }
+
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        padding: 25px;
+
+        p {
+            font-size: rem(16px);
+        }
+
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        p {
+            font-size: rem(15px);
+            text-align: left;
+            padding-left: 30px;
+        }
+
+    }
+
+}
+
+.story__title,
+.story__subtitle {
+    margin: 0;
+    font-weight: 200;
+    font-size: rem(46px);
+    transition: transform 750ms ease, opacity 1000ms;
+    opacity: 0;
+
+    .in-view & {
+        opacity: 1;
+        transform: translateY(0px) translateZ(0);
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        font-size: rem(30px);
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+}
+
+.story__title {
+    transform: translateY(25px) translateZ(0);
+    color: #222222;
+}
+
+.story__subtitle {
+    transform: translateY(10px) translateZ(0);
+    transition-delay: 250ms;
+    color: #aaaaaa;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-bottom: 10px;
+    }
+
+}
+
+.story__image {
+    transform: translateY(25px) translateZ(0);
+    opacity: 0;
+    transition: transform 1500ms ease, opacity 250ms ease;
+
+    .in-view & {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    }
+
+}
+
+.story__background {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width: $breakpoint-tablet-landscape) {
+        opacity: 0.5;
+    }
+
+}

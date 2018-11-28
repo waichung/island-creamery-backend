@@ -1,0 +1,32 @@
+// Config
+@import '../config/layering';
+@import '../config/palette';
+
+/**
+ * Components / loader
+ */
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $index-loader;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-brand-primary;
+}
+
+.loader--loading {
+    display: block;
+}
+
+.loader__logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 300px;
+}

@@ -1,0 +1,92 @@
+<div class="personalisation-container" data-personalisation="container">
+
+    {% if global_options.shop_gift %}
+
+        <div class="personalisation grid">
+
+            <h2 class="personalisation__title">{{ _e('Gift Message & Personalised Cards') }}</h2>
+
+            <div class="personalisation__content grid">
+
+                <div class="grid__item 1/2 1/1--palm-portrait">
+
+                    <p><strong>{{ _e('The items in your order will be accompanied with personalised gift cards') }}</strong></p>
+
+                    <label class="personalisation__option">
+                        <input type="checkbox" name="personalisation_enabled" class="personalistation__option-input" data-personalisation="check" value="{% if personalisation_enabled == 'yes' %}yes{% else %}no{% endif %}" {% if personalisation_enabled == 'yes' %} checked {% endif %} />
+                        Enable Gift Personalisation?
+                    </label>
+
+                    {# <label class="personalisation__option">
+                        <input type="radio" name="personalisation_enabled" value="0" class="personalistation__option-input" data-personalisation="check" data-enabled="false" {% if not personalisation_enabled %} checked {% endif %} />
+                        Please send my order without personalised cards
+                    </label>
+
+                    <label class="personalisation__option">
+                        <input type="radio" name="personalisation_enabled" value="1" class="personalistation__option-input" data-personalisation="check" data-enabled="true" {% if personalisation_enabled %} checked {% endif %} />
+                        Please select this option if you would like a personalised gift card
+                    </label> #}
+
+                </div>
+
+                <div class="grid__item 1/2 1/1--palm-portrait">
+
+                    <div data-personalisation="image" style="display: none;">
+
+                        <div class="personalisation-image">
+
+                            <div>
+                                <textarea name="personaliation_image" class="personalisation-image__text" placeholder="Type here..." maxlength="70" spellcheck="false" data-personalisation="textarea">{{ personalisation_text }}</textarea>
+                            </div>
+
+                        </div>
+
+                        <input type="hidden" name="personalisation_text" value="{{ personalisation_text }}" data-personalisation="text" />
+
+                        <button type="submit" class="button cart__personalisation-btn" name="update_cart" data-personalisation="save" value="{{ function('wc_get_cart_url')|e('esc_url') }}">Save Personalisation</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% if global_options.gift_personalised_ribbons %}
+
+            <div class="personalisation">
+
+                <h2 class="personalisation__title">{{ _e('Select Ribbon') }}</h2>
+
+                <div class="personalisation__content grid">
+                    <div class="grid__item 1/1">
+
+                        <div>
+                            <p><strong>{{ _e('Your shopping bag will be delivered with a customised ribbon in a colour of your choice') }}</strong></p>
+                        </div>
+
+                        {% for ribbon in global_options.gift_personalised_ribbons %}
+
+                            <label class="personalisation__option personalisation__option--inline">
+                                <input type="radio" name="personalisation_ribbon_option" value="{{ ribbon.ribbon_name }}" class="personalisation__option-input" {% if loop.index0 == 0 %}checked {% endif %} />
+
+                                <div class="personalisation__option-content">
+                                    <img src="{{ ribbon.ribbon_image.url }}" alt="{{ ribbon.ribbon_name }}" />
+                                    <span>{{ ribbon.ribbon_name }}</span>
+                                </div>
+                            </label>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    {% endif %}
+
+</div>

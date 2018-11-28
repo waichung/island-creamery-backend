@@ -1,0 +1,68 @@
+// Config
+@import '../config/breakpoints';
+
+// Utils
+@import '../utils/functions/rem';
+@import '../utils/mixins/aspect-ratio';
+
+/**
+ * Components / Product Excerpt
+ */
+.product-excerpt {
+    height: auto;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: border-color 200ms ease;
+    font-family: $fontstack-serif-primary;
+
+    &:hover {
+        border-color: #000000;
+    }
+
+}
+
+.product-excerpt__inner {
+    @include aspect-ratio(1, 1);
+}
+
+.product-excerpt__image {
+    width: auto;
+    height: 75%;
+    margin: auto;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        height: 65%;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-landscape) and (min-width: $breakpoint-mobile-portrait) {
+        height: 55%;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile-portrait) {
+        height: 75%;
+    }
+
+}
+
+.product-excerpt__name,
+.product-excerpt__price {
+    display: block;
+}
+
+.product-excerpt__name {
+    font-size: rem(20px);
+    font-weight: 300;
+    color: #888888;
+
+    @media screen and (max-width: $breakpoint-mobile-landscape) {
+        font-size: rem(16px);
+    }
+
+}
+
+.product-excerpt__price {
+    margin-top: 10px;
+    font-size: rem(13px);
+    font-weight: 400;
+    font-family: $fontstack-sans-primary;
+}

@@ -1,0 +1,27 @@
+// Config
+@import '../config/breakpoints';
+
+/**
+ * Modules / Shop
+ */
+.shop {
+    margin-top: 180px;
+    background-color: #ffffff;
+
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        padding: 25px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 80px;
+        padding: 15px;
+    }
+
+}
+
+.shop__products {
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    max-width: $breakpoint-laptop-large;
+}

@@ -1,0 +1,31 @@
+{#
+
+    Product Excerpt Component
+    Used primarily inn the shop page list, pass the product object in. Common fields used
+
+    Name - product.get_name()
+    Image - product.get_image()
+    URL - product.get_permalink()
+
+#}
+
+{% set imageId = function('get_the_post_thumbnail_url', product.get_id()) %}
+
+<li class="product-excerpt grid__item 1/3 1/2--tablet-portrait 1/1--palm-portrait">
+
+    <div class="product-excerpt__inner">
+
+        <a href="{{ product.get_permalink() }}" class="product-excerpt__link">
+
+            {% if imageId %}<img src="{{ imageId }}" class="product-excerpt__image" />{% endif %}
+
+            <h4 class="product-excerpt__info">
+                <span class="product-excerpt__name">{{ product.get_name() }}</span>
+                <span class="product-excerpt__price">{{ currency }}{{ product.get_price() }}</span>
+            </h4>
+
+        </a>
+
+    </div>
+
+</li>
