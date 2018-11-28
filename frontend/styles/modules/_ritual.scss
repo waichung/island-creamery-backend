@@ -56,6 +56,10 @@ $ritual-header-color: #ebaca6;
     margin: 0 auto;
     transform: translateY(-50%);
 
+    @media screen and (min-width: 1000px) and (max-width: 1100px) {
+        margin-left: 30px;
+    }
+
     @media screen and (max-width: $breakpoint-tablet-portrait) {
         min-height: 55vh;
         font-size: rem(90px);
@@ -141,7 +145,7 @@ $ritual-header-color: #ebaca6;
     @media screen and (max-width: $breakpoint-tablet-landscape) {
         margin-top: 0;
         // font-size: rem(90px);
-        font-size: 8vw;
+        font-size: 12vw;
     }
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
@@ -150,20 +154,66 @@ $ritual-header-color: #ebaca6;
 
     .ritual-stage--one & {
         top: 16%;
+        @media screen and (min-width: $breakpoint-tablet-portrait) {
+            top: 5vh;
+        }
     }
 
     .ritual-stage--three & {
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
-            top: 50px;
+        top: 16vh;
+        @media screen and (min-width: $breakpoint-mobile-portrait) {
+            top: 17vh;
+        }
+        @media screen and (min-width: $breakpoint-palm-portrait) {
+            top: 19vh;
+        }
+
+        @media screen and (min-width: $breakpoint-tablet-portrait) {
+            top: -1vh;
+        }
+
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            top: 19vh;
+        }
+
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            top: 7vh;
+        }
+
+    }
+    .ritual-stage--four & {
+        
+        top: -3vh;
+        @media screen and (min-width: $breakpoint-mobile-portrait) {
+            top: -3vh;
+        }
+        @media screen and (min-width: $breakpoint-palm-portrait) {
+            top: -3vh;
+        }
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            top: 16%;
         }
 
     }
 
     .ritual-stage--five & {
+        top: 15vh;
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
-            top: 70px;
+        @media screen and (min-width: $breakpoint-mobile-portrait) {
+            top: 17vh;
+        }
+        @media screen and (min-width: $breakpoint-palm-portrait) {
+            top: 18vh;
+        }
+        @media screen and (min-width: $breakpoint-tablet-portrait) {
+            top: 0vh;
+        }
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            top: 18vh;
+        }
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            top: 7vh;
         }
 
     }
@@ -176,7 +226,7 @@ $ritual-header-color: #ebaca6;
     position: relative;
     margin: 10px 0;
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
         text-align: center;
         font-size: rem(38px);
     }
@@ -202,7 +252,7 @@ $ritual-header-color: #ebaca6;
         font-size: rem(12px);
         color: #51413a;
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
             text-align: center;
         }
 
@@ -251,6 +301,20 @@ $ritual-header-color: #ebaca6;
     color: #a8968d;
     font-weight: 400;
     text-align: left;
+
+    .ritual-stage__title {
+        margin-bottom: 49vh;
+
+        @media screen and(min-width: $breakpoint-tablet-portrait) {
+            font-size: 12vw;
+            margin-bottom: 40vh;
+        }
+
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            margin-bottom: 0;
+        }
+       
+    }
 
     hr {
         margin: 20px 0 0 0;
@@ -307,7 +371,7 @@ $ritual-header-color: #ebaca6;
 
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
         top: auto;
         bottom: 0;
         max-width: 100%;
@@ -321,7 +385,7 @@ $ritual-header-color: #ebaca6;
             margin: 0;
         }
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
             bottom: 10px;
 
             p {
@@ -356,14 +420,30 @@ $ritual-header-color: #ebaca6;
                 font-size: rem(13px);
             }
 
+        }
 
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
+            padding: 10px 80px;
+            text-align: center;
+            bottom: -30px;
+
+            hr {
+                margin: 20px auto;
+            }
+
+            p {
+                text-align: center;
+                max-width: 80%;
+                margin: 0 auto;
+                font-size: rem(13px);
+            }
         }
 
     }
 
     .ritual-stage--four & {
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
 
             p {
                 margin: auto;
@@ -377,23 +457,74 @@ $ritual-header-color: #ebaca6;
 }
 
 .ritual-stage__info--end {
-    transform: translate(-25%, -43%);
+    transform: translate(2%, 17%);
     text-align: center;
 
+    h3 {
+        font-size: 0.9rem;
+    }
+
     p {
-        margin: auto auto 16px;
+        margin: 0 auto 8px auto;
+        font-size: 0.7em;
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        transform: translate(0%, 24%);
         text-align: center;
-        bottom: -175px;
-        margin: 10px auto;
-
-        p {
-            margin: 10px auto;
+    
+        h3 {
+            font-size: 1.4rem;
         }
-
+    
+        p {
+            margin: 0 auto 15px auto;
+            font-size: 0.9em;
+        }
     }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+        transform: translate(0%, 22%);
+        text-align: center;
+    
+        h3 {
+            font-size: 1.4rem;
+        }
+    
+        p {
+            margin: 0 auto 15px auto;
+            font-size: 0.9em;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        transform: translate(82%, 88%);
+        text-align: center;
+    
+        h3 {
+            font-size: 1.8rem;
+        }
+    
+        p {
+            margin: 0 auto 16px auto;
+            font-size: 1.2em;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        transform: translate(0%, -36%);
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        width: 300px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        width: 300px;
+        transform: translateX(-100px);
+    }
+
 
 }
 
@@ -427,7 +558,7 @@ $ritual-header-color: #ebaca6;
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 300px;
+    width: 140px;
     height: auto;
     opacity: 0;
     transition: opacity 750ms ease, transform 750ms ease;
@@ -435,34 +566,136 @@ $ritual-header-color: #ebaca6;
 
     .active & {
         opacity: 1;
-        transform: translateX(-100px);
+        transform: translate(15px, -101px) rotate(15deg);
+
+        @media screen and (min-width: $breakpoint-mobile-portrait) {
+            width: 180px;
+            transform: translate(36px, -116px) rotate(16deg);
+        }
+    
+        @media screen and (min-width: $breakpoint-palm-portrait) {
+            width: 200px;
+            transform: translate(45px, -115px) rotate(15deg);
+        }
+    
+        @media screen and (min-width: $breakpoint-tablet-portrait) {
+            width: 310px;
+            transform: translate(16px, 14px) rotate(15deg);
+        }
+    
+        @media screen and (min-width: $breakpoint-tablet-landscape) {
+            width: 350px;
+            transform: translate(-145px, -123px) rotate(6deg);
+        }
+    
+        @media screen and (min-width: $breakpoint-laptop) {
+            width: 300px;
+            transform: translateX(-100px);
+        }
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
-        width: 150px;
-        bottom: 100px;
-        right: -99px;
-        z-index: -10;
-    }
+    // @media screen and (max-width: $breakpoint-palm-portrait) {
+    //     width: 150px;
+    //     bottom: 100px;
+    //     right: -99px;
+    //     z-index: -10;
+    // }
+
+    // @media screen and (min-width: $breakpoint-mobile-portrait) {
+    //     width: 300px;
+    // }
+
+    // @media screen and (min-width: $breakpoint-palm-portrait) {
+    //     width: 300px;
+    // }
+
+    // @media screen and (min-width: $breakpoint-tablet-portrait) {
+    //     width: 300px;
+    // }
+
+    // @media screen and (min-width: $breakpoint-tablet-landscape) {
+    //     width: 300px;
+    // }
+
+    // @media screen and (min-width: $breakpoint-tablet-portrait) {
+    //     width: 300px;
+    // }
+
+    // @media screen and (min-width: $breakpoint-laptop) {
+    //     width: 300px;
+    // }
 
 }
 
 .ritual-stage__btn {
     padding-right: 7px;
-    margin: auto;
+    margin: 15px auto 0 auto;
     transition: opacity 750ms ease;
     transition-delay: 750ms;
     color: #605E5E;
     width: 200px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 0.6em;
     font-weight: 300;
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        font-size: 0.8em;
+        margin-top: 25px;
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+        font-size: 1em;
+        margin-top: 30px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        font-size: 1.1em;
+        margin-top: 35px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        font-size: 1.2em;
+        margin-top: 40px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        font-size: 1.2em;
+        margin-top: 50px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        font-size: 1.2em;
+        font-weight: 300;
+        margin: auto;
+    }
 
     .ritual-stage--one & {
         z-index: 99;
         position: absolute;
-        bottom: 62px;
-        right: 7px;
+        bottom: 10%;
+        width: 100%; 
+        padding: 0 35%;
+        font-size: 0.7em;
+
+        @media screen and (min-width: $breakpoint-mobile-portrait) {
+            bottom: 15%;
+            width: 100%; 
+            padding: 0 150px;
+            font-size: 0.7em;
+        }
+
+        @media screen and (min-width: $breakpoint-tablet-portrait) {
+            bottom: 10%;
+            width: 100%; 
+            padding: 0 40%;
+            font-size: 0.7em;
+        }
+
+        @media screen and (min-width: $breakpoint-laptop) {
+            bottom: 62px;
+            right: 7px;
+        }
+
     }
 
     .active & {
@@ -600,29 +833,38 @@ $ritual-header-color: #ebaca6;
     right: 0;
     margin: auto;
     z-index: 8;
-    width: 600px;
-    height: 600px;
+    width: 250px;
+    height: 250px;
     transition: opacity 750ms ease;
 
-    @media screen and (max-width: 1440px) {
-        width: 500px;
-        height: 500px;
-
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        width: 280px;
+        height: 280px;
     }
 
-    @media screen and (max-width: $breakpoint-tablet-portrait) {
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+        width: 320px;
+        height: 320px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
         width: 480px;
         height: 480px;
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
-        width: 320px;
-        height: 320px;
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        width: 500px;
+        height: 500px;
     }
 
-    @media screen and (max-width: $breakpoint-mobile-portrait) {
-        width: 320px;
-        height: 320px;
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        width: 500px;
+        height: 500px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        width: 600px;
+        height: 600px;
     }
 
     &.dissolving {
@@ -635,30 +877,39 @@ $ritual-header-color: #ebaca6;
     position: absolute;
     left: 0;
     right: 0;
-    width: 600px;
-    height: 600px;
+    width: 250px;
+    height: 250px;
     margin: auto;
     z-index: 9;
 
-    @media screen and (max-width: 1440px) {
-        width: 500px;
-        height: 500px;
-
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        width: 280px;
+        height: 280px;
     }
 
-    @media screen and (max-width: $breakpoint-tablet-portrait) {
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+        width: 320px;
+        height: 320px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
         width: 480px;
         height: 480px;
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
-        width: 320px;
-        height: 320px;
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        width: 500px;
+        height: 500px;
     }
 
-    @media screen and (max-width: $breakpoint-mobile-portrait) {
-        width: 320px;
-        height: 320px;
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        width: 500px;
+        height: 500px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        width: 600px;
+        height: 600px;
     }
 
 }
@@ -713,16 +964,44 @@ $ritual-header-color: #ebaca6;
 .ritual-flavours {
     display: block;
     width: 100%;
-    margin-bottom: 33px;
+    // margin-bottom: 33px;
     padding-right: 20px;
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        margin-top: -10px;
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+    
 }
 
 .ritual-flavour {
     position: relative;
     width: 60px;
+    // width: 10px;
     height: auto;
     display: inline-block;
-    margin: 0 -8px 0 0;
+    margin: 0 -17px 0 0;
+    // margin: 0 26px 0 0;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 750ms ease, transform 750ms ease;
@@ -733,16 +1012,66 @@ $ritual-header-color: #ebaca6;
         transform: translateY(0);
     }
 
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        margin: 0 -8px 0 0;
+    }
+
 }
 
 .ritual-flavour__colour {
     box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2);
     display: block;
     margin: auto;
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: 3px solid #FFFFFF;
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+        width: 32px;
+        height: 32px;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 .ritual-flavour__name {
@@ -750,11 +1079,35 @@ $ritual-header-color: #ebaca6;
     max-width: 50px;
     display: block;
     margin: 10px auto 0;
-    font-size: rem(10px);
+    font-size: rem(9px);
     font-family: $fontstack-sans-primary;
     opacity: 0;
     transition: opacity 250ms ease;
     opacity: 1;
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        font-size: rem(10px);
+    }
 
 }
 

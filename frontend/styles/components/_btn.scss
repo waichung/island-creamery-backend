@@ -78,7 +78,31 @@
     margin: 3px auto 0;
     display: block;
     position: relative;
-    width: 90%;
+    width: 48%;
+
+    @media screen and (min-width: $breakpoint-mobile-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-palm-portrait) {
+
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-landscape) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+        
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        width: 90%;
+    }
 
     div {
         display: block;

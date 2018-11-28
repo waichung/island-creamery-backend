@@ -49,11 +49,28 @@ body {
         p {
             font-family: "NunitoSans","Helvetica Neue","Arial",Sans-serif;
             padding: none;
+            max-width: 200px;
             margin: none;
             color: white;
-            font-size: 1em;
-            line-height: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 0.7em;
             font-weight: 600;
+
+            @media screen and (min-width: $breakpoint-mobile-portrait) {
+                max-width: 300px;
+            }
+
+            @media screen and (min-width: $breakpoint-tablet-portrait) {
+                font-size: 1em;
+                max-width: 600px;
+            }
+
+            @media screen and (min-width: $breakpoint-laptop) {
+                font-size: 1em;
+                max-width: 1000px;
+            }
         }
 
     }
