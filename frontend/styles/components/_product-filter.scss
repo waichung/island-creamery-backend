@@ -13,11 +13,19 @@
 
     &.grid {
         padding: 70px;
+
+        .grid__item {
+            vertical-align: top;
+        }
     }
 }
 
 .product-filter__categories-wrap {
     text-align: left;
+
+    &.align-right {
+        text-align: right;
+    }
 
     @media screen and (max-width: $breakpoint-tablet-portrait) {
         margin-bottom: 25px;
@@ -46,6 +54,10 @@
     &.product-filter__category--active {
         color: #d59a7c;
         border-color: #d59a7c;
+    }
+
+    &.product-filter__category--chosen {
+        color: #d59a7c;
     }
 
     &:last-of-type {

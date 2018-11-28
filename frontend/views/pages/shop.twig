@@ -55,29 +55,16 @@
                 {% if filters  %}
                     <div class="grid__item grid__item--right 1/2 1/1--tablet-portrait">
 
-                        <div class="product-filter__order-wrap">
+                        <div class="product-filter__categories-wrap align-right">
 
-                            <ul class="product-filter__order dropdown">
-
-                                <li class="dropdown__item dropdown__item--current">
-                                    {% if current_filter %}{{ current_filter|capitalize }}{% else %}Filter Products{% endif %}
-                                </li>
-
-                                <ul class="dropdown__items">
+                            <ul class="product-filter__categories">
 
                                     {% for key, value in filters %}
-
-                                        <li class="dropdown__item">
+                                        <li class="product-filter__category {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
                                             <a href="{{ current_url }}?orderby={{ key }}">{{ key|capitalize }}</a>
                                         </li>
 
                                     {% endfor %}
-
-                                    <li class="dropdown__item">
-                                        <a href="{{ current_url }}">Remove filter</a>
-                                    </li>
-
-                                </ul>
 
                             </ul>
 

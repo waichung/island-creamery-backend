@@ -11,11 +11,6 @@
 .btn--buy {
     font-family: $fontstack-sans-primary;
     text-transform: uppercase;
-    // color: color($color-grey-light);
-    // width: 200px;
-    // text-align: center;
-    // font-size: 0.9em;
-    // font-weight: 200;
 
     &:hover {
 
@@ -50,18 +45,6 @@
             }
 
         }
-        // .btn__accent::before,
-        // .btn__accent::after {
-        //     width: calc(50% - 30px);
-        // }
-
-        // .btn__accent::before {
-        //     left: 20px;
-        // }
-
-        // .btn__accent::after {
-        //     right: 20px;
-        // }
 
     }
 
