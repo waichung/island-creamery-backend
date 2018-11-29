@@ -201,7 +201,7 @@ export default class Ritual {
      * @return {void}
      */
     moveItem(start, end, item, delay, callback = null) {
-
+        
         let timeout = null;
 
         const moveProduct = new Tween({
@@ -284,14 +284,14 @@ export default class Ritual {
      * @return {HTMLElement} image
      */
     generateProductUnwrapped(image) {
+        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
         const offset = 20;
-
         image.className = 'ritual-product__unwrapped';
         image.style.height = (this.openPack.canvas.clientHeight - offset) + 'px';
         image.style.width = 'auto';
         image.style.top = (this.sectionHeight * .5) - (this.openPack.canvas.clientHeight / 2) + offset + 'px';
-
         this.productWrapper.appendChild(image);
 
         return image;
@@ -374,7 +374,6 @@ export default class Ritual {
      * @return {void}
      */
     onScroll = (event) => {
-
         let type = event.type;
         let delta = event.deltaY;
         let canScroll = (type === 'mousewheel' && delta > this.deltaThreshold.mouse) || (type === 'pan' && delta < -this.deltaThreshold.pan);

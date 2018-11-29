@@ -132,7 +132,7 @@
     pointer-events: none;
     cursor: default;
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
         text-align: center;
         width: 80px;
         white-space: normal;
@@ -157,7 +157,7 @@
     left: auto;
     right: 130%;
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
         text-align: center;
         right: 0;
         left: 50%;
