@@ -119,8 +119,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div class="cart-order-total order-total">
             <small><?php _e( 'Total', 'woocommerce' ); ?></small>
-            <span data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></span>
-        </dov>
+            <span data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></span>
+        </div>
 
         <?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>
 

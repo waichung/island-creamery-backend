@@ -2,21 +2,22 @@
  * Components / Product List
  */
  .product-list {
-     padding: 25px;
- }
+    // padding: 25px;
+    padding: 0;
+}
 
 .product-list--empty {
-    padding: 50px 25px;
-    text-align: center;
+   padding: 50px 25px;
+   text-align: center;
 }
 
 .product-list__notification {
-    font-size: rem(20px);
-    font-family: $fontstack-serif-primary;
-    font-weight: 200;
+   font-size: rem(20px);
+   font-family: $fontstack-serif-primary;
+   font-weight: 200;
 }
 
 .product-list__link {
-    display: block;
-    text-decoration: underline;
+   display: block;
+   text-decoration: underline;
 }

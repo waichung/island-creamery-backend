@@ -7,7 +7,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{{ site_title }} - NestBloom</title>
         {{ wp_head() }}
     </head>
@@ -17,7 +17,7 @@
         {# Main Content #}
         <main class="main main--{{ site_title|lower|replace({' ':'-'}) }}">
             <div class="announcements" id="announcements">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>A warm festive touch: Personalise your gift with a calligraphed message when you spend $50 and above.</p>
                  <a class="close" id="close-announcements"></a>
             </div>
             {# Header #}
@@ -31,6 +31,16 @@
         </main>
 
         {% block scripts %}{% endblock %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js"></script>
+        <script type="text/javascript">
+        jQuery(document).snowfall({
+            image: "{{ theme.path }}/assets/img/global/flake.png",
+            minSize: 30,
+            maxSize: 30,
+            maxSpeed: 2.4,
+            flakeCount: 10,
+        });
 
+        </script>
     </body>
 </html>

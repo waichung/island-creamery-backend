@@ -39,7 +39,7 @@ export default class Dissolving {
         this.dissolvedPrevious = this.dissolved;
         this.dissolvedMax = this.images.length - 1;
         this.dissolvedStage = 3;
-
+        this.dissolvedCompleteRan = false
     }
 
 
@@ -51,10 +51,10 @@ export default class Dissolving {
 
         this.width = this.container.clientWidth;
         this.height = this.container.clientHeight;
-
+        // this.container.style.border = "1px solid red";
         this.handle = new Handle(this.container)
             .generateLabel('Hold to dissolve', 'right')
-            .setInitialPosition(this.width - 20, this.height * .5)
+            .setInitialPosition(this.width, this.height * .5)
             .on('press', this.onHold.bind(this));
 
         this.onLoadTimeout = setTimeout(() => {
@@ -161,7 +161,8 @@ export default class Dissolving {
      * @return {void}
      */
     dissolveComplete(callback) {
-
+        if ( this.dissolvedCompleteRan ) return;
+        this.dissolvedCompleteRan = true;
         console.log('DISSOLVED COMPLETE');
 
         this.handle.hide();
@@ -207,6 +208,7 @@ export default class Dissolving {
     setPosition = (sectionHeight) => {
 
         this.container.style.top = (sectionHeight * 1.5) - (this.container.clientHeight / 2) + 'px';
+        // this.container.style.top = '50vh'//(sectionHeight * 1.5) - (this.container.clientHeight / 2) + 'px';
 
     }
 

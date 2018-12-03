@@ -22,21 +22,16 @@
 }
 
 .dropdown__items {
-    // // position: absolute;
-    // // top: 100%;
-    // // width: 100%;
-    // display: inline-block;
-    // margin: 0;
-    // padding: 0;
-    // list-style: none;
-    // // display: none;
-    // background-color: #FFFFFF;
-    // // border: 1px solid #AAAAAA;
-
+    position: absolute;
+    top: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
-    // border-top: none;
+    display: none;
+    background-color: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    border-top: none;
 }
 
 .dropdown__item {

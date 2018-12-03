@@ -2,31 +2,31 @@
  * Components / Product Gallery
  */
  .product-gallery {
-     max-width: 500px;
-     height: auto;
-     margin: auto;
-     background-size: 75%;
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+    background-size: 75%;
 
-     @media screen and (max-width: $breakpoint-tablet-portrait) {
-         max-width: 500px;
-     }
+    @media screen and (max-width: $breakpoint-tablet-portrait) {
+        max-width: 500px;
+    }
 
-     @media screen and (max-width: $breakpoint-palm-portrait) {
-         max-width: 325px;
-     }
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        max-width: 325px;
+    }
 
- }
+}
 
- .product-gallery__image {
-     display: block;
-     width: auto;
-     height: 500px;
-     object-fit: cover;
-     object-position: center center;
-     margin: 0 auto;
+.product-gallery__image {
+    display: block;
+    width: auto;
+    height: 500px;
+    object-fit: cover;
+    object-position: center center;
+    margin: 0 auto;
 
-     @media screen and (max-width: $breakpoint-palm-portrait) {
-         height: 300px;
-     }
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        height: 300px;
+    }
 
- }
+}

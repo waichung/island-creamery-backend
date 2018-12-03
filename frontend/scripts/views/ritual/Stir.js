@@ -33,7 +33,8 @@ export default class Stir {
         this.ctx = this.canvas.getContext('2d');
 
         this.initialize();
-
+        this.isMobile = window.innerWidth <= 480 ? true : false;
+        this.handleOffset = (this.isMobile) ? 20 : 30
     }
 
 
@@ -67,6 +68,11 @@ export default class Stir {
             .setArrow(false)
             .setInitialPosition(this.arcWidth - this.arcRadius, this.dissolving.height * .5)
             .on('drag', this.onDragHandler.bind(this));
+        // this.handle = new Handle(this.container)
+        //     .generateLabel('Stir', 'left')
+        //     .setArrow(false)
+        //     .setInitialPosition(0, 0)
+        //     .on('drag', this.onDragHandler.bind(this));
 
         setTimeout(() => this.canvas.classList.remove('hide'), 500);
 
@@ -124,11 +130,10 @@ export default class Stir {
 
         if(this.canStir) {
 
-            this.stirX = this.arcWidth + this.arcRadius * Math.cos(this.arcAngle * Math.PI / 180) * this.arcDistance;
-            this.stirY = this.arcWidth + this.arcRadius * Math.sin(this.arcAngle * Math.PI / 180) * this.arcDistance;
+            this.stirX = this.arcWidth + this.arcRadius * Math.cos(this.arcAngle * Math.PI / 180) * this.arcDistance - this.handleOffset;
+            this.stirY = this.arcWidth + this.arcRadius * Math.sin(this.arcAngle * Math.PI / 180) * this.arcDistance - this.handleOffset;
 
             const angle = Math.floor(this.arcAngle);
-
             if(angle >= 0 && angle <= 10) {
 
                 this.stirCount++;

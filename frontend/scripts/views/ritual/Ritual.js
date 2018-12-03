@@ -68,6 +68,7 @@ export default class Ritual {
 
         this.sections[this.currentSectionId].classList.add('active');
 
+        // jQuery("[data-ritual='section']").height(this.sectionHeight)
     }
 
 
@@ -80,7 +81,7 @@ export default class Ritual {
     initialize(images) {
 
         console.info('Initialize');
-
+        this.sectionHeight = jQuery(this.sections[0]).height();
         // Data
         this.images = images;
 
@@ -109,20 +110,20 @@ export default class Ritual {
      */
     initializeDissolve() {
 
-        console.info('Initialize Dissolve');
-
         this.nextSection();
 
         this.dissolving.setPosition(this.sectionHeight);
         this.dissolving.initialize();
         this.header.toggleCondensed();
 
-        this.moveItem(
-            this.productUnwrapped.offsetTop,
-            this.productUnwrapped.offsetTop + this.sectionHeight,
-            this.productUnwrapped,
-            1000
-        );
+        console.log("this.productUnwrapped.style.height", this.productUnwrapped.style.height)
+        //
+        // this.moveItem (
+        //     this.productUnwrapped.offsetTop + (jQuery(this.productUnwrapped).height() * .5),
+        //     this.sectionHeight + this.sectionHeight * .5,
+        //     this.productUnwrapped,
+        //     1000
+        // );
 
     }
 
@@ -137,6 +138,11 @@ export default class Ritual {
         console.info('Initialize Stir');
 
         this.nextSection();
+
+        // clearTimeout(this.stirTimeout)
+        // this.stirTimeout = setTimeout(() => {
+        //     this.stir = new Stir(this.dissolving, this.initializeWaiting.bind(this))
+        // }, delay);
 
         this.moveItem(
             this.dissolving.container.offsetTop,
@@ -177,7 +183,6 @@ export default class Ritual {
         console.info('Initialize end');
 
         this.main.style.height = '100vh';
-
         this.nextSection();
         this.moveItem(
             this.dissolving.container.offsetTop,
@@ -201,7 +206,7 @@ export default class Ritual {
      * @return {void}
      */
     moveItem(start, end, item, delay, callback = null) {
-        
+
         let timeout = null;
 
         const moveProduct = new Tween({
@@ -243,7 +248,6 @@ export default class Ritual {
         id ? this.currentSectionId = id : this.currentSectionId++;
 
         this.isAnimatingTimeout = setTimeout(() => {
-
             this.scroll.toElement(this.sections[this.currentSectionId], { easing: this.defaultEasing, duration: 4000 }).then(() => {
                 this.isMoving = false;
                 clearTimeout(this.isAnimatingTimeout);
@@ -270,6 +274,8 @@ export default class Ritual {
 
         image.src = wp.theme + '/assets/img/ritual/bowl.png';
         image.classList.add('ritual-bowl');
+
+        // Change #2: Update y position of the empty bowl
         image.style.top = this.sectionHeight * 1.5 + 'px';
 
         return image;
@@ -284,18 +290,19 @@ export default class Ritual {
      * @return {HTMLElement} image
      */
     generateProductUnwrapped(image) {
-        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
         const offset = 20;
+        const height = Math.round(this.openPack.canvas.clientHeight - offset);
         image.className = 'ritual-product__unwrapped';
-        image.style.height = (this.openPack.canvas.clientHeight - offset) + 'px';
+
         image.style.width = 'auto';
-        image.style.top = (this.sectionHeight * .5) - (this.openPack.canvas.clientHeight / 2) + offset + 'px';
+        image.style.height = `${ height }px`;
+
+        // Change #1 - Updated method of centering the image
+        image.style.marginTop = `-${ Math.round(height * .5) }px`;
+        image.style.top = '50vh';// (this.sectionHeight * .5) - (this.openPack.canvas.clientHeight / 2) + offset + 'px';
+
         this.productWrapper.appendChild(image);
-
         return image;
-
     }
 
 
@@ -304,13 +311,13 @@ export default class Ritual {
      * @return {void}
      */
     updateProductUnwrapped() {
-
         const offset = 20;
 
         let sectionModifier = this.currentSectionId === 0 ? .5 : 1.5;
 
         this.productUnwrapped.style.height = (this.openPack.canvas.clientHeight - offset) + 'px';
-        this.productUnwrapped.style.top = (this.sectionHeight * sectionModifier) - (this.openPack.canvas.clientHeight / 2) + offset + 'px';
+        this.productUnwrapped.style.top = '50vh';//(this.sectionHeight * sectionModifier) - (this.openPack.canvas.clientHeight / 2) + offset + 'px';
+        this.productUnwrapped.style.position = "fixed";
 
     }
 
@@ -352,7 +359,10 @@ export default class Ritual {
         this.sectionHeight = window.innerHeight;
 
         // Update Elements
-        this.sections.forEach((section) => section.style.height = this.sectionHeight + 'px');
+        this.sections.forEach((section) => {
+            console.log("section", section)
+            section.style.height = this.sectionHeight + 'px'
+        });
         this.emptyBowl.style.top = this.sectionHeight * 1.5 + 'px';
         this.updateProductUnwrapped();
         this.wave.resize();
@@ -374,6 +384,7 @@ export default class Ritual {
      * @return {void}
      */
     onScroll = (event) => {
+
         let type = event.type;
         let delta = event.deltaY;
         let canScroll = (type === 'mousewheel' && delta > this.deltaThreshold.mouse) || (type === 'pan' && delta < -this.deltaThreshold.pan);

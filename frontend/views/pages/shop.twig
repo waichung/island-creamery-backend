@@ -32,11 +32,11 @@
 
                         <div class="product-filter__categories-wrap ">
 
-                            <ul class="product-filter__categories">
+                            <ul class="product-filter__categories column">
 
                                 {% for category in categories %}
 
-                                    <li class="product-filter__category {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
+                                    <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
                                         <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
                                     </li>
 
@@ -60,7 +60,7 @@
                             <ul class="product-filter__categories">
 
                                     {% for key, value in filters %}
-                                        <li class="product-filter__category {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
+                                        <li class="product-filter__category row {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
                                             <a href="{{ current_url }}?orderby={{ key }}">{{ key|capitalize }}</a>
                                         </li>
 

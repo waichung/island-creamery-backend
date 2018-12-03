@@ -9,6 +9,7 @@
  * Components / Product Excerpt
  */
 .product-excerpt {
+    margin-top: 100px;
     height: auto;
     text-align: center;
     border: 1px solid transparent;
@@ -19,10 +20,25 @@
         border-color: #000000;
     }
 
+    @media screen and (max-width: $breakpoint-mobile-portrait) {
+        margin-top: 0px;
+        width: 100%;
+    }
+
 }
 
 .product-excerpt__inner {
     @include aspect-ratio(1, 1);
+
+    // @media screen and (max-width: $breakpoint-mobile-portrait) {
+        h4 {
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%);
+            bottom: -100px;
+        }
+    // }
 }
 
 .product-excerpt__image {
@@ -31,15 +47,24 @@
     margin: auto;
 
     @media screen and (max-width: $breakpoint-tablet-portrait) {
-        height: 65%;
+        height: auto;
+        width: 50vw;
+        margin-left: 50%; 
+        transform: translateX(-50%);
     }
 
     @media screen and (max-width: $breakpoint-mobile-landscape) and (min-width: $breakpoint-mobile-portrait) {
-        height: 55%;
+        height: auto;
+        width: 100vw;
+        margin-left: 50%; 
+        transform: translateX(-50%);
     }
 
     @media screen and (max-width: $breakpoint-mobile-portrait) {
-        height: 75%;
+        height: auto;
+        width: 100vw;
+        margin-left: 50%; 
+        transform: translateX(-50%);
     }
 
 }
@@ -55,14 +80,14 @@
     color: #888888;
 
     @media screen and (max-width: $breakpoint-mobile-landscape) {
-        font-size: rem(16px);
+        font-size: rem(22px);
     }
 
 }
 
 .product-excerpt__price {
     margin-top: 10px;
-    font-size: rem(13px);
+    font-size: rem(18px);
     font-weight: 400;
     font-family: $fontstack-sans-primary;
 }

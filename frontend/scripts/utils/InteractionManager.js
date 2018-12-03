@@ -55,7 +55,7 @@ export default class InteractionManager extends Events {
     onScroll = (event) => {
 
         this.emit('scroll', event);
-
+        console.log(this.canScroll);
         if(!this.canScroll) event.preventDefault();
 
         return this;

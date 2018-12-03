@@ -45,7 +45,10 @@ function orderProducts() {
 
         default:
 
-            return [];
+            return [
+                'orderby'       => 'menu_order',
+                'order'         => 'ASC'
+            ]; 
 
             break;
 
