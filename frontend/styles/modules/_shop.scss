@@ -5,7 +5,6 @@
  * Modules / Shop
  */
 .shop {
-    overflow-x: hidden;
     margin-top: 180px;
     background-color: #ffffff;
 
@@ -21,6 +20,7 @@
 }
 
 .shop__products {
+    overflow-x: hidden;
     margin: 0 auto;
     padding: 20px;
     width: 100%;
