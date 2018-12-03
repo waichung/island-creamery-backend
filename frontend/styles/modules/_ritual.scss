@@ -238,7 +238,7 @@ $ritual-header-color: #ebaca6;
         @media screen and (max-width: $breakpoint-tablet-portrait) {
             min-height: 105vh;
             .ritual-stage__title {
-                margin-bottom: calc(45vh + 50px);
+                margin-bottom: calc(45vh + 105px);
                 position: relative;
                 top: 20vh !important;
             }
