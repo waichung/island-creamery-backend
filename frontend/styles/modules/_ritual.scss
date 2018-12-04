@@ -594,7 +594,7 @@ $ritual-header-color: #ebaca6;
 
     @media screen and (min-width: $breakpoint-laptop) {
         width: 300px;
-        transform: translate(-96px, 24vh);
+        transform: translate(-96px, calc(26vh - 1.9em));
         text-align: left;
 
         h3 {
