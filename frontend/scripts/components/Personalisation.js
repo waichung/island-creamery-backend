@@ -28,7 +28,8 @@ export default class Personalisation {
 
         this.personalisationCheck.addEventListener('change', (event) => this.enable(event));
 
-        setTimeout(() => this.textarea.style.height = this.textarea.scrollHeight + 'px', 300);
+        // setTimeout(() => this.textarea.style.height = this.textarea.scrollHeight + 'px', 300);
+        
 
         if(this.personalisationCheck.checked) this.isEnabled = 'yes';
         if(this.isEnabled) this.image.style.display = 'block';

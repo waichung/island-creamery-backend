@@ -82,15 +82,12 @@
         }
         
         label {
+            font-size: 1.4em;
             position: relative;
             display: block;
             padding: 2em 0 2em 1em;
-            // font-weight: bold;
             line-height: 3;
-            // border-top: white;
-            // border-color: white;
             border-top: 1px solid white;
-            // border-style: solid;
             cursor: pointer;
         }
       }
@@ -103,7 +100,7 @@
         transition: max-height .35s;
 
         p {
-            margin: 0 1em 3em 1em;
+            margin: 0 1em 3em 0;
             color: #a8968d;
         }
       }
@@ -114,7 +111,7 @@
       }
       /* Icon */
       .tab label::after {
-        font-size: 3em;
+        font-size: 2em;
         font-weight: 100;
         position: absolute;
         right: 0;
