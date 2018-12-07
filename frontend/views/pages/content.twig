@@ -3,6 +3,7 @@
 {% set site_title = post.title %}
 
 {% block page %}
+    {% set questionsAnswers = post.get_field('accordion') %}
 
     <section class="section">
 
@@ -20,11 +21,17 @@
         </ul>
 
         <section class="section-content">
-
-            <div class="section-content__inner">
-                {{ post.content }}
+            <div class="tab">
+                {% for questionAnswer in questionsAnswers %}
+                    <div class="tab">
+                        <input id="{{ questionAnswer.header }}" type="checkbox" name="tabs">
+                        <label for="{{ questionAnswer.header }}">{{ questionAnswer.header }}</label>
+                        <div class="tab-content">
+                            <p>{{ questionAnswer.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-
         </section>
 
     </section>

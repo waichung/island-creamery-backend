@@ -67,6 +67,76 @@
         padding: 25px;
     }
 
+      /* Acordeon styles */
+      .tab {
+        position: relative;
+        margin-bottom: 1px;
+        width: 100%;
+        overflow: hidden;
+        color: #51413a;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+        
+        label {
+            position: relative;
+            display: block;
+            padding: 2em 0 2em 1em;
+            // font-weight: bold;
+            line-height: 3;
+            // border-top: white;
+            // border-color: white;
+            border-top: 1px solid white;
+            // border-style: solid;
+            cursor: pointer;
+        }
+      }
+    
+      .tab-content {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: max-height .35s;
+        -o-transition: max-height .35s;
+        transition: max-height .35s;
+
+        p {
+            margin: 0 1em 3em 1em;
+            color: #a8968d;
+        }
+      }
+     
+      /* :checked */
+      .tab input:checked ~ .tab-content {
+        max-height: 100vh;
+      }
+      /* Icon */
+      .tab label::after {
+        font-size: 3em;
+        font-weight: 100;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        display: block;
+        width: 3em;
+        height: 3em;
+        line-height: 0;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+      }
+      .tab input[type=checkbox] + label::after {
+        content: "+";
+      }
+      .tab input[type=checkbox]:checked + label::after {
+        content: "_";
+        top: 30%;
+      }
+      
+
 }
 
 .section-content__inner {
