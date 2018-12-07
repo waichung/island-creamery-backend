@@ -22,9 +22,13 @@
 .shop__products {
     padding-bottom: 150px;
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     margin: 0 auto;
     padding: 20px;
     width: 100%;
     max-width: $breakpoint-laptop-large;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        overflow-x: hidden;
+    }
 }

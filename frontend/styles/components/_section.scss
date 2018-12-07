@@ -68,71 +68,76 @@
     }
 
       /* Acordeon styles */
-      .tab {
-        position: relative;
-        margin-bottom: 1px;
-        width: 100%;
-        overflow: hidden;
-        color: #51413a;
-
-        input {
-            position: absolute;
-            opacity: 0;
-            z-index: -1;
-        }
-        
-        label {
-            font-size: 1.2em;
+      .tabs {
+          margin-top: 30px 0 0 20px;
+        .tab {
             position: relative;
-            display: block;
-            padding: 2em 0 1em 1em;
-            line-height: 3;
-            border-top: 1px solid white;
-            cursor: pointer;
-        }
-      }
+            margin-bottom: 1px;
+            width: 100%;
+            overflow: hidden;
+            color: #51413a;
+            padding: 0 0 1.4em 0;
     
-      .tab-content {
-        max-height: 0;
-        overflow: hidden;
-        -webkit-transition: max-height .35s;
-        -o-transition: max-height .35s;
-        transition: max-height .35s;
-
-        p {
-            margin: 0 1em 3em 0;
-            color: #a8968d;
-        }
+            input {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+            
+            label {
+                font-size: 1.2em;
+                position: relative;
+                display: block;
+                padding: 1.4em 0 0 1em;
+                line-height: 3;
+                border-top: 1px solid white;
+                cursor: pointer;
+            }
+          }
+        
+          .tab-content {
+            max-height: 0;
+            overflow: hidden;
+            -webkit-transition: max-height .35s;
+            -o-transition: max-height .35s;
+            transition: max-height .35s;
+    
+            p {
+                margin: -23px 1em 2em 0.2em;
+                color: #a8968d;
+                line-height: 0;
+            }
+          }
+         
+          /* :checked */
+          .tab input:checked ~ .tab-content {
+            max-height: 100vh;
+          }
+          /* Icon */
+          .tab label::after {
+            font-size: 2em;
+            font-weight: 100;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            display: block;
+            width: 3em;
+            height: 3em;
+            line-height: 0;
+            text-align: center;
+            -webkit-transition: all .35s;
+            -o-transition: all .35s;
+            transition: all .35s;
+          }
+          .tab input[type=checkbox] + label::after {
+            content: "+";
+            top: 53%;
+          }
+          .tab input[type=checkbox]:checked + label::after {
+            content: "_";
+            top: 50%;
+          }
       }
-     
-      /* :checked */
-      .tab input:checked ~ .tab-content {
-        max-height: 100vh;
-      }
-      /* Icon */
-      .tab label::after {
-        font-size: 2em;
-        font-weight: 100;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        display: block;
-        width: 3em;
-        height: 3em;
-        line-height: 0;
-        text-align: center;
-        -webkit-transition: all .35s;
-        -o-transition: all .35s;
-        transition: all .35s;
-      }
-      .tab input[type=checkbox] + label::after {
-        content: "+";
-      }
-      .tab input[type=checkbox]:checked + label::after {
-        content: "_";
-        top: 30%;
-      }
-      
 
 }
 
