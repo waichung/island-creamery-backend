@@ -62,6 +62,12 @@ body {
 
             @media screen and (min-width: $breakpoint-mobile-portrait) {
                 max-width: 300px;
+                line-height: 1;
+                word-wrap: break-word;
+                overflow: visible;
+                white-space: pre-wrap;
+                text-overflow: none;
+                margin-top: 6px;
             }
 
             @media screen and (min-width: $breakpoint-tablet-portrait) {
@@ -72,6 +78,7 @@ body {
             @media screen and (min-width: $breakpoint-laptop) {
                 font-size: 1em;
                 max-width: 1000px;
+                margin-top: 10px;
             }
         }
 
