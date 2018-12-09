@@ -125,6 +125,43 @@
 .product-ritual {
     padding: 25px 0;
     text-align: center;
+    margin-bottom: 10vh;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-bottom: 0;
+    }
+
+    .product-ritual__anim {
+        padding: 0 13em;
+        display: flex;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .icon-container {
+            flex: 1;
+            display: flex; 
+            flex-direction: column;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+                flex-basis: 50%;
+            }
+            
+            p {
+                color: #51413a;
+                font-family: $fontstack-sans-primary;
+                font-size: rem(14px);
+            }
+    
+            .icon {
+                align-self: center;
+                height: 100px;
+                width: 100px;
+            } 
+        } 
+    }
 }
 
 .product-ritual__title {
