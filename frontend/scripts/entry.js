@@ -6,7 +6,7 @@ import HubSlider from './lib/HubSlider';
 import InteractionManager from './utils/InteractionManager';
 
 // Views
-import Ritual from './views/ritual/Ritual';
+// import Ritual from './views/ritual/Ritual';
 import Stories from './views/Stories';
 import Journey from './views/Journey';
 import Header from './views/Header';
