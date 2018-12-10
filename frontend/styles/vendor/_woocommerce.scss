@@ -8,6 +8,12 @@
  * WooComm Overrides
  */
 
+ .woocommerce {
+    font-family: $fontstack-serif-secondary;
+    color: #51413a;
+    padding: 5vw;
+ }
+
 .woocommerce-checkout {
     font-family: $fontstack-serif-secondary;
 

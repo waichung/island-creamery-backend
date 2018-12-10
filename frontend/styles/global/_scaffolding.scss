@@ -89,6 +89,47 @@ body {
 .page {
     width: 100%;
     height: auto;
+
+    .woocommerce-ResetPassword {
+
+        .form-row {
+            width: 100%;
+            text-align: center;
+            .woocommerce-Button {
+                font-size: 100% !important;
+                line-height: 1.15 !important;
+                position: relative !important;
+                width: 100% !important;
+                max-width: 200px !important;
+                padding: 30px 20px !important;
+                margin: 50px auto !important;
+                text-align: center !important;
+                background-color: #ebaca6 !important;
+                color: #ffffff !important;
+                cursor: pointer !important;
+                text-transform: capitalize !important;
+                font-family: $fontstack-serif-primary !important;
+                transition: max-width 350ms ease !important;
+                border-radius: 0 !important;
+                font-weight: 300 !important;
+                
+            
+                &:focus {
+                    outline: none !important;
+                }
+            
+                &:hover {
+                    max-width: 250px !important;
+                }
+            
+            }
+        }
+
+        .form-row-first {
+            text-align: left;
+        }
+    }
+
 }
 
 .page--shop {

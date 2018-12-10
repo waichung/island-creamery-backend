@@ -168,7 +168,7 @@ function get_personalisation_svg($text) {
     $svg  = '<?xml version="1.0" encoding="utf-8"?>';
     $svg .= '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" xml:space="preserve">';
     $svg .= '<style type="text/css">.text{font-family:"AntroVectra";font-size:18px; line-height: 18px}</style>';
-    $svg .= '<text class="text">' . $text .'</text>';
+    $svg .= '<text x="0" y="15" class="text">' . $text .'</text>';
     $svg .= '</svg>';
 
     return $svg;
