@@ -6,7 +6,6 @@ import HubSlider from './lib/HubSlider';
 import InteractionManager from './utils/InteractionManager';
 
 // Views
-// import Ritual from './views/ritual/Ritual';
 import Stories from './views/Stories';
 import Journey from './views/Journey';
 import Header from './views/Header';
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = new Header();
 
     // Page Containers
-    const ritualContainer = document.querySelector('[data-ritual="container"]');
     const storiesContainer = document.querySelector('[data-stories="container"]');
     const journeyContainer = document.querySelector('[data-journey="container"]');
 
@@ -50,12 +48,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if(storiesContainer) new Stories(storiesContainer, scrollbar);
     if(productContainer) new Product(productContainer, scrollbar);
     if(cartContainer) new Cart(cartContainer, scrollbar);
-
-    if(ritualContainer && typeof window.flavours !== 'undefined') {
-
-        new Ritual(window.flavours, header, scrollbar);
-
-    }
-
-
 });
