@@ -68,16 +68,32 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 				}
 
 				$order_personalisation = get_order_personalisation($order->get_id());
-				if (!empty($order_personalisation['personalised_card']) && !empty($order_personalisation['personalised_card']['text'])) {
+				if (!empty($order_personalisation['personalised_card']) && !empty($order_personalisation['personalised_card']['recipient'])) {
 					$personalised_card = $order_personalisation['personalised_card'];
 					?><tr>
 						<th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Personalised Card:', 'woocommerce' ); ?></th>
 						<td class="td" style="text-align:<?php echo $text_align; ?>;"><?php
-								echo '<br/>';
-								echo wptexturize(sprintf(__('Message: %s','woocommerce'), $personalised_card['text']));
-								echo '<br/>';
-								echo wptexturize(sprintf(__('SVG File:','woocommerce'))).' '.get_site_url(null,'/?download_card_svg='.$order->get_id());
-								echo '<br/>';
+							switch ($personalised_card['recipient']) {
+								case 'nocard':
+									echo esc_html(wptexturize(__('No personalised cards.','woocommerce')));
+									break;
+
+								case 'personalised':
+									if (!empty($personalised_card['recipient_title']) && strtolower($personalised_card['recipient_title']) != 'none') {
+										echo esc_html(wptexturize(sprintf(__('Title: %s','woocommerce'), $personalised_card['recipient_title'])));
+										echo '<br/>';
+									}
+									echo esc_html(wptexturize(sprintf(__('Surname: %s','woocommerce'), $personalised_card['recipient_surname'])));
+									echo '<br/>';
+									echo esc_html(wptexturize(sprintf(__('Message: %s','woocommerce'), $personalised_card['message'])));
+									echo '<br/>';
+									echo esc_html(wptexturize(sprintf(__('SVG File:','woocommerce')))).' '.sprintf('<a href="%s">%s</a>', get_site_url(null,'/?download_card_svg='.$order->get_id()), esc_html(wptexturize(__('Download','woocommerce'))));
+									break;
+
+								default:
+									echo esc_html(wptexturize(__('This order is for myself (your name will appear on the card)','woocommerce')));
+									break;
+							}
 						?></td>
 					</tr><?php
 				}
