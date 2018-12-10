@@ -30,16 +30,24 @@
 .product-excerpt__inner {
     @include aspect-ratio(1, 1);
 
-    // @media screen and (max-width: $breakpoint-mobile-portrait) {
-        h4 {
-            z-index: 1000;
-            position: absolute;
-            left: 50%;
-            width: 100%;
-            transform: translateX(-50%);
-            bottom: -100px;
+    h4 {
+        z-index: 1000;
+        position: absolute;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        bottom: -100px;
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+        &::before {
+            padding-top: 75%;
         }
-    // }
+
+        h4 {
+            bottom: -200px;
+        }
+    }
 }
 
 .product-excerpt__image {
