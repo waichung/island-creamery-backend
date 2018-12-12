@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<h2 class="cart-total__heading"><?php _e( 'Total', 'woocommerce' ); ?></h2>
 
 	<div class="cart-total__section">
-		<small><?php _e( 'Subtotal', 'woocommerce' ); ?></small>
+		<small><?php _e( 'subtotal', 'woocommerce' ); ?></small>
 		<span><?php wc_cart_totals_subtotal_html(); ?></span>
 	</div>
 

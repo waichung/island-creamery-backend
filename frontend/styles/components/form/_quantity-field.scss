@@ -38,7 +38,7 @@
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: #f6f4f3;
+        background-color: none;
         cursor: pointer;
         font-size: rem(18px);
     }
@@ -67,11 +67,12 @@
     outline: none;
     border: 0;
     text-align: center;
-    font-size: rem(30px);
+    font-size: rem(16px);
     font-family: $fontstack-sans-primary;
     color: #766361;
     appearance: textfield;
     margin: 0;
+    font-weight: 300;
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {

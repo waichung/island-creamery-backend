@@ -173,7 +173,7 @@
 
 .cart-item__title {
     display: block;
-    font-size: rem(23px);
+    font-size: rem(17px) !important;
     font-family: $fontstack-serif-primary;
     color: #97837a;
     text-align: left;
@@ -224,16 +224,18 @@
     }
 
     small {
+        white-space: nowrap;
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 21px;
         font-size: rem(14px);
         color: #766361;
-        font-weight: 100;
+        font-weight: 600;
     }
 
     span {
         color: #766361;
         font-weight: 300;
+        font-size: 0.75em;
     }
 
 }
@@ -249,9 +251,11 @@
 .cart-item__column--link {
     display: flex;
     padding-left: 0px;
+    margin-top: 25px;
 }
 
 .cart-item__column--delete {
+    margin-top: 23px;
     display: flex;
     align-items: center;
     margin-right: 0;
