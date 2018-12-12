@@ -165,13 +165,32 @@ function get_order_personalisation($order_id) {
 
 function get_personalisation_svg($text) {
 
-    $svg  = '<?xml version="1.0" encoding="utf-8"?>';
-    $svg .= '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" xml:space="preserve">';
-    $svg .= '<style type="text/css">.text{font-family:"AntroVectra";font-size:18px; line-height: 18px}</style>';
+    $cssUrl = get_template_directory_uri() . '/assets/css/styles.css?v=123';
+    $svg = '';
+    $svg .= '<svg width="100vw" height="100vh" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" xml:space="preserve">';
+    $svg .= '<style type="text/css">.text{font-family:"Antro Vectra";font-size:18px; line-height: 18px}</style>';
     $svg .= '<text x="0" y="15" class="text">' . $text .'</text>';
     $svg .= '</svg>';
-
-    return $svg;
+    $html ="<!doctype html>
+        <html>
+        <head>
+            <title>Personalisation Gift Card</title>
+            <link rel='stylesheet' href='%s' media='all' type='text/css' />
+            <style type='text/css'>
+            .card-container-svg {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                width: 100vw;
+                height: 100vh;
+            }
+            </style>
+        </head>
+        <body>
+            <div class='card-container-svg'>%s</div>
+        </body>
+    </html>";
+    return sprintf($html, $cssUrl, $svg);
 }
 
 function download_card_svg() {
@@ -179,7 +198,7 @@ function download_card_svg() {
     if (!empty($_GET['download_card_svg'])) {
         $order_personalisation = get_order_personalisation($_GET['download_card_svg']);
         if (!empty($order_personalisation['personalised_card']['text'])) {
-            header('Content-Type: image/svg+xml');
+            header('Content-Type: text/html');
             echo get_personalisation_svg($order_personalisation['personalised_card']['text']);
             die();
         }
@@ -188,4 +207,5 @@ function download_card_svg() {
         }
     }
 }
+
 add_action( 'init', 'download_card_svg', 1 );

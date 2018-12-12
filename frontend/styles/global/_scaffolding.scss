@@ -13,6 +13,23 @@
 
 html,
 body {
+
+    .card-container-svg {
+        display: flex;        
+        justify-content: center;        
+        align-content: center;        
+        width: 100vw;        
+        height: 100vh;
+
+        svg {
+            .text {
+                font-family:"Antro Vectra";
+                font-size:18px; 
+                line-height: 18px;  
+            }
+        }
+    }
+
     width: 100%;
     height: auto;
     background-color: #ffffff;
