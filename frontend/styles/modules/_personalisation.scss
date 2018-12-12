@@ -41,6 +41,10 @@
     font-family: $fontstack-sans-primary;
     font-weight: 200;
     font-size: rem(12px);
+
+    .indent {
+        margin-left: 15px;
+    }
 }
 
 .personalisation__option-content {
@@ -70,10 +74,6 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 7px;
-
-    .indent {
-        margin-left: 15px;
-    }
 }
 
 .personalisation-image {
