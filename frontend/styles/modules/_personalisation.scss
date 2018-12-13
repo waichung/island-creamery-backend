@@ -19,7 +19,7 @@
         margin-top: 0;
         margin-bottom: 0;
         font-family: $fontstack-sans-primary;
-        font-size: rem(14px);
+        font-size: 0.81em;
     }
 
     strong {
@@ -52,7 +52,8 @@
     .personalisation__option-message {
         font-family: $fontstack-sans-primary;
         margin-top: 10px;
-        font-size: 0.95em;
+        font-size: 0.76em;
+        font-weight: 100;
     }
 }
 

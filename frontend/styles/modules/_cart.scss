@@ -158,7 +158,6 @@
 
 .cart-contents__list {
     position: relative; 
-    left: -20px;
     padding: 0;
 }
 
@@ -220,7 +219,7 @@
     }
 
     @media screen and (max-width: $breakpoint-mobile-portrait) {
-        margin-right: 10px;
+        margin-right: -2px;
     }
 
     small {
