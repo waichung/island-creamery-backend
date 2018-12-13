@@ -12,10 +12,13 @@
 
                     <p><strong>{{ _e('Add a Personal Touch') }}</strong></p>
 
-                    <label class="personalisation__option">
-                        <input type="checkbox" name="personalisation_enabled" class="personalisation__option-input" data-personalisation="check" value="{% if personalisation_enabled == 'yes' %}yes{% else %}no{% endif %}" {% if personalisation_enabled == 'yes' %} checked {% endif %} />
-                        Make your gift extra special with a beautifully calligraphed <span class="indent"> message on a complimentary gift card.</span>
-                    </label>
+                    <div class="personalisation__option-container">
+                        <label class="personalisation__option">
+                            <input type="checkbox" name="personalisation_enabled" class="personalisation__option-input" data-personalisation="check" value="{% if personalisation_enabled == 'yes' %}yes{% else %}no{% endif %}" {% if personalisation_enabled == 'yes' %} checked {% endif %} />
+                            {# Make your gift extra special with a beautifully calligraphed <span class="indent"> message on a complimentary gift card.</span> #}
+                        </label>
+                        <span class="personalisation__option--message">Make your gift extra special with a beautifully calligraphed message on a complimentary gift card.</span>
+                    </div>
 
                     {# <label class="personalisation__option">
                         <input type="radio" name="personalisation_enabled" value="0" class="personalistation__option-input" data-personalisation="check" data-enabled="false" {% if not personalisation_enabled %} checked {% endif %} />
