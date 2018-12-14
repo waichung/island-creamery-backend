@@ -1,6 +1,27 @@
 {% extends 'layout.twig' %}
 
 {% set site_title = 'Ritual' %}
+{% set stirCopyOne = 'The dainty Camellia bloom is chosen for its otherworldly elegance.' %}
+{% set stirCopyTwo = 'Sourced from some of the top plantations of Kyoto, our anti-oxidant rich matcha is deep and rich in colour and flavour.' %}
+
+{% if flavour == 'rose' %}
+
+    {% set stirCopyOne = 'The rose symbolises hope, balance and new beginnings.' %}
+    {% set stirCopyTwo = 'Luxurious Damask rose petals from Bulgaria are distilled for its hydrating properties.'%}
+
+{% elseif flavour == 'matcha' %}
+    {% set stirCopyOne = 'The dainty Camellia bloom is chosen for its otherworldly elegance.' %}
+    {% set stirCopyTwo = 'Sourced from some of the top plantations of Kyoto, our anti-oxidant rich matcha is deep and rich in colour and flavour.' %}
+
+{% elseif flavour == 'almond' %}
+    {% set stirCopyOne = 'The chrysanthemum bloom is symbolic of longeivity and rejuvenation.' %}
+    {% set stirCopyTwo = 'Famed for its moisturising properties, our almonds are sourced from the sunny hills and grasslands of North China.' %}
+
+{% elseif flavour == 'vanillabean' %}
+    {% set stirCopyOne = 'The carnation bloom signifies unconditional love.' %}
+    {% set stirCopyTwo = 'Anti-ageing properties found in vanilla can help prevent fine lines, wrinkles and age spots.' %}
+
+{% endif %}
 
 {% block page %}
 <div id="preloader"></div>
@@ -81,9 +102,9 @@
                     -->
                 </div>
                 <div class="info-content">
-                    <p>The dainty camelia bloom is chosen for its otherworldly elegance.</p>
+                    <p>{{ stirCopyOne }}</p>
                     <hr/>
-                    <p>Sourced from some of the top plantations of Kyoto, our matcha is flavourful and filled with antioxidants.</p>
+                    <p>{{ stirCopyTwo }}</p>
                 </div>
             </div>
         </div>
