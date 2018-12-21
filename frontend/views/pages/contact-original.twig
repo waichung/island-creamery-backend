@@ -1,0 +1,41 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = post.title %}
+
+{% block page %}
+
+    <section class="contact">
+
+        <h1 class="contact__title">{{ post.title }}</h1>
+
+        {% if global_options.email_address %}
+
+            <div class="contact__email">
+
+                <a href="mailto:{{ global_options.email_address }}" class="contact__email-icon"></a>
+
+                <small>E-mail</small>
+                <a href="mailto:{{ global_options.email_address }}" class="contact__email-link">{{ global_options.email_address }}</a>
+
+            </div>
+
+        {% endif %}
+
+        {% if global_options.location %}
+
+            <div class="contact__locations grid">
+                {% for location in global_options.location %}
+                    <div class="contact-location grid__item 1/3 1/1--palm-portrait">
+                        <a href="{{ location.location__link }}" class="contact-location__link">
+                            <div class="contact-location__image" style="background-image: url('{{ location.location_image}}');"></div>
+                            <small class="contact-location__title">{{ location.location_name }}</small>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}
