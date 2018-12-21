@@ -15,8 +15,8 @@
 
                     {% for nav_item in navigation.items %}
 
-                        <li class="" data-navigation="item">
-                            <a href="{{ nav_item.url }}" class="">{{ nav_item.title }}</a>
+                        <li class="nav__item {{ (nav_item.current == true) ? 'nav__item--current' : '' }}" data-navigation="item">
+                            <a href="{{ nav_item.url }}" class="nav__link {{ (nav_item.current == true) ? 'nav__link--current' : '' }}">{{ nav_item.title }}</a>
                         </li>
 
                     {% endfor %}

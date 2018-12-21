@@ -1,0 +1,79 @@
+{% extends 'layout.twig' %}
+
+{% set site_title = 'Home' %}
+
+{% set featured_product_img = post.get_field('featured_product_img') %}
+{% set header = post.get_field('header_text') %}
+{% set yes = post.get_field('yes') %}
+{% set no = post.get_field('no') %}
+{% set announcement = post.get_field('announcement') %}
+{% set featured_product = post.get_field('featured_product_link') %}
+
+{% set flavours_header = post.get_field('flavours_header') %}
+{% set featured_flavours = post.get_field('featured_flavours') %}
+
+{% set locations = post.get_field('locations') %}
+{% set locations_header = post.get_field('locations').header %}
+{% set locations_list = post.get_field('locations').list %}
+
+{% set insta_header = post.get_field('insta_header_text') %}
+{% set insta_handle = post.get_field('insta_handle') %}
+{% set insta_gallery = post.get_field('insta_gallery') %}
+
+
+{% block page %}
+
+<div>
+  <h1>Welcome!</h1>
+  <div style="background-image: url('{{ featured_product_img.url }}'); width: 100px; height: 100px"></div>
+  <p>{{ header }}</p>
+  <p>{{ announcement }}</p>
+  <a href="{{ featured_product.url }}">{{ featured_product.title }}</a>
+  <a href="{{ yes.url }}">{{ yes.title }}</a>
+  <a href="{{ no.url }}">{{ no.title }}</a>
+</div>
+
+<div>
+  <h1>Flavours!</h1>
+  <p>{{ flavours_header }}</p>
+  {% for flavour in featured_flavours %}
+    <span>{{ flavour.name }}</span>
+    <span>{{ flavour.color_code }}</span>
+  {% endfor %}
+</div>
+
+<div>
+  <h1>Locations!</h1>
+  <p>{{ locations_header }}</p>
+  {% for location in locations_list %}
+    <p>{{ location.image }}</p>
+    <p>{{ location.title }}</p>
+    <p>{{ location.address }}</p>
+    <p>{{ location.contact }}</p>
+    <div>
+      {% for item in location.opening_hours %}
+        <p>{{ item.line }}</p>
+      {% endfor %}
+    </div>
+    <a href="{{ location.google_map.url }}">{{ location.google_map.title }}</a>
+  {% endfor %}
+</div>
+
+<div>
+  <h1>instagram!</h1>
+  <p>{{ insta_header }}</p>
+  <p>{{ insta_handle }}</p>
+  {% for picture in insta_gallery %}
+    <p>{{ picture.url }}</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+  <script type="text/javascript">
+    window.flavours = {{ flavours|json_encode|raw }};
+  </script>
+
+{% endblock %}

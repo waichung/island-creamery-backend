@@ -12,6 +12,7 @@
     height: 30vh;
     padding: 60px 40px 50px;
     justify-content: space-between;
+    background-color: blue;
 
     @media screen and (max-width: $breakpoint-tablet-landscape) {
         padding: 30px 20px 25px;

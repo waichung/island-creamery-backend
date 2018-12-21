@@ -29,13 +29,16 @@ body {
             }
         }
     }
-
+    margin-bottom: 100px;
     width: 100%;
-    height: auto;
-    background-color: #ffffff;
+    // height: auto;
+    height: 100%;
+    // background-color: #ffffff;
+    background-color: red;
+    overflow: scroll;
 
     &.logged-in {
-        margin-top: -32px;
+        // margin-top: -32px;
     }
 
     .announcements {

@@ -9,10 +9,12 @@
  * Components / Footer
  */
 .footer {
+    position: fixed; //+
+    bottom: 0; //+
     display: block;
     width: 100%;
     height: auto;
-    padding: 100px 25px 175px;
+    // padding: 100px 25px 175px;
     background-color: #ffffff;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {

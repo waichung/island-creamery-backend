@@ -2,28 +2,12 @@
 
     <div class="footer__items">
 
-        <img src="{{ assets }}/svg/footer-logo.svg" alt="NestBloom Logo Alt" class="footer__accent" />
-
-        {% if global_options.social_media %}
-
-            <ul class="footer__list">
-
-                <li class="footer__list-item">Follow</li>
-
-                {% for social_media in global_options.social_media %}
-                    <li class="footer__list-item"><a href="{{ social_media.link }}" target="_blank">{{ social_media.name }}</a></li>
-                {% endfor %}
-
-            </ul>
-
-        {% endif %}
-
         {% if footer_nav %}
 
             <ul class="footer__list">
 
                 {% for item in footer_nav.items %}
-                    <li class="footer__list-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    <li class=""><a href="{{ item.url }}">{{ item.title }}</a></li>
                 {% endfor %}
 
             </ul>
