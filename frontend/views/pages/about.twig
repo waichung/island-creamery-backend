@@ -33,13 +33,13 @@
   } %}
 
   <section>
-    <h1>About us write up</h1>
+    <h1>About us write up section</h1>
     <p>{{ description }}</p>
     <p>{{ image.url }}</p>
   </section>
 
   <section>
-    <h1>Process: from cow to cone</h1>
+    <h1>Process: from cow to cone section</h1>
     <p>{{ process.title[0].text }}</p>
     <p>{{ process.title[0].image.url }}</p>
     <p>{{ process.title[1].text }}</p>
@@ -54,7 +54,7 @@
   </section>
 
   <section>
-    <h1>Made with the good stuff</h1>
+    <h1>Made with the good stuff section</h1>
     <p>{{ recipe_header }}</p>
     <p>{{ recipe_subheader }}</p>
     {% for slide in slides %}
@@ -63,6 +63,14 @@
       <p>{{ slide.title }}</p>
       <p>{{ slide.subtitle }}</p>
     {% endfor %}
+  </section>
+
+  <section>
+    <h1>Community Section</h1>
+    <p>{{ community_title }}</p>
+    <p>{{ community_header }}</p>
+    <p>{{ community_content }}</p>
+    <p>{{ community_image.url }}</p>
   </section>
 
   <section class="journey-link">
