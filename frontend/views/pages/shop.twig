@@ -11,108 +11,108 @@
 
 {% block page %}
 
-    <section class="shop">
+  <section class="shop">
 
-        {% include 'components/banner.twig' with {
-            type: 'shop',
-            title: global_options.banner.title_top,
-            subtitle: global_options.banner.title_bottom,
-            image: global_options.banner.image
-        } %}
+    {% include 'components/banner.twig' with {
+        type: 'shop',
+        title: global_options.banner.title_top,
+        subtitle: global_options.banner.title_bottom,
+        image: global_options.banner.image
+    } %}
 
-        <section class="shop__products">
+    <section class="shop__products">
 
-            <div class="product-filter grid grid--middle">
+      <div class="product-filter grid grid--middle">
 
-                {# List Categories #}
+        {# List Categories #}
 
-                {% if categories %}
+        {% if categories %}
 
-                    <div class="grid__item 1/2 1/1--tablet-portrait">
+        <div class="grid__item 1/2 1/1--tablet-portrait">
 
-                        <div class="product-filter__categories-wrap ">
+          <div class="product-filter__categories-wrap ">
 
-                            <ul class="product-filter__categories column">
+            <ul class="product-filter__categories column">
 
-                                {% for category in categories %}
+              {% for category in categories %}
 
-                                    <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
-                                        <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
-                                    </li>
+                <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
+                  <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
+                </li>
 
-                                {% endfor %}
+              {% endfor %}
 
-                            </ul>
+            </ul>
 
-                        </div>
+          </div>
 
-                    </div>
+        </div>
 
-                {% endif %}
+        {% endif %}
 
-                {# List Filter #}
+        {# List Filter #}
 
-                {% if filters  %}
-                    <div class="grid__item grid__item--right 1/2 1/1--tablet-portrait">
+        {% if filters  %}
+        <div class="grid__item grid__item--right 1/2 1/1--tablet-portrait">
 
-                        <div class="product-filter__categories-wrap align-right">
+          <div class="product-filter__categories-wrap align-right">
 
-                            <ul class="product-filter__categories">
+            <ul class="product-filter__categories">
 
-                                    {% for key, value in filters %}
-                                        <li class="product-filter__category row {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
-                                            <a href="{{ current_url }}?orderby={{ key }}">{{ key|capitalize }}</a>
-                                        </li>
+              {% for key, value in filters %}
+              <li class="product-filter__category row {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
+                <a href="{{ current_url }}?orderby={{ key }}">{{ key|capitalize }}</a>
+              </li>
 
-                                    {% endfor %}
+              {% endfor %}
 
-                            </ul>
+            </ul>
 
-                        </div>
+          </div>
 
-                    </div>
+        </div>
 
-                {% endif %}
+        {% endif %}
 
-            </div>
+        </div>
 
-            {# Product List #}
+        {# Product List #}
 
-            {% if products is empty %}
+        {% if products is empty %}
 
-                <div class="product-list product-list--empty">
-                    <h2 class="product-list__notification">There are no products available in this category</h2>
-                    <a href="/index.php/shop" class="product-list__link">View all products</a>
-                </div>
+        <div class="product-list product-list--empty">
+          <h2 class="product-list__notification">There are no products available in this category</h2>
+          <a href="/index.php/shop" class="product-list__link">View all products</a>
+        </div>
 
-            {% else %}
+        {% else %}
 
-                <ul class="product-list grid">
+        <ul class="product-list grid">
 
-                    {% for product in products %}
+        {% for product in products %}
 
-                        {% if loop.index0 == 2 and global_options.shop_divider.enable == true %}
+          {% if loop.index0 == 2 and global_options.shop_divider.enable == true %}
 
-                            {% include 'components/shop-divider.twig' with {
-                                bg_colour: global_options.shop_divider.background_colour,
-                                copy: global_options.shop_divider.copy
-                            } only %}
+            {% include 'components/shop-divider.twig' with {
+              bg_colour: global_options.shop_divider.background_colour,
+              copy: global_options.shop_divider.copy
+            } only %}
 
-                        {% endif %}
+          {% endif %}
 
-                        {% include 'components/product-excerpt.twig' with {
-                            product: product,
-                            currency: currency
-                        } only %}
+          {% include 'components/product-excerpt.twig' with {
+            product: product,
+            currency: currency
+          } only %}
 
-                    {% endfor %}
+        {% endfor %}
 
-                </ul>
+        </ul>
 
-            {% endif %}
-
-        </section>
+        {% endif %}
 
     </section>
+
+  </section>
 
 {% endblock %}
