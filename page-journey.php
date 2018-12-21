@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Journey Page
+ * Template Name: About Page
  *
- * Template for the Journey page
+ * Template for the About page
  */
 $context = Timber::get_context();
 $context['post'] = new Timber\Post();
 
-Timber::render('pages/journey.twig', $context);
+Timber::render('pages/about.twig', $context);
