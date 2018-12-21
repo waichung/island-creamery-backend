@@ -1,251 +1,76 @@
 {% extends 'layout.twig' %}
 
-{% set site_title = 'Our Journey' %}
+{% set site_title = 'About' %}
 
 {% block page %}
-
-    {% set making_of_image = post.get_field('making_of_image') %}
-    {% set ingredients = post.get_field('main_ingredients') %}
-    {% set other_ingredients = post.get_field('other_ingredients') %}
-    {% set process = post.get_field('process') %}
-
-    {# Making Of #}
-
-    <section class="journey" data-journey="container">
-
-        <section class="journey-section journey-making" data-journey="section" id="#making-of">
-
-            <div class="journey-section__content">
-
-                <h1 class="journey-title">{{ post.title }}</h1>
-
-                <nav class="journey-nav" data-journey="nav">
-                    <a href="#making-of" class="journey-nav__item active" data-journey="nav-item">The Making of a Bloom</a>
-                    <a href="#ingredients" class="journey-nav__item" data-journey="nav-item">Ingredients</a>
-                    <a href="#process" class="journey-nav__item" data-journey="nav-item">Bloom Process</a>
-                </nav>
-
-            </div>
-
-            <div class="journey-making__content">
-
-                <div class="journey-section__content grid grid--rev">
-
-                    {% if making_of_image %}
-                        <div class="grid__item 1/2 1/1--palm-portrait">
-                            <div style="background-image: url('{{ making_of_image.url }}')" class="journey-making__image"></div>
-                        </div>
-                    {% endif %}
-
-                    <div class="grid__item 1/2 1/1--palm-portrait">
-                        {{ post.get_field('making_of_description') }}
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-
-        {# Ingredients #}
-
-        <section class="journey-section journey-ingredients" data-journey="section" id="#ingredients">
-
-            <div class="journey-section__content">
-
-                <nav class="journey-nav" data-journey="nav">
-                    <a href="#making-of" class="journey-nav__item" data-journey="nav-item">The Making of a Bloom</a>
-                    <a href="#ingredients" class="journey-nav__item" data-journey="nav-item">Ingredients</a>
-                    <a href="#process" class="journey-nav__item" data-journey="nav-item">Bloom Process</a>
-                </nav>
-
-                {# Ingredients Tabs #}
-
-                <div class="tabs journey-tabs" data-journey="tabs" data-tabs="container">
-
-                    <nav class="tabs__nav journey-tabs__nav" data-tabs="nav">
-
-                        {% for ingredient in ingredients %}
-                            <span class="tabs__navItem journey-tabs__navItem" data-tabs="nav-item">{{ ingredient.name }}</span>
-                        {% endfor %}
-
-                    </nav>
-
-                    <div class="tabs__body" data-tabs="body">
-
-                        {% for ingredient in ingredients %}
-                            <div class="tabs__item" data-tabs="item">
-
-                                <div class="grid">
-
-                                    <div class="grid__item 1/2 1/1--tablet-portrait">
-                                        <img src="{{ ingredient.image.url }}" alt="{{ ingredient.image.src }}" class="journey-ingredients__image" />
-                                    </div>
-
-                                    <div class="grid__item 1/2 1/1--tablet-portrait">
-
-                                        {% if ingredient.steps %}
-
-                                            <ul class="journey-accordion accordion" data-journey="accordion" data-accordion="container">
-
-                                                {% for step in ingredient.steps %}
-
-                                                    <li class="accordion-item" data-accordion="item">
-
-                                                        <div class="accordion-item__count">
-                                                            Step {{ loop.index }}
-                                                        </div>
-
-                                                        <div class="accordion-item__content" data-accordion="item-content">
-                                                            <span class="accordion-item__title" data-accordion="item-title">{{ step.title }}</span>
-                                                            <div class="accordion-item__description" data-accordion="item-description">{{ step.description }}</div>
-                                                        </div>
-
-                                                        <div class="accordion-item__accent" data-accordion="item-accent">
-                                                            <span></span>
-                                                        </div>
-
-                                                    </li>
-
-                                                {% endfor %}
-
-                                            </ul>
-
-                                        {% endif %}
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        {% endfor %}
-
-                    </div>
-
-                </div>
-
-                {# Other Ingredients #}
-
-                <div class="journey-other-ingredients">
-
-                    <h3 class="journey-other-ingredients__title">Other Ingredients</h3>
-
-                    {# Other Ingredients Tabs #}
-
-                    <div class="tabs journey-tabs" data-journey="tabs" data-tabs="container">
-
-                        <nav class="tabs__nav journey-tabs__nav" data-tabs="nav">
-
-                            {% for other_ingredient in other_ingredients %}
-                                <span class="tabs__navItem journey-tabs__navItem" data-tabs="nav-item">{{ other_ingredient.title }}</span>
-                            {% endfor %}
-
-                        </nav>
-
-                        <div class="tabs__body" data-tabs="body">
-
-                            {% for other_ingredient in other_ingredients %}
-                                <div class="tabs__item" data-tabs="item">
-
-                                    <div class="grid">
-
-                                        <div class="grid__item 1/2 1/1--tablet-portrait">
-
-                                            <ul class="journey-bulletpoints">
-
-                                                {% for bulletpoint in other_ingredient.bulletpoints %}
-
-                                                    <li class="journey-bulletpoint">
-                                                        <strong>{{ bulletpoint.title }}</strong>
-                                                        <small>{{ bulletpoint.description}}</small>
-                                                    </li>
-
-                                                {% endfor %}
-
-                                            </ul>
-
-                                        </div>
-
-                                        <div class="grid__item 1/2 1/1--tablet-portrait">
-                                            <img src="{{ other_ingredient.image.url }}" alt="{{ other_ingredient.image.src }}" class="journey-ingredients__image" />
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        {# The Process #}
-
-        <section class="journey-section journey-process" data-journey="section" id="#process">
-
-            <div class="journey-section__content">
-
-                <nav class="journey-nav" data-journey="nav">
-                    <a href="#making-of" class="journey-nav__item" data-journey="nav-item">The Making of a Bloom</a>
-                    <a href="#ingredients" class="journey-nav__item" data-journey="nav-item">Ingredients</a>
-                    <a href="#process" class="journey-nav__item" data-journey="nav-item">Bloom Process</a>
-                </nav>
-
-            </div>
-
-            <div class="journey-process__content">
-
-                <div class="journey-process__intro">
-
-                    <div class="bloom-render" data-bloom-render="container"></div>
-
-                    <h3 class="journey-process__title">{{ process.title }}</h3>
-                    <p>{{ process.description }}</p>
-
-                </div>
-
-                {% if process.steps %}
-
-                    <div class="journey-steps">
-
-                        <div class="journey-steps__wrap">
-
-                            {% for step in process.steps %}
-
-                                <div class="journey-step">
-                                    <div class="journey-step__image" style="background-image: url('{{ step.image.url }}')"></div>
-                                    <h4 class="journey-step__title">{{ step.title }}</h4>
-                                    <p>{{ step.description }}</p>
-                                </div>
-
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                {% endif %}
-
-                {% if process.hero_image %}
-                    <img src="{{ process.hero_image.url }}" alt="{{ process.hero_image.alt }}" class="journey-process__hero" />
-                {% endif %}
-
-            </div>
-
-        </section>
-
-        <section class="journey-link">
-            <a href="{{ post.get_field('link').url }}" class="journey-link__url">
-                <span>{{ post.get_field('link').title }}</span>
-            </a>
-        </section>
-
-    </section>
+  {% set intro_header = post.get_field('intro_header') %}
+  {% set intro_subheader = post.get_field('intro_subheader') %}
+  {% set intro_image = post.get_field('intro_image') %}
+
+  {% set description = post.get_field('description') %}
+  {% set image = post.get_field('image') %}
+
+  {% set process = post.get_field('process') %}
+
+  {% set recipe_header = post.get_field('recipe_header') %}
+  {% set recipe_subheader = post.get_field('recipe_subheader') %}
+  {% set slides = post.get_field('slides') %}
+
+  {% set community_title = post.get_field('community_title') %}
+  {% set community_header = post.get_field('community_header') %}
+  {% set community_content = post.get_field('community_content') %}
+  {% set community_image = post.get_field('community_image') %}
+
+  {% set link = post.get_field('link') %}
+
+<section>
+
+  {% include 'components/banner.twig' with {
+    type: 'shop',
+    title: intro_header,
+    subtitle: intro_subheader,
+    image: intro_image.url
+  } %}
+
+  <section>
+    <h1>About us write up</h1>
+    <p>{{ description }}</p>
+    <p>{{ image.url }}</p>
+  </section>
+
+  <section>
+    <h1>Process: from cow to cone</h1>
+    <p>{{ process.title[0].text }}</p>
+    <p>{{ process.title[0].image.url }}</p>
+    <p>{{ process.title[1].text }}</p>
+    <p>{{ process.title[1].image.url }}</p>
+    <p>{{ process.image_1.url }}</p>
+    <p>{{ process.image_2.url }}</p>
+    <p>{{ process.image_3.url }}</p>
+    {% for step in process.steps %}
+      <p>Step {{ loop.index }}</p>
+      <p>{{ step.description }}</p>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h1>Made with the good stuff</h1>
+    <p>{{ recipe_header }}</p>
+    <p>{{ recipe_subheader }}</p>
+    {% for slide in slides %}
+      <p>{{ loop.index }})</p>
+      <p>{{ slide.image.url }}</p>
+      <p>{{ slide.title }}</p>
+      <p>{{ slide.subtitle }}</p>
+    {% endfor %}
+  </section>
+
+  <section class="journey-link">
+    <a href="{{ link.url }}" class="journey-link__url">
+      <span>{{ link.title }}</span>
+    </a>
+  </section>
+
+</section>
 
 {% endblock %}
