@@ -21,7 +21,6 @@
     } %}
 
     <section class="shop__products">
-
       <div class="product-filter grid grid--middle">
 
         {# List Categories #}
@@ -50,9 +49,24 @@
 
         {% endif %}
 
+        {# Subcategories #}
+        {% if subcategories %}
+          <div class="grid__item 1/2 1/1--tablet-portrait">
+            <div class="product-filter__categories-wrap ">
+              <ul class="product-filter__categories column">
+              {% for subcategory in subcategories %}
+                <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
+                  <a href="{{ function('get_term_link', subcategory) }}">{{ subcategory }}</a>
+                </li>
+              {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+
         {# List Filter #}
 
-        {% if filters  %}
+        {# {% if filters  %}
         <div class="grid__item grid__item--right 1/2 1/1--tablet-portrait">
 
           <div class="product-filter__categories-wrap align-right">
@@ -72,7 +86,7 @@
 
         </div>
 
-        {% endif %}
+        {% endif %} #}
 
         </div>
 

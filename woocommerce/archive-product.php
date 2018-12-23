@@ -31,6 +31,14 @@ $context['categories'] = Timber::get_terms([ 'taxonomy' => 'product_cat', 'inclu
 $context['currency'] = get_woocommerce_currency_symbol();
 
 $context['queried_category'] = get_queried_object()->slug;
+$args = array(
+    'hierarchical' => 1,
+    'show_option_none' => '',
+    'hide_empty' => 0,
+    'parent' => get_queried_object_id(),
+    'taxonomy' => 'product_cat'
+ );
+$context['subcategories'] = Timber::get_terms($args);
 $context['current_category'] = strlen($context['queried_category']) > 0 ? $context['queried_category'] : 'all';
 $context['current_filter'] = getCurrentFilter();
 
