@@ -15,17 +15,22 @@
 
     <div class="product-excerpt__inner">
 
-        <a href="{{ product.get_permalink() }}" class="product-excerpt__link">
+        {# <a href="{{ product.get_permalink() }}" class="product-excerpt__link"> #}
 
             {% if imageId %}<img src="{{ imageId }}" class="product-excerpt__image" />{% endif %}
 
             <h4 class="product-excerpt__info">
                 <span class="product-excerpt__name">{{ product.get_name() }}</span>
-                <span class="product-excerpt__price">{{ currency }}{{ product.get_price() }}</span>
+                <span class="product-excerpt__description">{{ product.post.post_excerpt }}</span>
+                <div class="product-excerpt__price">
+                    {{ currency }}{{ product.get_price() }}
+                    {% do action('woocommerce_before_single_product') %}
+                    <form class="product-buy" data-product="buy">
+                        {% include 'components/button-cart.twig' with { product_id: product.id } only %}
+                    </form>
+                </div>
             </h4>
 
-        </a>
-
+        {# </a> #}
     </div>
-
 </li>

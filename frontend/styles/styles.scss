@@ -29,11 +29,11 @@
 @import 'helpers/classes/show';
 @import 'helpers/classes/position';
 
-@import 'components/loader';
+// @import 'components/loader';
 @import 'components/header';
 @import 'components/footer';
-@import 'components/nav';
-@import 'components/hero';
+// @import 'components/nav';
+// @import 'components/hero';
 @import 'components/tabs';
 @import 'components/accordion';
 @import 'components/dropdown';
@@ -52,7 +52,7 @@
 @import 'components/form/input';
 @import 'components/form/quantity-field';
 
-// @import 'modules/ritual';
+// // @import 'modules/ritual';
 @import 'modules/shop';
 @import 'modules/product';
 @import 'modules/stories';
@@ -60,5 +60,5 @@
 @import 'modules/contact';
 @import 'modules/checkout';
 @import 'modules/cart';
-@import 'modules/mini-cart';
+// @import 'modules/mini-cart';
 @import 'modules/personalisation';

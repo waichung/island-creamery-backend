@@ -4,31 +4,146 @@
 /**
  * Modules / Shop
  */
-.shop {
-    margin-top: 180px;
-    background-color: #ffffff;
+// .shop {
+//     margin-top: 180px;
+//     background-color: red;
 
-    @media screen and (max-width: $breakpoint-tablet-portrait) {
-        padding: 25px;
+//     @media screen and (max-width: $breakpoint-tablet-portrait) {
+//         padding: 25px;
+//     }
+
+//     @media screen and (max-width: $breakpoint-palm-portrait) {
+//         margin-top: 80px;
+//         padding: 15px;
+//     }
+
+// }
+
+// .shop__products {
+//     padding-bottom: 150px;
+//     height: 100%;
+//     overflow-x: visible;
+//     margin: 0 auto;
+//     padding: 20px;
+//     width: 100%;
+//     max-width: $breakpoint-laptop-large;
+
+//     @media screen and (max-width: $breakpoint-palm-portrait) {
+//         overflow-x: hidden;
+//     }
+// }
+
+.page--shop {
+
+    overflow: scroll;
+
+    .footer {
+        display: none;
     }
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
-        margin-top: 80px;
-        padding: 15px;
+    .intro {
+
+      padding-left: 30%;
+      padding-right: 30%;
+
     }
 
-}
+    .primary-filter, .secondary-filter {
+    
+      display: flex;
+      justify-content: center;
+      color: #CEC9CB;
+      text-decoration: none;
 
-.shop__products {
-    padding-bottom: 150px;
-    height: 100%;
-    overflow-x: visible;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
-    max-width: $breakpoint-laptop-large;
+      .filter-list {
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
-        overflow-x: hidden;
+				list-style: none;
+        display: flex;
+        flex-direction: row;
+        max-width: 50vw;
+
+        .list-item {
+
+          margin-right: 20px;
+
+          a {
+
+            color: #CEC9CB;
+            text-decoration: none;
+
+          }
+
+          &.active {
+
+            a {
+
+              color: white;
+              text-decoration: underline;
+
+            }
+
+          }
+
+        }
+
+      }
+
+		}
+		
+		.primary-filter {
+
+			margin-top: -50vh;
+			z-index: 0;
+			position: relative;
+
+		}
+
+    .secondary-filter {
+
+			position: relative;
+			margin-top: 40vh;
+      
+      .filter-list {
+
+        .list-item {
+
+          &.active {
+
+            a {
+
+							color: #5A3C35;
+							text-decoration: underline;
+
+						}
+
+          }
+
+        }
+
+      }
+
     }
-}
+
+    .shop__products {
+
+      .product-list {
+
+        .product-excerpt {
+
+          .product-excerpt__inner {
+
+            .product-excerpt__image {
+
+              width: 300px;
+              height: auto;
+
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+  }

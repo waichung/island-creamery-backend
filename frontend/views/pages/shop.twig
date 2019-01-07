@@ -9,86 +9,43 @@
 
 {% set site_title = 'Shop' %}
 
+{% set intro_header = global_options.banner.title_top %}
+{% set intro_subheader = global_options.banner.title_bottom %}
+
 {% block page %}
 
-  <section class="shop">
+  <section class="intro">
+    <h1>{{ intro_header }}</h1>
+    <p>{{ intro_subheader }}</p>
+  </section>
 
-    {% include 'components/banner.twig' with {
-        type: 'shop',
-        title: global_options.banner.title_top,
-        subtitle: global_options.banner.title_bottom,
-        image: global_options.banner.image
-    } %}
+  {% if categories %}
+    <div class="primary-filter">
+    {# List Categories #}
+      <ul class="filter-list">
+        {% for category in categories %}
+          <li class="list-item {% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+            <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+    {# Subcategories #}
+    {% if subcategories %}
+      <div class="secondary-filter">
+        <ul class="filter-list">
+          {% for subcategory in subcategories %}
+            <li class="list-item {% if virgin and subcategory == 'All' %} active {% elseif current_subcategory == subcategory %} active{% endif %}">
+              <a href="{{ function('get_term_link', subcategory) }}">{{ subcategory }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
 
     <section class="shop__products">
-      <div class="product-filter grid grid--middle">
-
-        {# List Categories #}
-
-        {% if categories %}
-
-        <div class="grid__item 1/2 1/1--tablet-portrait">
-
-          <div class="product-filter__categories-wrap ">
-
-            <ul class="product-filter__categories column">
-
-              {% for category in categories %}
-
-                <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
-                  <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
-                </li>
-
-              {% endfor %}
-
-            </ul>
-
-          </div>
-
-        </div>
-
-        {% endif %}
-
-        {# Subcategories #}
-        {% if subcategories %}
-          <div class="grid__item 1/2 1/1--tablet-portrait">
-            <div class="product-filter__categories-wrap ">
-              <ul class="product-filter__categories column">
-              {% for subcategory in subcategories %}
-                <li class="product-filter__category column {% if current_category == category|lower|replace({' ': '-'}) %}product-filter__category--active{% endif %}">
-                  <a href="{{ function('get_term_link', subcategory) }}">{{ subcategory }}</a>
-                </li>
-              {% endfor %}
-              </ul>
-            </div>
-          </div>
-        {% endif %}
-
-        {# List Filter #}
-
-        {# {% if filters  %}
-        <div class="grid__item grid__item--right 1/2 1/1--tablet-portrait">
-
-          <div class="product-filter__categories-wrap align-right">
-
-            <ul class="product-filter__categories">
-
-              {% for key, value in filters %}
-              <li class="product-filter__category row {% if (current_filter == key) %}product-filter__category--chosen{% elseif (key == 'date') and (current_filter == 'date ID') %}product-filter__category--chosen{% endif %}">
-                <a href="{{ current_url }}?orderby={{ key }}">{{ key|capitalize }}</a>
-              </li>
-
-              {% endfor %}
-
-            </ul>
-
-          </div>
-
-        </div>
-
-        {% endif %} #}
-
-        </div>
 
         {# Product List #}
 
@@ -126,7 +83,5 @@
         {% endif %}
 
     </section>
-
-  </section>
 
 {% endblock %}

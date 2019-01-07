@@ -50,27 +50,11 @@
 
 }
 
-.btn--cart-large {
-    position: relative;
-    width: 100%;
-    max-width: 200px;
-    padding: 30px 20px;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #ebaca6;
-    color: #ffffff;
-    cursor: pointer;
-    text-transform: capitalize;
-    font-family: $fontstack-serif-primary;
-    transition: max-width 350ms ease;
+.btn--cart {
 
-    &:focus {
-        outline: none;
-    }
-
-    &:hover {
-        max-width: 250px;
-    }
+    border: none;
+    text-decoration: underline;
+    outline: none;
 
 }
 

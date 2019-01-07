@@ -1,217 +1,217 @@
-// Config
-@import '../config/fonts';
+// // Config
+// @import '../config/fonts';
 
-// Utils
-@import '../utils/functions/rem';
+// // Utils
+// @import '../utils/functions/rem';
 
-/**
- * Module / Mini Cart
- */
-.mini-cart {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 99999;
+// /**
+//  * Module / Mini Cart
+//  */
+// .mini-cart {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     z-index: 99999;
 
-    &:hover {
+//     &:hover {
 
-        .mini-cart__count span {
-            transform: translate(-22px, 20px);
-        }
+//         .mini-cart__count span {
+//             transform: translate(-22px, 20px);
+//         }
 
-        .mini-cart__content {
-            border-color: #dddddd;
-            background-color: #ffffff;
-        }
+//         .mini-cart__content {
+//             border-color: #dddddd;
+//             background-color: #ffffff;
+//         }
 
-        .mini-cart__list {
-            display: block;
-        }
+//         .mini-cart__list {
+//             display: block;
+//         }
 
-        .mini-cart-decoration g {
-            transform: scale(1.5, 1.5);
-        }
+//         .mini-cart-decoration g {
+//             transform: scale(1.5, 1.5);
+//         }
 
-        .mini-cart-decoration__circle--one {
-            transform: translate(0, -3px);
-        }
+//         .mini-cart-decoration__circle--one {
+//             transform: translate(0, -3px);
+//         }
 
-        .mini-cart-decoration__circle--two {
-            transform: translate(0, 15px);
-        }
+//         .mini-cart-decoration__circle--two {
+//             transform: translate(0, 15px);
+//         }
 
-        .mini-cart-decoration__circle--three {
-            transform: translate(0, 15px);
-        }
+//         .mini-cart-decoration__circle--three {
+//             transform: translate(0, 15px);
+//         }
 
-        .mini-cart-decoration__circle--four {
-            transform: translate(15px, 0);
-        }
+//         .mini-cart-decoration__circle--four {
+//             transform: translate(15px, 0);
+//         }
 
-    }
+//     }
 
-}
+// }
 
-.mini-cart__count {
-    position: relative;
-    display: block;
+// .mini-cart__count {
+//     position: relative;
+//     display: block;
 
-    span {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: rem(14px);
-        line-height: 1;
-        transform: translate(0, 0);
-        transition: transform 300ms ease;
-        cursor: pointer;
-        pointer-events: none;
-    }
+//     span {
+//         position: absolute;
+//         top: -10px;
+//         right: -10px;
+//         font-size: rem(14px);
+//         line-height: 1;
+//         transform: translate(0, 0);
+//         transition: transform 300ms ease;
+//         cursor: pointer;
+//         pointer-events: none;
+//     }
 
-}
+// }
 
-.mini-cart-decoration {
-    width: 33px;
-    height: 33px;
+// .mini-cart-decoration {
+//     width: 33px;
+//     height: 33px;
 
-    g {
-        transform-origin: center center;
-        transition: all .1s linear;
-    }
+//     g {
+//         transform-origin: center center;
+//         transition: all .1s linear;
+//     }
 
-}
+// }
 
-.mini-cart-decoration__circle {
-    stroke-width: 0.5px;
-    transition: transform 300ms ease;
-}
+// .mini-cart-decoration__circle {
+//     stroke-width: 0.5px;
+//     transition: transform 300ms ease;
+// }
 
-.mini-cart-decoration__circle--one {
-    transform: translate(0, 0);
-    transform-origin: bottom center;
-}
+// .mini-cart-decoration__circle--one {
+//     transform: translate(0, 0);
+//     transform-origin: bottom center;
+// }
 
-.mini-cart-decoration__circle--two {
-    transform: translate(0, 0);
-    transform-origin: top center;
-}
+// .mini-cart-decoration__circle--two {
+//     transform: translate(0, 0);
+//     transform-origin: top center;
+// }
 
-.mini-cart-decoration__circle--three {
-    transform: translate(0, 0);
-    transform-origin: right center;
-}
+// .mini-cart-decoration__circle--three {
+//     transform: translate(0, 0);
+//     transform-origin: right center;
+// }
 
-.mini-cart-decoration__circle--four {
-    transform: translate(0, 0);
-    transform-origin: left center;
-}
+// .mini-cart-decoration__circle--four {
+//     transform: translate(0, 0);
+//     transform-origin: left center;
+// }
 
-.mini-cart__content {
-    border: 1px solid transparent;
-}
+// .mini-cart__content {
+//     border: 1px solid transparent;
+// }
 
-.mini-cart__list {
-    padding: 20px;
-    width: 300px;
-    list-style: none;
-    display: none;
-}
+// .mini-cart__list {
+//     padding: 20px;
+//     width: 300px;
+//     list-style: none;
+//     display: none;
+// }
 
-.mini-cart-item {
-    display: flex;
-    text-align: left;
-    align-content: flex-start;
-    border-bottom: 1px solid #dddddd;
-}
+// .mini-cart-item {
+//     display: flex;
+//     text-align: left;
+//     align-content: flex-start;
+//     border-bottom: 1px solid #dddddd;
+// }
 
-.mini-cart-item--no-border {
-    border-color: transparent;
-}
+// .mini-cart-item--no-border {
+//     border-color: transparent;
+// }
 
-.mini-cart-item__column {
-    width: 15%;
-    padding: 5px;
-}
+// .mini-cart-item__column {
+//     width: 15%;
+//     padding: 5px;
+// }
 
-.mini-cart-item__column--image {
+// .mini-cart-item__column--image {
 
-    img {
-        width: 100%;
-        height: auto;
-    }
+//     img {
+//         width: 100%;
+//         height: auto;
+//     }
 
-}
+// }
 
-.mini-cart-item__column--main {
-    width: 70%;
-    font-family: $fontstack-serif-primary;
-}
+// .mini-cart-item__column--main {
+//     width: 70%;
+//     font-family: $fontstack-serif-primary;
+// }
 
-.mini-cart-item__column--remove {
-    text-align: center;
+// .mini-cart-item__column--remove {
+//     text-align: center;
 
-    a {
-        font-family: $fontstack-sans-primary;
-        font-weight: 200;
-    }
+//     a {
+//         font-family: $fontstack-sans-primary;
+//         font-weight: 200;
+//     }
 
-}
+// }
 
-.mini-cart-item__title {
-    font-size: rem(14px);
-}
+// .mini-cart-item__title {
+//     font-size: rem(14px);
+// }
 
-.mini-cart-item__quantity {
-    font-size: rem(13px);
-    color: #aaa;
-}
+// .mini-cart-item__quantity {
+//     font-size: rem(13px);
+//     color: #aaa;
+// }
 
-.mini-cart__total {
-    margin: 10px auto;
-    text-align: center;
-    font-family: $fontstack-serif-primary;
-    font-size: rem(14px);
-    display: block;
-}
+// .mini-cart__total {
+//     margin: 10px auto;
+//     text-align: center;
+//     font-family: $fontstack-serif-primary;
+//     font-size: rem(14px);
+//     display: block;
+// }
 
-.mini-cart__buttons {
-    max-width: 175px;
-    margin: 20px auto 0;
+// .mini-cart__buttons {
+//     max-width: 175px;
+//     margin: 20px auto 0;
 
-    a {
-        margin-bottom: 10px;
-        display: block;
-        padding: 10px;
-        border: 1px solid #aaa;
-        background-color: #fff;
-        color: #000;
-        text-align: center;
-        transition: all 300ms ease;
+//     a {
+//         margin-bottom: 10px;
+//         display: block;
+//         padding: 10px;
+//         border: 1px solid #aaa;
+//         background-color: #fff;
+//         color: #000;
+//         text-align: center;
+//         transition: all 300ms ease;
 
-        &:hover {
-            background-color: #000;
-            border-color: #000;
-            color: #fff;
-        }
+//         &:hover {
+//             background-color: #000;
+//             border-color: #000;
+//             color: #fff;
+//         }
 
-        &:nth-of-type(2) {
-            background-color: #aaa;
-            color: #fff;
+//         &:nth-of-type(2) {
+//             background-color: #aaa;
+//             color: #fff;
 
-            &:hover {
-                background-color: #000;
-                color: #fff;
-                border-color: #000;
-            }
+//             &:hover {
+//                 background-color: #000;
+//                 color: #fff;
+//                 border-color: #000;
+//             }
 
-        }
+//         }
 
-    }
+//     }
 
-}
+// }
 
-.mini-cart__empty-message {
-    display: block;
-    margin: 0;
-    text-align: center;
-}
+// .mini-cart__empty-message {
+//     display: block;
+//     margin: 0;
+//     text-align: center;
+// }

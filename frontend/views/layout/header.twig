@@ -1,4 +1,4 @@
-<header class="header {{ (post.name|lower == 'ritual') ? 'header--fixed header--ritual' }} {% if header_type %}header--{{ header_type }}{% endif %}" data-header="container">
+{# <header class="header {{ (post.name|lower == 'ritual') ? 'header--fixed header--ritual' }} {% if header_type %}header--{{ header_type }}{% endif %}" data-header="container">
 
     <div class="header__inner">
 
@@ -40,5 +40,48 @@
         </div>
 
     </div>
+
+</header> #}
+
+{% set header_fill = post.get_field('header_fill') %}
+{% set hex_code = header_fill.hex_code ? header_fill.hex_code : global_options.banner.header_fill.hex_code %}
+{% set bg_url = header_fill.image_link.url %}
+{% set opacity = header_fill.fill_opacity %}
+{% set svg_path = post.get_field('svg_path') ? post.get_field('svg_path') : global_options.banner.svg_path %}
+{% set transform = post.get_field('transform') ? post.get_field('transform') : global_options.banner.transform %}
+{% set logo = global_options.logo %}
+
+<header class="header">
+
+  <div class="nav">
+    <a href="/">
+      <img src="{{ logo.url }}">
+    </a>
+    <div class="nav-menu">
+      {% for nav_item in navigation.items %}
+        <a class="{{ (post.name|lower == 'home') ? '' : 'dark'}}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+      {% endfor %}
+      {{ fn('woocommerce_mini_cart') }}
+    </div>
+  </div>
+
+  {% if hex_code and not bg_url %}
+
+    <svg id="morph" class="intro-lick" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <path class="morph" d="{{ svg_path }}" transform="{{ transform }}" fill={{ hex_code }} />
+    </svg>
+
+  {% else %}
+
+    <svg id="morph" class="intro-lick" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" x="0" y="0" width="100vw" height="100%">
+          <image xlink:href="{{ bg_url }}" width="100vw" height="100%" />             
+        </pattern>
+      </defs>
+      <path class="morph" d="{{ svg_path }}" transform="{{ transform }}" fill="url(#img1)" fill-opacity="{{ opacity }}"/>
+    </svg>
+
+  {% endif %}
 
 </header>

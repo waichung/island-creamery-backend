@@ -7,10 +7,11 @@
 {% set yes = post.get_field('yes') %}
 {% set no = post.get_field('no') %}
 {% set announcement = post.get_field('announcement') %}
-{% set featured_product = post.get_field('featured_product_link') %}
+{% set featured_product = post.get_field('featured_product') %}
 
 {% set flavours_header = post.get_field('flavours_header') %}
-{% set featured_flavours = post.get_field('featured_flavours') %}
+{% set featured_flavours = post.get_field('featured_flavours_lines') %}
+{% set view_menu = post.get_field('view_menu_link') %}
 
 {% set locations = post.get_field('locations') %}
 {% set locations_header = post.get_field('locations').header %}
@@ -23,50 +24,95 @@
 
 {% block page %}
 
-<div>
-  <h1>Welcome!</h1>
-  <div style="background-image: url('{{ featured_product_img.url }}'); width: 100px; height: 100px"></div>
-  <p>{{ header }}</p>
-  <p>{{ announcement }}</p>
-  <a href="{{ featured_product.url }}">{{ featured_product.title }}</a>
-  <a href="{{ yes.url }}">{{ yes.title }}</a>
-  <a href="{{ no.url }}">{{ no.title }}</a>
-</div>
+<section class="page-header">
+  <h1>It's always a<br> good time for ice cream.</h1>
+  <p>You should order <span id="{{ featured_product.code }}"><a href="{{ featured_product.link.url }}">{{ featured_product.name }}</a></span></p>
+  <div class="announcement">
+    {# SVG Static #}
+    <svg width="243.021" height="245.547" viewBox="0 0 243.021 245.547"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M1160.037,388.383s.269,29.842,43.4,69.366c17.438,16.451,33.971,30.559,33.971,30.559s21.562,17.84,40.27,16.122,50.934,1.569,78.884-26.5c60.552-63.725,43.126-126.484,43.126-126.484s-7.65-63.213-43.634-77.482-39.905-17.308-79.716-13.411-56.251,9.577-64.465,22.963-13.672,18.472-28.135,35.266S1154.962,358.87,1160.037,388.383Z" transform="translate(-1158.993 -258.998)"/></svg>
+    <div class="announcement-container">
+      <img src="https://via.placeholder.com/55x37">
+      <p>{{ announcement.line1 }} <br> {{ announcement.line2 }} <br> {{ announcement.line3 }}</p>
+    </div>
+  </div>
+  <div class="highlight">
+    <span><a href="{{ yes.link.url }}">{{ yes.line1 }} <br> {{ yes.line2}} </a></span>
+    <img src="{{ featured_product_img.url }}">
+    <span><a href="{{ no.link.url }}">{{ no.line1 }} <br> {{ no.line2 }}</a></span>
+  </div>
+  <div class="cue"><a href="" id="stop-drip"><strong>Click before<br> it drips!</strong></a></div>
+</section>
 
-<div>
-  <h1>Flavours!</h1>
-  <p>{{ flavours_header }}</p>
-  {% for flavour in featured_flavours %}
-    <span>{{ flavour.name }}</span>
-    <span>{{ flavour.color_code }}</span>
-  {% endfor %}
-</div>
+<section class="flavours target1">
+    {# SVG Dynamic #}
+    {# <svg class="smorph" id="strawberryShortCake" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none"><path class="liquid-effect1" d="M0,3510v651.7s240.566,214.315,365.767,164.273,271.355-22.069,393.723,0,196.733,67.173,327.881,61.978,119-71.038,300.788-118.267,178.618,24.388,334.346,0,199.738-196.067,199.738-196.067V3510Z" transform="translate(0 -3700.5)" fill="white"/></svg> #}
+    <div class="content-container">
+      <h2>{{ flavours_header }}</h2>
+      {% for flavourRow in featured_flavours %}
+        <p>
+          {% for flavour in flavourRow.featured_flavour %}
+            <span id="{{ flavour.code }}">
+              {{ flavour.name }}
+            </span>
+          {% endfor %}
+        </p>
+      {% endfor %}
+      <a href="{{ view_menu.url }}">{{ view_menu.title }}</a>
+    </div>
+</section>
 
-<div>
-  <h1>Locations!</h1>
-  <p>{{ locations_header }}</p>
-  {% for location in locations_list %}
-    <p>{{ location.image }}</p>
-    <p>{{ location.title }}</p>
-    <p>{{ location.address }}</p>
-    <p>{{ location.contact }}</p>
-    <div>
-      {% for item in location.opening_hours %}
-        <p>{{ item.line }}</p>
+<section class="location target2">
+  <h2>{{ locations_header }}</h2>
+  <div class="places">
+    {% for location in locations_list %}
+      <div class="place">
+        {# SVG Static #}
+        <svg width="252" height="251" viewBox="0 0 252 251">
+          <defs>
+            <pattern id="img1" patternUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+              <image xlink:href="{{ location.image.url }}" width="500" height="500" />             
+            </pattern>
+          </defs>
+          <path d="M255.474,1828.876s30.562,4,77.176-34.469c19.329-15.486,36.13-30.382,36.13-30.382s21.341-19.507,22.267-38.9,8.912-51.893-15.784-84.516c-56.493-71.093-123.184-62.254-123.184-62.254s-65.754-1.231-85.511,33.546-23.428,38.353-25.154,79.648,1.726,58.931,14.239,69.255,16.932,16.637,32.034,33.843S224.559,1829.84,255.474,1828.876Z" transform="translate(-140.998 -1578.009)" fill="url(#img1)"/>
+        </svg>
+
+        <div class="place-info">
+          <p>{{ location.title }}</p>
+          <p>
+            {% for address_line in location.address %}
+              {{ address_line.line }}
+              <br>
+            {% endfor %}
+          </p>
+          <p>
+            {% for contact_line in location.contact %}
+              {{ contact_line.line }}
+              <br>
+            {% endfor %}
+          </p>
+          <a href="{{ location.google_map.url }}">{{ location.google_map.title }}</a>
+        </div>
+      </div>
+    {% endfor %}
+</section>
+
+<section class="gallery target3">
+  {# SVG Dynamic #}
+  {# <svg class="smorph" width="100%" height="100%" viewBox="0 0 1920 1080" x="0px" y="0px" enable-background="new 0 0 1920 1080" preserveAspectRatio="none">
+    <path class="liquid-effect2" d="M0,1170v46.357s33.143,23.319,70.652,20.5,6.342-20.5,92.273-20.5,103.638,63.287,229.86,20.5,191.622,42.34,289.975,49.755,102.337-49.755,152.131-49.755,137.423,38.479,224.567,19.189,72.762-26.831,169.086-19.189,94.38,49.1,216.209,49.755,105.071-78.025,238.311-70.259,257.367-11.484,257.367-11.484V1170Z" transform="translate(0.5 -1169.5)" stroke="#D53940" fill="#D53940" />
+  </svg> #}
+  <div class="content-container">
+    <h2>{{ insta_header }}</h2>
+    <p>{{ insta_handle }}</p>
+    <div class="gallery-image">
+      {% for picture in insta_gallery %}
+        <div class="gallery-image-container">
+          <img src="{{ picture.url }}">
+        </div>
       {% endfor %}
     </div>
-    <a href="{{ location.google_map.url }}">{{ location.google_map.title }}</a>
-  {% endfor %}
-</div>
-
-<div>
-  <h1>instagram!</h1>
-  <p>{{ insta_header }}</p>
-  <p>{{ insta_handle }}</p>
-  {% for picture in insta_gallery %}
-    <p>{{ picture.url }}</p>
-  {% endfor %}
-</div>
+  </div>
+</section>
 
 {% endblock %}
 

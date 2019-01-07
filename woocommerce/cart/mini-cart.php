@@ -22,13 +22,97 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$context = Timber::get_context();
+// remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10 );
 
+
+// function my_woocommerce_widget_shopping_cart_button_view_cart() {
+// 	$shop_path =  esc_url( get_home_url() ) . '/menu';
+//     echo '<a href="' . $shop_path . '" class="btn btn-default">' . esc_html__( 'Continue Shopping', 'woocommerce' ) . '</a>';
+// }
+// add_action( 'woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_shopping_cart_button_view_cart', 10 );
+
+$context = Timber::get_context();
+// $context['cart_items'] = [];
 $context['cart'] = WC()->cart->get_cart();
+
+// foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+
+//     $products_array = [];
+
+//     // General vars
+//     $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+//     $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+
+//     if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
+
+//         // URL
+//         $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+//         $products_array['url'] = get_permalink($product_id);
+
+//         // Delete button
+//         $products_array['delete_permalink'] = esc_url(wc_get_cart_remove_url( $cart_item_key ));
+//         $products_array['delete_productid'] = esc_attr($product_id);
+//         $products_array['delete_sku'] = esc_attr($_product->get_sku());
+
+//         // Thumbnail
+//         $thumbnail = get_the_post_thumbnail_url($product_id);
+
+//         if (!$product_permalink) {
+//             $products_array['thumbnail'] = $thumbnail;
+//         } else {
+//             $products_array['thumbnail'] = $thumbnail;
+//         }
+
+//         // Title
+//         if (! $product_permalink) {
+//             $products_array['title'] = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
+//         } else {
+//             $products_array['title'] = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
+//             // $products_array['title'] = apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key);
+//         }
+
+//         // Backorder notification
+//         if ($_product->backorders_require_notification() && $_product->is_on_backorder($cart_item['quantity'])) {
+//             $products_array['backorder'] = true;
+//         }
+
+//         // Price
+//         $products_array['price'] = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
+
+//         // Quantity
+//         if ($_product->is_sold_individually()) {
+
+//             $product_quantity = sprintf('1 <input type="hidden" name="shame" value="1">', $cart_item_key);
+
+//         } else {
+
+//             $product_quantity = woocommerce_quantity_input([
+//                 'input_name'   => "cart[{$cart_item_key}][qty]",
+//                 'input_value'  => $cart_item['quantity'],
+//                 'max_value'    => $_product->get_max_purchase_quantity(),
+//                 'min_value'    => '0',
+//                 'product_name' => $_product->get_name(),
+//             ], $_product, false );
+
+//         }
+
+//         $products_array['quantity'] = apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item);
+
+//         // Total
+//         $products_array['total'] = apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key);
+
+//         // Merge with products
+//         $context['cart_items'][] = $products_array;
+
+//     }
+
+// }
+
+
 $context['cart_is_empty'] = WC()->cart->is_empty();
 $context['cart_subtotal'] = WC()->cart->get_cart_subtotal();
 $context['cart_url'] = wc_get_cart_url();
 
-$context['cart_count'] = count($context['cart']);
+$context['cart_count'] = count(WC()->cart->get_cart());
 
 Timber::render('components/mini-cart.twig', $context); ?>

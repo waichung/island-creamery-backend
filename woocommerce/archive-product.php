@@ -30,7 +30,8 @@ $context['post'] = new Timber\Post();
 $context['categories'] = Timber::get_terms([ 'taxonomy' => 'product_cat', 'include' => $context['global_options']['categories'] ]);
 $context['currency'] = get_woocommerce_currency_symbol();
 
-$context['queried_category'] = get_queried_object()->slug;
+$context['queried_category'] = get_queried_object()->name;
+$context['virgin'] = get_queried_object()->slug === 'customised-cakes' ? 1 : get_queried_object()->slug === 'ice-cream'? 1 : get_queried_object()->slug === 'ice-cream-cakes'? 1 : get_queried_object()->slug === 'shop'? 1 : false;
 $args = array(
     'hierarchical' => 1,
     'show_option_none' => '',
@@ -38,13 +39,23 @@ $args = array(
     'parent' => get_queried_object_id(),
     'taxonomy' => 'product_cat'
  );
-$context['subcategories'] = Timber::get_terms($args);
-$context['current_category'] = strlen($context['queried_category']) > 0 ? $context['queried_category'] : 'all';
+$context['subcategories'] = Timber::get_terms($args) ? Timber::get_terms($args) : Timber::get_terms(array(
+    'hierarchical' => 1,
+    'show_option_none' => '',
+    'hide_empty' => 0,
+    'parent' => get_queried_object()->parent,
+    'taxonomy' => 'product_cat',
+));
+
+$context['parent_cat'] = get_term(get_queried_object()->parent)->slug;
+
+$context['current_subcategory'] = strlen($context['queried_category']) > 0 ? $context['queried_category'] : 'all';
+
 $context['current_filter'] = getCurrentFilter();
 
 // Product Filtering Logic
 $context['products'] = wc_get_products(array_merge([
-    'category' => [ $context['current_category'] ],
+    'category' => [ get_queried_object()->slug ],
     'orderby'  => 'meta_value_num'
 ], orderProducts()));
 

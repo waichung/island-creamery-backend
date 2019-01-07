@@ -1,23 +1,17 @@
-<footer class="footer">
-
-    <div class="footer__items">
-
-        {% if footer_nav %}
-
-            <ul class="footer__list">
-
-                {% for item in footer_nav.items %}
-                    <li class=""><a href="{{ item.url }}">{{ item.title }}</a></li>
-                {% endfor %}
-
-            </ul>
-
-        {% endif %}
-
-    </div>
-
+<footer class="footer dark">
+  <div class="footer-links">
+    {% if footer_nav %}
+      {% for item in footer_nav.items %} 
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <p>©2018 Island Creamery. Built by Sunny Side Up</p>
+  <svg class="smorph" width="929.861" height="277.778" viewBox="0 0 929.861 277.778">
+    <path d="M540.15,4593s188.933-250.075,367.589-269.993,201.554,1.5,309.5,29.089,124.006,24.843,163.6,67.155,31.386,33.887,47,65.059,1.787,16.009,25.87,52.845S1468.072,4593,1468.072,4593Z" transform="translate(-540.15 -4315.222)" fill="#D53940"/>
+  </svg>
 </footer>
 
-{% include 'components/loader.twig' %}
+{# {% include 'components/loader.twig' %} #}
 
 {{ wp_footer() }}

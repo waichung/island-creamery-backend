@@ -5,7 +5,6 @@
 {% block page %}
   {% set intro_header = post.get_field('intro_header') %}
   {% set intro_subheader = post.get_field('intro_subheader') %}
-  {% set intro_image = post.get_field('intro_image') %}
 
   {% set description = post.get_field('description') %}
   {% set image = post.get_field('image') %}
@@ -23,54 +22,76 @@
 
   {% set link = post.get_field('link') %}
 
-<section>
-
-  {% include 'components/banner.twig' with {
-    type: 'shop',
-    title: intro_header,
-    subtitle: intro_subheader,
-    image: intro_image.url
-  } %}
-
-  <section>
-    <h1>About us write up section</h1>
-    <p>{{ description }}</p>
-    <p>{{ image.url }}</p>
+  <section class="intro">
+    <h1>{{ intro_header }}</h1>
+    <p>{{ intro_subheader }}</p>
   </section>
 
-  <section>
-    <h1>Process: from cow to cone section</h1>
-    <p>{{ process.title[0].text }}</p>
-    <p>{{ process.title[0].image.url }}</p>
-    <p>{{ process.title[1].text }}</p>
-    <p>{{ process.title[1].image.url }}</p>
-    <p>{{ process.image_1.url }}</p>
-    <p>{{ process.image_2.url }}</p>
-    <p>{{ process.image_3.url }}</p>
-    {% for step in process.steps %}
-      <p>Step {{ loop.index }}</p>
-      <p>{{ step.description }}</p>
-    {% endfor %}
+  <section class="write-up">
+
+    <div>
+      {{ description }}
+    </div>
+    <img src="{{ image.url }}" />
+
   </section>
 
-  <section>
-    <h1>Made with the good stuff section</h1>
-    <p>{{ recipe_header }}</p>
+  <section class="provenance">
+
+    <div class="header">
+
+      <h1>
+        {{ process.title[0].text }}
+        <img src="{{ process.title[0].image.url }}"/>
+      </h1>
+      <h1>
+        {{ process.title[1].text }}
+        <img src="{{ process.title[1].image.url }}"/>
+      </h1>
+      <img src="{{ process.image_1.url }}"/>
+    </div>
+
+    <div class="steps">
+      <img src="{{ process.image_2.url }}"/>
+      {% for step in process.steps %}
+        <div class="step">
+          <div class="step-number">
+            {{ loop.index }}
+          </div>
+          <div class="step-description">
+            {{ step.description }}
+          </div>
+        </div>
+      {% endfor %}
+      <img src="{{ process.image_3.url }}"/>
+    </div>
+
+  </section>
+
+  <section class="recipe">
+    <h1>{{ recipe_header }}</h1>
     <p>{{ recipe_subheader }}</p>
+    
     {% for slide in slides %}
-      <p>{{ loop.index }})</p>
-      <p>{{ slide.image.url }}</p>
-      <p>{{ slide.title }}</p>
-      <p>{{ slide.subtitle }}</p>
+      <div class="recipe-slider-card">
+        <img src="{{ slide.image.url }}" />
+        <div class="words">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.subtitle }}</p>
+        </div>
+      </div>
     {% endfor %}
   </section>
 
-  <section>
-    <h1>Community Section</h1>
-    <p>{{ community_title }}</p>
-    <p>{{ community_header }}</p>
-    <p>{{ community_content }}</p>
-    <p>{{ community_image.url }}</p>
+  <section class="community">
+    <h1>{{ community_title }}</h1>
+    <div class="community-details">
+      <img src="{{ community_image.url }}" />
+      <div class="write-up">
+        <h2>{{ community_header }}</h2>
+        <p>{{ community_content }}</p>
+      </div>
+    </div>
   </section>
 
   <section class="journey-link">
@@ -78,7 +99,5 @@
       <span>{{ link.title }}</span>
     </a>
   </section>
-
-</section>
 
 {% endblock %}
