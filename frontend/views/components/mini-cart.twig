@@ -1,15 +1,8 @@
-{#
 
-    Template: Mini Cart
-
-    Mini cart shown on all pages
-
-#}
-
-{% do action( 'woocommerce_before_mini_cart' ) %}
+{% do action( 'woocommerce_before_cart' ) %}
 
 <div class="mini-cart">
-  
+
   <input type="checkbox" id="big-gulp">
   <label class="{{ (post.name|lower == 'home') ? '' : 'dark'}}" for="big-gulp">
     <img src="{{ global_options.gulp_icon.url }}">
@@ -18,109 +11,94 @@
     <span>
   </label>
 
-  {% do action( 'woocommerce_before_mini_cart_contents' ) %}
   
-  <div class="cart-modal">
-  <div class="cart-content">
+  <div class="cart-modal" data-cart="container">
+
+    <div class="cart-content">
     <h2>Your Tub</h2>
-    <ul class="mini-cart__list">
+    {% if not cart_is_empty %}
 
-      {% if not cart_is_empty %}
+      <form class="cart-form" action="{{ fn('wc_get_cart_url')|e('esc_url') }}" method="post">
 
-        {% for key, item in cart %}
+          {% do action('woocommerce_before_cart_table') %}
 
-          {% set quantity = item.quantity %}
-          {% set product = function('apply_filters', 'woocommerce_cart_item_product', item.data, item, key ) %}
-          {% set id = function('apply_filters', 'woocommerce_cart_item_product_id', item.product_id, item, key ) %}
-          {% set filters = function('apply_filters', 'woocommerce_widget_cart_item_visible', true, item, key ) %}
+          {% do action( 'woocommerce_before_cart_contents' ) %}
 
-          {% if (product and product.exists and (item.quantity > 0) and filters) %}
+          <ul class="mini-cart__list">
+              {% for product in cart_items %}
 
-            {% set product_name = fn('apply_filters', 'woocommerce_cart_item_name', product.get_name(), item, key ) %}
-            {% set thumbnail = fn('apply_filters', 'woocommerce_cart_item_thumbnail', product.get_image(), item, key ) %}
-            {% set product_price = fn('apply_filters', 'woocommerce_cart_item_price', product.get_price(), item, key ) %}
-            {% set permalink = fn('apply_filters', 'woocommerce_cart_item_permalink', product.is_visible() ? product.get_permalink( item ) : '', item, key ) %}
-            {% set remove_link = fn('wc_get_cart_remove_url', key) %}
+                <li class="mini-cart-item {% if cart|length < 2 %} mini-cart-item--no-border {% endif %}{% if loop.last %}mini-cart-item--last{% endif %}">
 
-            <li class="mini-cart-item {% if cart|length < 2 %} mini-cart-item--no-border {% endif %}{% if loop.last %}mini-cart-item--last{% endif %}">
+                      <div class="cart-item-image">
+                          <img src="{{ product.thumbnail }}"  alt="{{ product.title }}" />
+                      </div>
 
-              <div class="cart-item-image">
-                {{ product.get_image() }}
-              </div>
+                      <div class="cart-item-details">
+                        <div class="mini-cart-item__column mini-cart-item__column--main">
+                          <span class="mini-cart-item__title">{{ product.title }}</span>
+                          <span class="mini-cart-item__quantity">{{ product.total }}</span>
+                        </div>
 
-              <div class="cart-item-details">
-                <div class="mini-cart-item__column mini-cart-item__column--main">
-                  <span class="mini-cart-item__title">{{ product_name }}</span>
-                  <span class="mini-cart-item__quantity">{{ quantity }} x {{ currency }}{{ product_price }}</span>
-                </div>
+                        <div class="mini-cart-item__column mini-cart-item__column--remove">
+                          <div class="qty-toggle">Quantity
+                            {{ product.quantity }}
+                          </div>
+                          <a href="{{ product.delete_permalink }}">Remove</a>
+                        </div>
 
-                <div class="mini-cart-item__column mini-cart-item__column--remove">
-                  <div class="qty-toggle">Quantity</div>
-                  <a href="{{ remove_link }}">Remove</a>
-                </div>
-              </div>
+                      </div>
 
-            </li>
+                  </li>
 
-          {% endif %}
+              {% endfor %}
 
-        {% endfor %}
-        {# {% for key, product in cart_items %}
+          </ul>
 
-            <li class="mini-cart-item {% if cart|length < 2 %} mini-cart-item--no-border {% endif %}{% if loop.last %}mini-cart-item--last{% endif %}">
+          <div class="actions">
 
-              <a href="{{ product.url }}">
-              <div class="cart-item-image">
-                <img src="{{ product.thumbnail }}" class="cart-item__image" alt="{{ product.title }}" />
-              </div>
-              </a>
+              {% if (cart_items|length > 0) %}
 
-              <div class="cart-item-details">
-                <div class="mini-cart-item__column mini-cart-item__column--main">
-                  <span class="mini-cart-item__title">{{ product.title }}</span>
-                  <span class="mini-cart-item__quantity">{{ currency }}{{ product.price }}</span>
-                </div>
+                  <button type="submit" class="button cart__update-btn" name="update_cart" value="{{ function('wc_get_cart_url')|e('esc_url') }}">Update Cart</button>
 
-                <div class="mini-cart-item__column mini-cart-item__column--remove">
-                  <div class="qty-toggle">Quantity
-                    {{ product.quantity }}
-                  </div>
-                  <a href="{{ product.delete_permalink }}">Remove</a>
-                </div>
-              </div>
+                  {% do action( 'woocommerce_cart_actions' ) %}
+                  {{ function('wp_nonce_field', 'woocommerce-cart') }}
+                  {% do action('wp_nonce_field', 'woocommerce-cart', 'woocommerce-cart-nonce') %}
 
-            </li>
+              {% endif %}
 
-        {% endfor %} #}
+          </div>
 
-      {% else %}
+          {% do action( 'woocommerce_after_cart_contents' ) %}
 
-        <li>
-          <p class="mini-cart__empty-message">{{ _e( 'Your tub is empty', 'woocommerce' ) }}</p>
-        </li>
+          {% do action( 'woocommerce_after_cart_table' ) %}
 
-      {% endif %}
+      </form>
 
-    </ul>
+    {% else %}
 
-    <div class="cart-summary">
-      <div class="subtotal">
-        <span>{{ _e( 'Subtotal', 'woocommerce' ) }}: </span>
-        <span class="mini-cart__total total">{{ cart_subtotal }}</span>
-      </div>
+      <li>
+        <p class="mini-cart__empty-message">{{ _e( 'Your tub is empty', 'woocommerce' ) }}</p>
+      </li>
 
-      <div class="cart-buttons-container">
-        {% do action( 'woocommerce_widget_shopping_cart_before_buttons' ) %}
+    {% endif %}
 
-        {% do action( 'woocommerce_widget_shopping_cart_buttons' ) %}
+      <div class="cart-summary">
+        <div class="subtotal">
+          <span>{{ _e( 'Subtotal', 'woocommerce' ) }}: </span>
+          <span class="mini-cart__total total">{{ cart_subtotal }}</span>
+        </div>
+
+        <div class="cart-buttons-container">
+          {% do action( 'woocommerce_widget_shopping_cart_before_buttons' ) %}
+
+          {% do action( 'woocommerce_widget_shopping_cart_buttons' ) %}
+        </div>
       </div>
     </div>
-
-  </div>
-  </div>
-
-  {% do action( 'woocommerce_mini_cart_contents' ) %}
-
+    {# End cart__content #}
+  </div> 
+  {# end cart #}
 </div>
 
-{% do action( 'woocommerce_after_mini_cart' ) %}
+{% do action( 'woocommerce_after_cart' ) %}
+

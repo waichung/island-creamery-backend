@@ -17,7 +17,6 @@ export default class QuantityInput {
         this.input = this.container.querySelector('[data-quantity="input"]')
         this.decBtn = this.container.querySelector('[data-adjust="dec"]');
         this.incBtn = this.container.querySelector('[data-adjust="inc"]');
-
         this.decBtn.addEventListener('click', this.onAdjust.bind(this));
         this.incBtn.addEventListener('click', this.onAdjust.bind(this));
         this.input.addEventListener('onkeyup', this.onKeyUp.bind(this));
@@ -36,7 +35,6 @@ export default class QuantityInput {
      * @return {Void}
      */
     onAdjust(event) {
-
         event.preventDefault();
 
         const type = event.currentTarget.getAttribute('data-adjust');

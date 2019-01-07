@@ -50,12 +50,12 @@ class NestBloomSite extends TimberSite
 
         wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css?v='. time(), [], null, false );
         wp_enqueue_script( 'js', get_template_directory_uri() . '/assets/js/entry.js?v='. time(), [], null, true );
-        if ( is_front_page() ) {
-            wp_enqueue_style( 'nb-experience-css', get_home_url() . '/assets/nestbloom-experience.css?v='. time(), [], null, false );
-            wp_enqueue_script( 'nb-experience-smoke-js', get_home_url() . '/assets/smoke.js?v='. time(), [], null, true );
-            wp_enqueue_script( 'nb-experience-js', get_home_url() . '/assets/nestbloom-experience.js?v='. time(), [], null, true );
+        // if ( is_front_page() ) {
+        //     wp_enqueue_style( 'nb-experience-css', get_home_url() . '/assets/nestbloom-experience.css?v='. time(), [], null, false );
+        //     wp_enqueue_script( 'nb-experience-smoke-js', get_home_url() . '/assets/smoke.js?v='. time(), [], null, true );
+        //     wp_enqueue_script( 'nb-experience-js', get_home_url() . '/assets/nestbloom-experience.js?v='. time(), [], null, true );
 
-        }
+        // }
         wp_localize_script( 'js', 'wp', ['theme' => get_stylesheet_directory_uri()]);
     }
 
