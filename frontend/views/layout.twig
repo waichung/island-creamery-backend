@@ -18,12 +18,18 @@
         {# <main class="main main--{{ site_title|lower|replace({' ':'-'}) }}"> #}
         
             {# Header #}
-            {% include 'layout/header.twig' %}
+            {% if site_title == 'checkout' %}
+                {% include 'layout/simple-header.twig' %}
+            {% else %}
+                {% include 'layout/header.twig' %}
+            {% endif %}
 
             {% block page %}{% endblock %}
 
             {# Footer #}
-            {% include 'layout/footer.twig' %}
+            {% if not site_title == 'checkout' %}
+                {% include 'layout/footer.twig' %}
+            {% endif %}
 
         {# </main> #}
 

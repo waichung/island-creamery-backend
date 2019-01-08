@@ -7,13 +7,215 @@
 /**
  * Modules / Checkout
  */
+
+ body {
+
+    .simple-header {
+
+        .nav {
+            
+            .nav-menu {
+
+                a {
+
+                    text-decoration: underline;
+                    color: $primary;
+                    text-transform: capitalize;
+
+                }
+
+            }
+
+        }
+
+    }
+
+     &.page--checkout {
+
+         overflow: scroll;
+         background-color: $color-grey-light
+
+     }
+
+ }
+
+ 
 .checkout {
+
     width: 93%;
     height: auto;
     margin: 0 auto;
+
+    &.woocommerce-checkout {
+
+        .col2-set {
+
+            .col-1 {
+                
+                text-align: left;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+
+                .woocommerce-billing-fields {
+
+                    background-color: white;
+                    padding: 10px 30px 30px 30px;
+                    width: 70%;
+                    border-radius: 5px;
+
+                    h3 {
+
+                        font-size: 1.2em;
+                        font-weight: 700;
+
+                    }
+
+                    #billing_country_field {
+
+                        padding-left: 27px;
+
+                    }
+
+                    .woocommerce-billing-fields__field-wrapper {
+
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+
+                        p {
+
+                            label[for="billing_country"] {
+
+                                transform: translateY(-17px);
+
+                            }
+
+                            span {
+
+                                input {
+
+                                    border-radius: 5px;
+
+                                }
+
+                                // strong {
+
+                                //     border: black solid 1px;
+                                //     padding: 9px;
+                                //     padding-top: 16px;
+                                //     border-radius: 5px;
+                                //     width: 100%;
+
+                                // }
+
+                            }
+
+                            .billing_country {
+
+                                margin-bottom: 10px;
+
+                            }
+
+                        }
+
+                        p:first-child {
+
+                            order: 0;
+                            // background-color: red;
+
+                        }
+
+                        p:nth-child(2) {
+                        
+                            order: 1;
+                            position: absolute;
+                            right: 0;
+                            // background-color: blue;
+
+                        }
+
+                        p:nth-child(3) {
+
+                            order: 4;
+                            // background-color: yellow;
+                            width: 50%;
+                            position: absolute;
+                            right: 0;
+                            top: 200px;
+
+                        }
+
+                        p:nth-child(4) {
+
+                            order: 3;
+                            // background-color: green;
+                            width: 50%;
+
+                        }
+
+                        p:nth-child(7) {
+
+                            order: 2;
+                            // background-color: black;
+
+                        }
+
+                        p:nth-child(6) {
+
+                            order: 6;
+                            // background-color: pink;
+                            width: 50%;
+                            
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .col-2 {
+
+                display: none;
+                
+            }
+            
+        }
+
+       #order_review_heading {
+
+           display: none;
+
+       }
+
+       .order-summary-container {
+
+           width:  30%;
+           background-color: white;
+           margin-left: 20px;
+           border-radius: 5px;
+           padding: 10px 30px 10px 30px;
+
+           h1 {
+
+                font-size: 1.2em;
+
+           }
+        
+       }
+
+        .woocommerce-account-fields {
+
+            display: none;
+
+        }
+
+    }
 }
 
 .checkout__content {
+
     margin: auto;
     width: 100%;
     padding: 0 20px;
@@ -25,6 +227,12 @@
                 display:none;
             }
         }   
+
+        .woocommerce-form-login-toggle {
+
+            display: none;
+
+        }
     }
 }
 
