@@ -71,16 +71,26 @@
   <section class="recipe">
     <h1>{{ recipe_header }}</h1>
     <p>{{ recipe_subheader }}</p>
-    
+
     {% for slide in slides %}
-      <div class="recipe-slider-card">
+      <div class="mySlides fade">
         <img src="{{ slide.image.url }}" />
         <div class="words">
+          <h1>{{ slide.image }} </h1>
           <h2>{{ slide.title }}</h2>
           <p>{{ slide.subtitle }}</p>
         </div>
       </div>
     {% endfor %}
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+    </div>
   </section>
 
   <section class="community">

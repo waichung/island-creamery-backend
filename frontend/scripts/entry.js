@@ -18,11 +18,49 @@ import Cart from './views/Cart';
  */
 document.addEventListener('DOMContentLoaded', () => {
 
+    var slideIndex = 0;
+    autoSlide(slideIndex);
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n+1 > slides.length) {n = 0} 
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[n].style.display = "block"; 
+        dots[n].className += " active";
+
+    }
+
+    function autoSlide (n) {
+        const slideNumber = n > document.getElementsByClassName("mySlides").length ? 0 : n;
+        showSlides(slideNumber);
+        setTimeout(() => {
+            autoSlide(slideNumber + 1)
+        }, 2000);
+    }
+      
+    const listOfDots = document.getElementsByClassName('dot');
+
+    listOfDots[0].addEventListener('click', (e) => currentSlide(0));
+    listOfDots[1].addEventListener('click', (e) => currentSlide(1));
+    listOfDots[2].addEventListener('click', (e) => currentSlide(2));
+
     const quantityPlusMinus = document.getElementsByClassName('qty-toggle')[0];
 
     const updateCartBtn = document.querySelector("[name='update_cart']");
     
-    quantityPlusMinus.addEventListener('click', () => {
+    if(quantityPlusMinus) quantityPlusMinus.addEventListener('click', () => {
         updateCartBtn.click();
     });
 
