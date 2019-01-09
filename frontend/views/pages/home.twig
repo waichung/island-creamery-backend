@@ -103,13 +103,9 @@
   </svg> #}
   <div class="content-container">
     <h2>{{ insta_header }}</h2>
-    <p>{{ insta_handle }}</p>
+    <a href="{{ insta_handle.url }}"><p>{{ insta_handle.title }}</p></a>
     <div class="gallery-image">
-      {% for picture in insta_gallery %}
-        <div class="gallery-image-container">
-          <img src="{{ picture.url }}">
-        </div>
-      {% endfor %}
+      {{ insta_gallery }}
     </div>
   </div>
 </section>
