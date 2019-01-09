@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{{ site_title }} - NestBloom</title>
+        <title>{{ site_title }}</title>
         {{ wp_head() }}
     </head>
 
@@ -28,7 +28,9 @@
 
             {# Footer #}
             {# {% if not site_title == 'checkout' %} #}
-            {% include 'layout/footer.twig' %}
+            {% include 'layout/footer.twig' with {
+                type: site_title == 'Home' ? 'dark' : '',
+            } %}
             {# {% endif %} #}
 
         {# </main> #}

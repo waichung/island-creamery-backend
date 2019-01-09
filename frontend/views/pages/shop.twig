@@ -11,7 +11,7 @@
 
 {% set intro_header = global_options.banner.title_top %}
 {% set intro_subheader = global_options.banner.title_bottom %}
-
+{% set nav_footer = global_options.navigation_footer_link %}
 {% block page %}
 
   <section class="intro">
@@ -82,6 +82,13 @@
 
         {% endif %}
 
+    </section>
+
+    <section class="nav-shortcut choco">
+      <a href="{{ nav_footer.url }}" >
+        <span>{{ nav_footer.title }}</span>
+      </a>
+      {# <svg class="smorph" id="strawberryShortCake" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none"><path class="liquid-effect1" d="M0,3510v651.7s240.566,214.315,365.767,164.273,271.355-22.069,393.723,0,196.733,67.173,327.881,61.978,119-71.038,300.788-118.267,178.618,24.388,334.346,0,199.738-196.067,199.738-196.067V3510Z" transform="translate(0 -3700.5)" fill="white"/></svg> #}
     </section>
 
 {% endblock %}

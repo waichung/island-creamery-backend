@@ -2,9 +2,8 @@
 {% do action( 'woocommerce_before_cart' ) %}
 
 <div class="mini-cart">
-
   <input type="checkbox" id="big-gulp">
-  <label class="{{ (post.name|lower == 'home') ? '' : 'dark'}}" for="big-gulp">
+  <label class="{{ (page_title|lower == 'home') ? '' : 'dark'}}" for="big-gulp">
     <img src="{{ global_options.gulp_icon.url }}">
     <span>
       {{ cart_count }}

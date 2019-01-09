@@ -301,7 +301,34 @@ body {
 
   }
 
+  .nav-shortcut {
 
+    background-color: $primary;
+
+    &.choco {
+
+      background-color: #5A3C35;
+
+    }
+
+    a {
+      
+      color: white;
+      text-decoration: none;
+      position: relative;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: rem(72px);
+  
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+          font-size: rem(50px);
+      }
+
+    }
+    
+  }
 
 }
 

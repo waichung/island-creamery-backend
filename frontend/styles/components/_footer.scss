@@ -46,10 +46,22 @@
       z-index: 3;
     }
 
+    svg {
+
+      display: none;
+
+    }
+
     &.dark {
 
       background: white;
       color: white;
+
+      svg {
+
+        display: block !important;
+
+      }
 
       a {
 

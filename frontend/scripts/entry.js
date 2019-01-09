@@ -1,5 +1,5 @@
 // Lib
-import Scrollbar from 'smooth-scrollbar';
+// import Scrollbar from 'smooth-scrollbar';
 // import HubSlider from './lib/HubSlider';
 
 // // Utils

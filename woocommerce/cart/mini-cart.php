@@ -112,5 +112,6 @@ $context['nonce'] = wp_nonce_field('woocommerce-cart');
 $context['action'] = esc_url(wc_get_cart_url());
 $context['cart_subtotal'] = WC()->cart->get_cart_subtotal();
 $context['cart_count'] = count(WC()->cart->get_cart());
+$context['page_title'] = get_the_title();
 
 Timber::render('components/mini-cart.twig', $context); ?>

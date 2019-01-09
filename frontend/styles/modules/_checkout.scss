@@ -33,15 +33,16 @@
      &.page--checkout {
 
          overflow: scroll;
-         background-color: $color-grey-light
+         background-color: $color-grey-light;
 
-     }
-
-     .footer {
+         .footer {
         
-        display: none;
+            display: none;
+    
+         }
 
      }
+
 
  }
 
