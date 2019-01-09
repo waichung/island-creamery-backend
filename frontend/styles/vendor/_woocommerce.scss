@@ -1,5 +1,6 @@
 // Config
 @import '../config/fonts';
+@import '../config/palette';
 
 // Utils
 @import '../utils/functions/rem';
@@ -60,8 +61,104 @@
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
+
     background-color: transparent;
     border-top: 1px solid rgba(0,0,0,.1);
+    width: 70%;
+    border: none;
+    margin-top: 50px;
+
+    ul.payment_methods {
+
+        padding: 0;
+        border: 0;
+        background-color: white;
+        border-radius: 5px;
+        padding: 30px 30px 30px 30px;
+
+        li.wc_payment_method.payment_method_stripe  {
+
+            label[for="payment_method_stripe"] {
+
+                padding: 0;
+                font-size: 1.2em;
+                font-weight: 700;
+
+            }
+
+            div.payment_box.payment_method_stripe {
+
+                padding: 0;
+
+                &::before {
+
+                    border-color: white;
+
+                }
+
+                #stripe-payment-data {
+
+                    background-color: white;
+
+                    #wc-stripe-cc-form {
+
+                        div.form-row {
+
+                            padding: 0;
+
+                            .wc-stripe-elements-field {
+
+                                
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+            
+        }
+
+    }
+
+    div.form-row.place-order {
+
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        margin-top: 50px;
+
+        .woocommerce-privacy-policy-text {
+
+            display: none;
+
+        }
+
+        .woocommerce-terms-and-conditions-wrapper {
+
+            width: 70%;
+
+        }
+
+        .checkout__btn-wrap {
+
+            button {
+
+                background-color: $primary;
+                padding: 12px 60px;
+                color: white;
+
+            }
+
+        }
+        
+    }
+    
 }
 
 .woocommerce-checkout-review-order-table, .woocommerce-shipping-totals small {

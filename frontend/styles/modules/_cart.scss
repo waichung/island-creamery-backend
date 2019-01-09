@@ -304,7 +304,7 @@
 .coupon {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 }
 
 .coupon__label {
@@ -314,9 +314,9 @@
 
 .coupon__input {
     font-family: $fontstack-serif-primary;
-    border-right: 0;
-    width: 70%;
+    width: 65%;
     outline: none;
+    border-radius: 5px;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
         width: 60%;
@@ -326,12 +326,16 @@
 }
 
 .coupon__submit {
+    width: 30%;
+    background-color: #473F41 !important ;
+    color: white !important;
+    margin-left: 5% !important;
     appearance: none;
     border: 1px solid #e1e1e1;
     border-left: 0;
     padding: 10px 20px;
     font-family: $fontstack-sans-primary;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: rem(14px);
     font-weight: 200;
     outline: none;

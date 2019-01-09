@@ -81,16 +81,6 @@ $personalisation_enabled = $wc_session->get('personalisation_enabled');
 			</tr>
 		<?php endforeach; ?>
 
-		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
-
-			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-
-			<?php wc_cart_totals_shipping_html(); ?>
-
-			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
-		<?php endif; ?>
-
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<tr class="fee">
 				<th><?php echo esc_html( $fee->name ); ?></th>
@@ -119,9 +109,14 @@ $personalisation_enabled = $wc_session->get('personalisation_enabled');
 		<tr class="order-total">
 			<th><?php _e( 'Total', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_order_total_html(); ?></td>
+			<th><?php _e( 'Shipping cost', 'woocommerce' ); ?></th>
+			<td><?php echo WC()->cart->get_cart_shipping_total(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
 	</tfoot>
 </table>
+
+
+

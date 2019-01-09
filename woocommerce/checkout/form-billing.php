@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php else : ?>
 
-		<h3><?php _e( 'Billing details', 'woocommerce' ); ?></h3>
+		<h3><?php _e( 'Shipping details', 'woocommerce' ); ?></h3>
 
 	<?php endif; ?>
 
@@ -45,12 +45,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( isset( $field['country_field'], $fields[ $field['country_field'] ] ) ) {
 					$field['country'] = $checkout->get_value( $field['country_field'] );
 				}
-				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+
+				if ( $key == 'billing_company') {
+					continue;
+				} elseif ( $key == 'billing_address_2' or $key == 'billing_phone' or $key == 'billing_city') {
+					continue;
+				}
+				else {
+					woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+				}
+
 			}
 		?>
 	</div>
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
+</div>
+
+<div class="order-summary-container">
+	<h1>Your Order</h1>
+	<?php 
+		do_action( 'woocommerce_review_order_before_cart_contents' );
+
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+			$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
+			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+				?>
+				<div class="cart-summary-fragments">
+					<div class="product-img-container">
+						<?php echo $_product->get_image(); ?>
+					</div>	
+					<div class="product-title-unitprice-quantity">
+						<div class="product-title-unitprice">
+							<span><?php echo $_product->get_name(); ?></span>
+							<span><?php echo get_woocommerce_currency_symbol(); ?><?php echo $_product->get_price(); ?></span>
+						</div>
+
+						<div class="item-qty">
+							<span>Quantity <?php echo $cart_item['quantity'] ?></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="coupon">
+					<input type="text" name="coupon_code" class="input-text coupon__input" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ) ?>" />
+					<input type="submit" class="button coupon__submit" name="apply_coupon" value="<?php _e('Apply', 'woocommerce') ?>" />
+					<?php do_action( 'woocommerce_cart_coupon' ); ?>
+				</div>
+
+				<div class="cart-subtotal">
+					<span>Subtotal</span>
+					<span><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?></span>
+				</div>
+				<?php
+			}
+		} ?>
+		<table class="shop_table woocommerce-checkout-review-order-table">
+		</table>
+</div>
+
+<div class="shipping-options-container">
+	<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+	<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
+	<?php wc_cart_totals_shipping_html(); ?>
+
+	<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
+	<?php endif; ?>
 </div>
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
