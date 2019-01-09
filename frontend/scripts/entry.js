@@ -18,6 +18,14 @@ import Cart from './views/Cart';
  */
 document.addEventListener('DOMContentLoaded', () => {
 
+    const quantityPlusMinus = document.getElementsByClassName('qty-toggle')[0];
+
+    const updateCartBtn = document.querySelector("[name='update_cart']");
+    
+    quantityPlusMinus.addEventListener('click', () => {
+        updateCartBtn.click();
+    });
+
     // HubSlider();
 
     // const announcementBar = document.getElementById('announcements');

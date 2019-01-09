@@ -350,6 +350,7 @@
 
 .cart__update-btn,
 .cart__personalisation-btn {
+    display: none;
     appearance: none;
     padding: 10px 20px;
     font-family: $fontstack-sans-primary;

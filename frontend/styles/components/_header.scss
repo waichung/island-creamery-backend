@@ -131,6 +131,18 @@
                 height: 100vh;
                 float: right;
                 opacity: 1;
+                list-style: none;
+
+                li {
+                    
+                    .mini-cart__empty-message {
+
+                        margin-top: 30vh;
+                        font-size: 2.5em;
+
+                    }
+
+                }
 
                 h2 {
 
@@ -139,20 +151,9 @@
                 }
 
                 .mini-cart__list {
-
-                    list-style: none;
+                    
                     padding: 0;
 
-                    li {
-
-                        .mini-cart__empty-message {
-
-                            margin-top: 30vh;
-                            font-size: 2.5em;
-
-                        }
-
-                    }
 
                     .mini-cart-item {
 
