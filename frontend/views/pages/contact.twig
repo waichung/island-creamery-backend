@@ -3,11 +3,14 @@
 {% set site_title = post.title %}
 
 {% block page %}
+
+  <section class="intro">
+    <h1>{{ site_title }}</h1>
+  </section>
   
-  {% include 'components/banner.twig' with {
-    type: 'shop',
-    title: site_title,
-    image: post.get_field('background_image').url
-  } %}
+  <section class="form-container">
+    <h1>I am contacting you for</h1>
+    {{ post.content }}
+  </section>
 
 {% endblock %}
