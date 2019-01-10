@@ -10,7 +10,60 @@
  * Modules / Contact
  */
 .page--contact {
+
+    span, select, input, textarea {
+
+        outline: none;
+        background: #F4F3F0;
+
+    }
+
+    span, input {
+
+        height: 45px;
+
+    }
+
+    input, select, textarea {
+
+        margin-top: 10px;
+        border: 0;
+        border: lightgray solid 1.3px;
+
+    }
+
+    input[type="submit"] {
+
+        padding: 30px 80px 40px 80px;
+
+    }
+
+    select {
+
+        border-radius: 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        padding: 14px 40px 14px 20px;
+        color: black;
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),linear-gradient(135deg, black 50%, transparent 50%);
+        background-position: calc(100% - 25px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px);
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        font-size: 1.2em;
+
+    }
     
+    header {
+
+       svg#morph {
+
+        height: 50vh;
+
+       }
+
+
+    }
     section {
 
         height: 100%;
@@ -20,6 +73,14 @@
 
         color: white;
         font-size: 1.2em;
+        height: 20%;
+
+        h1 {
+
+            margin-top: 0;
+            margin-bottom: 100px;
+
+        }
 
     }
 
@@ -44,15 +105,40 @@
                 text-align: center;
                 width: 100%;
 
+                .wpcf7-form-control-wrap.menu-843 {
+
+                    select {
+
+                        border: none;
+                        border-radius: 0;
+                        background-color: white;
+                        border-bottom: solid #5A3C35 1px;
+                        -webkit-appearance: none;
+                        -webkit-border-radius: 0px;
+                        padding: 14px 40px 14px 20px;
+                        color: #5A3C35;
+                        background-image: linear-gradient(45deg, transparent 50%, #5A3C35 50%),linear-gradient(135deg, #5A3C35 50%, transparent 50%);
+                        background-position: calc(100% - 25px) calc(1em + 2px),
+                        calc(100% - 15px) calc(1em + 2px);
+                        background-size: 10px 10px;
+                        background-repeat: no-repeat;
+                        font-size: 1.2em;
+
+                    }
+
+                }
+
             }
 
             p:nth-child(3), p:nth-child(4), p:nth-child(6), p:nth-child(7), p:nth-child(10), p:nth-child(11) {
 
                 width: 48%;
-                margin-right: 5px;
+                margin-right: 10px;
 
                 span, input, select {
+
                     width: 100%;
+
                 }
 
 
@@ -60,10 +146,12 @@
             
             p:nth-child(5), p:nth-child(8), p:nth-child(9), p:nth-child(12) {
 
-                width: 100%;
+                width: 98%;
 
                 span, input, select, textarea {
+
                     width: 100%;
+
                 }
 
             }
