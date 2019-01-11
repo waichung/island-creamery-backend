@@ -384,11 +384,17 @@ body {
   .nav-shortcut {
 
     background-color: $primary;
-    padding-top: 45vh;
+    padding-top: 45vh !important;
 
     &.choco {
 
       background-color: #F94623;
+
+    }
+
+    &.strawberry {
+
+      background-color: #DB6166;
 
     }
 
