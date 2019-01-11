@@ -28,12 +28,11 @@
   </section>
 
   <section class="write-up">
-
+    <img src="{{ image.url }}" />
+    {# svg here #}
     <div>
       {{ description }}
     </div>
-    <img src="{{ image.url }}" />
-
   </section>
 
   <section class="provenance">
@@ -76,7 +75,6 @@
       <div class="mySlides fade">
         <img src="{{ slide.image.url }}" />
         <div class="words">
-          <h1>{{ slide.image }} </h1>
           <h2>{{ slide.title }}</h2>
           <p>{{ slide.subtitle }}</p>
         </div>

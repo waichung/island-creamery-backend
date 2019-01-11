@@ -63,6 +63,22 @@ body {
 
   &.page--about {
 
+    header > svg {
+
+      z-index: 3 !important;
+
+    }
+
+    header {
+
+      a, .nav-menu, .nav-menu > a {
+
+        z-index: 4;
+
+      }
+
+    }
+
     section {
 
       padding: 0 100px 0 150px;
@@ -72,6 +88,8 @@ body {
       &.intro {
 
         color: white;
+        height: 45vh;
+        z-index: 4;
         
       }
 
@@ -79,26 +97,36 @@ body {
 
     .write-up {
 
-      background-color: #F5EDEB;
-      display: flex;
-      flex-direction: row;
-
-      div {
-
-        flex: 3;
-        text-align: left;
-        margin-right: 100px;
-
-      }
+      padding: 0;
 
       img {
 
-        flex: 2;
-        width: 500px;
-        height: 500px;
-        flex: 2;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
 
       }
+
+      // background-color: #F5EDEB;
+      // display: flex;
+      // flex-direction: row;
+
+      // div {
+
+      //   flex: 3;
+      //   text-align: left;
+      //   margin-right: 100px;
+
+      // }
+
+      // img {
+
+      //   flex: 2;
+      //   width: 500px;
+      //   height: 500px;
+      //   flex: 2;
+
+      // }
 
     }
 
@@ -109,30 +137,37 @@ body {
 
       .header {
 
-        flex: 1;
+        flex: 5;
 
         h1 {
 
-          font-size: 4em;
+          font-size: 3.5em;
           margin: 0;
-          line-height: 0;
+          line-height: 1;
 
           img {
 
-            height: 50px;
-            width: 50px;
+            height: 60px;
+            width: 60px;
             margin-left: 0;
+            transform: translateY(10px);
 
           }
 
         }
 
-        img {
+        h1:nth-child(2) {
+
+          margin-right: 62px;
+
+        }
+
+        > img {
 
           height: 200px;
           width: 200px;
-          margin-left: -100px;
-
+          margin-left: -25vw;
+          margin-top: 15%;
 
         }
 
@@ -140,14 +175,21 @@ body {
 
       .steps {
 
-        flex: 1;
+        flex: 6;
+        margin-top: 14vh;
 
         img {
 
-          height: 100px;
-          width: 100px;
+          height: 120px;
+          width: 120px;
           float: right;
-          transform: translateY(-80px);
+          transform: translate(30px, -20px);
+
+          &:first-child {
+
+            transform: translate(-60px, -100px);
+
+          }
 
         }
 
@@ -158,7 +200,7 @@ body {
           border-bottom: #DBDBDB solid 1px;
           padding-bottom: 20px;
           padding-top: 20px;
-          max-width: 80%;
+          max-width: 82%;
 
           .step-number {
 
@@ -173,6 +215,7 @@ body {
             flex: 9;
             align-self: center;
             margin-left: 15px;
+            text-align: left;
 
           }
 

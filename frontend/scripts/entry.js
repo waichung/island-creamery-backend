@@ -93,5 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // if(journeyContainer) new Journey(journeyContainer, scrollbar);
     // if(storiesContainer) new Stories(storiesContainer, scrollbar);
     // if(productContainer) new Product(productContainer, scrollbar);
-    if(cartContainer) new Cart(cartContainer, scrollbar);
+    // if(cartContainer) new Cart(cartContainer, scrollbar);
+    if(cartContainer) new Cart(cartContainer);
 });
