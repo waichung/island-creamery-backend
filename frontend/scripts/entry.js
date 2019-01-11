@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //   main.style.height = '100vh';
 
     // Smooth Scrollbar
-    const scrollbar = Scrollbar.init(main, { damping: 0.2 });
+    // const scrollbar = Scrollbar.init(main, { damping: 0.2 });
 
     // if(journeyContainer) new Journey(journeyContainer, scrollbar);
     // if(storiesContainer) new Stories(storiesContainer, scrollbar);
