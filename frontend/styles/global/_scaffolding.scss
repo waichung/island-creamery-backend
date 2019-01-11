@@ -42,11 +42,18 @@ body {
 
   section {
 
-    height: calc(100vh - 8em);
+    height: 100vh;
     padding: 1em;
     align-items: center;
     text-align: center;
     position: relative;
+    padding-top: 15vh !important;
+
+    h1 {
+      
+      margin-top: 0;
+
+    }
 
   }
 
@@ -81,23 +88,25 @@ body {
 
     section {
 
-      padding: 0 100px 0 150px;
       text-align: center;
       color: #5A3C35;
 
       &.intro {
 
         color: white;
-        height: 45vh;
+        height: 8vh;
         z-index: 4;
+        padding-top: 6vh !important;
         
       }
 
     }
 
-    .write-up {
+    .place-bg {
 
       padding: 0;
+      padding-top: 0vh !important;
+      margin-top: 7vh;
 
       img {
 
@@ -107,33 +116,30 @@ body {
 
       }
 
-      // background-color: #F5EDEB;
-      // display: flex;
-      // flex-direction: row;
+    }
 
-      // div {
+    .write-up {
 
-      //   flex: 3;
-      //   text-align: left;
-      //   margin-right: 100px;
+      padding-top: 0 !important;
+      height: 10vh;
 
-      // }
+      div {
 
-      // img {
+        width: 32.35%;
+        display: block;
+        margin: auto;
+        margin-top: 10vh;
+        font-size: 1.1em;
 
-      //   flex: 2;
-      //   width: 500px;
-      //   height: 500px;
-      //   flex: 2;
-
-      // }
-
+      }
+      
     }
 
     .provenance {
 
       display: flex;
       flex-direction: row;
+      padding-top: 0vh !important;
 
       .header {
 
@@ -164,9 +170,9 @@ body {
 
         > img {
 
-          height: 200px;
-          width: 200px;
-          margin-left: -25vw;
+          height: 220px;
+          width: 220px;
+          margin-left: -255px;
           margin-top: 15%;
 
         }
@@ -176,18 +182,18 @@ body {
       .steps {
 
         flex: 6;
-        margin-top: 14vh;
+        margin-top: -6vh;
 
         img {
 
           height: 120px;
           width: 120px;
           float: right;
-          transform: translate(30px, -20px);
+          transform: translate(-90px, 120px);
 
           &:first-child {
 
-            transform: translate(-60px, -100px);
+            transform: translate(-155px, -100px);
 
           }
 
@@ -200,12 +206,12 @@ body {
           border-bottom: #DBDBDB solid 1px;
           padding-bottom: 20px;
           padding-top: 20px;
-          max-width: 82%;
+          max-width: 73%;
 
           .step-number {
 
             flex: 1;
-            font-size: 1.8em;
+            font-size: 1.7em;
             text-align: center;
             
           }
@@ -214,7 +220,7 @@ body {
 
             flex: 9;
             align-self: center;
-            margin-left: 15px;
+            margin-left: 30px;
             text-align: left;
 
           }
@@ -227,18 +233,19 @@ body {
 
     .recipe {
 
-      background-color: #D2C4C2;
+      background-color: $primary;
       color: white;
       text-align: center;
+      height: 90vh;
 
       h1 {
 
-        font-size: 3em;
+        font-size: 3.4em;
 
       }
 
       p {
-
+        margin-top: 0;
       }
 
       .slideshow-container {
@@ -249,23 +256,36 @@ body {
       
       /* Hide the images by default */
       .mySlides {
+
         display: none;
+        padding-left: 12%;
+        margin-top: 6%;
+        margin-bottom: 4.5%;
+
       }
       
       /* The dots/bullets/indicators */
       .dot {
+
         cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
+        height: 10px;
+        width: 10px;
+        // margin: 0 2px;
+        background-color: #E25C5F;
         border-radius: 50%;
         display: inline-block;
         transition: background-color 0.6s ease;
+        margin: 0 8px;
+        vertical-align: middle;
+
       }
       
       .active, .dot:hover {
-        background-color: #717171;
+
+        height: 18px;
+        width: 18px;
+        background-color: #FFFFFF;
+
       }
       
       /* Fading animation */
@@ -286,12 +306,12 @@ body {
         to {opacity: 1}
       }
 
-      .mySlides {
+      .recipe-slider-card {
         
         display: flex;
         flex-direction: row;
-        height: 25vh;
-        width: 60vw;
+        height: 30vh;
+        width: 65vw;
 
         img {
           
@@ -302,7 +322,7 @@ body {
         .words {
           
           width: 50%;
-          background-color: #9F7C76;
+          background-color: #BE2525;
 
         }
 
@@ -312,12 +332,14 @@ body {
 
     .community {
 
-      background-color: #F5EDEB;
+      background-color: #F4F4F4;
       text-align: center; 
+      padding-top: 20vh !important;
+      height: 90vh;
 
       h1 {
 
-        font-size: 3em;
+        font-size: 3.2em;
 
       }
 
@@ -325,22 +347,31 @@ body {
 
         display: flex;
         flex-direction: row;
+        padding: 0 10% 0 17%;
+        margin-top: 5%;
 
         img {
 
           width: 50%;
-          height: 250px;
-          width: 500px;
+          height: 380px;
+          width: auto;
   
         }
   
         .write-up {
 
-          padding-right: 20%;
-          padding-left: 10%;
+          margin-top: 5%;
+          padding-right: 1%;
+          padding-left: 9%;
           flex-direction: column;
-          width: 50%;
+          width: 42%;
           text-align: left;
+
+          h2 {
+
+            font-size: 1.7em;
+
+          }
 
         }
 
@@ -353,6 +384,7 @@ body {
   .nav-shortcut {
 
     background-color: $primary;
+    padding-top: 45vh !important;
 
     &.choco {
 
@@ -360,23 +392,6 @@ body {
 
     }
 
-    a {
-      
-      color: white;
-      text-decoration: none;
-      position: relative;
-      top: 50%;
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: rem(72px);
-  
-      @media screen and (max-width: $breakpoint-palm-portrait) {
-          font-size: rem(50px);
-      }
-
-    }
-    
   }
 
 }

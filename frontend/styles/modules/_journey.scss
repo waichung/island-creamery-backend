@@ -363,15 +363,15 @@
 }
 
 .journey-link__url {
+    color: white;
+    text-decoration: none;
     position: relative;
-    top: 50%;
+    top: 0;
     left: 0;
     right: 0;
     margin: auto;
-    font-size: rem(72px);
-    color: #97837a;
-    font-family: $fontstack-serif-secondary;
-    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 4em;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
         font-size: rem(50px);

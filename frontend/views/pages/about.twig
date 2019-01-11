@@ -27,9 +27,12 @@
     <p>{{ intro_subheader }}</p>
   </section>
 
-  <section class="write-up">
+  <section class="place-bg">
     <img src="{{ image.url }}" />
     {# svg here #}
+  </section>
+  
+  <section class="write-up">
     <div>
       {{ description }}
     </div>
@@ -70,13 +73,15 @@
   <section class="recipe">
     <h1>{{ recipe_header }}</h1>
     <p>{{ recipe_subheader }}</p>
-
+    
     {% for slide in slides %}
-      <div class="mySlides fade">
-        <img src="{{ slide.image.url }}" />
-        <div class="words">
-          <h2>{{ slide.title }}</h2>
-          <p>{{ slide.subtitle }}</p>
+      <div class="mySlides">
+        <div class="recipe-slider-card">
+          <img src="{{ slide.image.url }}" />
+          <div class="words">
+            <h2>{{ slide.title }}</h2>
+            <p>{{ slide.subtitle }}</p>
+          </div>
         </div>
       </div>
     {% endfor %}
