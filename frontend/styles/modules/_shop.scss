@@ -63,6 +63,20 @@
 
       padding-left: 30%;
       padding-right: 30%;
+      padding-top: 2vh !important;
+
+      h1 {
+
+        font-size: 3.9em;
+
+      }
+
+      p {
+
+        font-size: 0.9em;
+        margin-top: 20px;
+
+      }
 
     }
 
@@ -78,7 +92,7 @@
 				list-style: none;
         display: flex;
         flex-direction: row;
-        max-width: 50vw;
+        max-width: 100%;
 
         .list-item {
 
@@ -88,6 +102,7 @@
 
             color: #CEC9CB;
             text-decoration: none;
+            font-size: 1.3em;
 
           }
 
@@ -110,7 +125,7 @@
 		
 		.primary-filter {
 
-			margin-top: -50vh;
+			margin-top: -69vh;
 			z-index: 0;
 			position: relative;
 
@@ -119,7 +134,7 @@
     .secondary-filter {
 
 			position: relative;
-			margin-top: 40vh;
+			margin-top: 20.5vh;
       
       .filter-list {
 
@@ -144,16 +159,24 @@
 
     .shop__products {
 
+      padding-top: 6vh !important;
+      padding-right: 11vw;
+      padding-left: 11vw;
+      height: 105vh !important;
+
       .product-list {
 
         .product-excerpt {
+
+          margin-top: 0;
 
           .product-excerpt__inner {
 
             .product-excerpt__image {
 
-              width: 300px;
+              width: 355px !important;
               height: auto;
+              margin-top: 0;
 
             }
           }

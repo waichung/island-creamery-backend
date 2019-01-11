@@ -366,12 +366,12 @@
     color: white;
     text-decoration: none;
     position: relative;
-    top: 0;
+    top: 10vh;
     left: 0;
     right: 0;
     margin: auto;
     font-weight: 700;
-    font-size: 4em;
+    font-size: 3.5em;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
         font-size: rem(50px);

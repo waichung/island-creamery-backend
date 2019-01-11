@@ -41,12 +41,25 @@
     <span><a href="{{ no.link.url }}">{{ no.line1 }} <br> {{ no.line2 }}</a></span>
   </div>
   <div class="cue"><a href="" id="stop-drip"><strong>Click before<br> it drips!</strong></a></div>
+  <div class="content-container">
+      <h2>{{ flavours_header }}</h2>
+      {% for flavourRow in featured_flavours %}
+        <p>
+          {% for flavour in flavourRow.featured_flavour %}
+            <span id="{{ flavour.code }}">
+              {{ flavour.name }}
+            </span>
+          {% endfor %}
+        </p>
+      {% endfor %}
+      <a href="{{ view_menu.url }}">{{ view_menu.title }}</a>
+  </div>
 </section>
 
-<section class="flavours target1">
+{# <section class="flavours target1"> #}
     {# SVG Dynamic #}
     {# <svg class="smorph" id="strawberryShortCake" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none"><path class="liquid-effect1" d="M0,3510v651.7s240.566,214.315,365.767,164.273,271.355-22.069,393.723,0,196.733,67.173,327.881,61.978,119-71.038,300.788-118.267,178.618,24.388,334.346,0,199.738-196.067,199.738-196.067V3510Z" transform="translate(0 -3700.5)" fill="white"/></svg> #}
-    <div class="content-container">
+    {# <div class="content-container">
       <h2>{{ flavours_header }}</h2>
       {% for flavourRow in featured_flavours %}
         <p>
@@ -59,7 +72,7 @@
       {% endfor %}
       <a href="{{ view_menu.url }}">{{ view_menu.title }}</a>
     </div>
-</section>
+</section> #}
 
 <section class="location target2">
   <h2>{{ locations_header }}</h2>

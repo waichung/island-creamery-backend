@@ -29,12 +29,12 @@
 
     .product-excerpt__info {
 
-        top: 70%;
+        top: 80%;
         z-index: 1000;
         position: absolute;
         left: 50%;
         bottom: 0;
-        width: 50%;
+        width: 70%;
         transform: translateX(-50%);
         bottom: -100px;
         
@@ -89,7 +89,9 @@
 
 .product-excerpt__name,
 .product-excerpt__price {
+
     display: block;
+
 }
 
 .product-excerpt__name {
@@ -104,14 +106,19 @@
 }
 
 .product-excerpt__price {
+
     margin-top: 10px;
     font-size: rem(18px);
     font-weight: 400;
     font-family: $fontstack-sans-primary;
+    line-height: 22px;
+
     .product-buy {
         float: right;
     }
+
     padding: 0 20%;
+
 }
 
 .product-excerpt__description {

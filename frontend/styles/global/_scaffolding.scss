@@ -384,11 +384,11 @@ body {
   .nav-shortcut {
 
     background-color: $primary;
-    padding-top: 45vh !important;
+    padding-top: 45vh;
 
     &.choco {
 
-      background-color: #5A3C35;
+      background-color: #F94623;
 
     }
 
@@ -423,6 +423,8 @@ body {
   text-align: center;
   color: black;
   z-index: 0;
+  padding-top: 5vh !important;
+  height: 117vh !important;
 
   svg {
 
@@ -481,7 +483,7 @@ body {
 
     position: absolute;
     right: 0;
-    top: 22%;
+    top: 12%;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -570,7 +572,7 @@ body {
   .cue {
 
     padding-right: 14vw;
-    margin-top: -3.5em;
+    margin-top: -2em;
 
     a {
 
@@ -604,17 +606,20 @@ body {
   //     }
   //   }
   // }
-}
-
-.flavours {
-
-  background-color: $primary;
-  z-index: 0;
 
   .content-container {
+
     position: absolute;
     left: 50%;
     margin-left: -250px;
+    margin-top: 12%;
+    
+    p {
+
+      margin: 7px;
+      font-size: 1em;
+
+    }
 
     h2 {
       font-size: 2.2em;
@@ -660,24 +665,37 @@ body {
   }
 }
 
+.flavours {
+
+  background-color: $primary;
+  z-index: 0;
+
+}
+
 .location {
 
   color: white;
   background-color: $primary;
   z-index: 0;
+  padding-top: 39vh !important;
+  height: 116vh !important;
 
   h2 {
-    font-size: 2em;
+
+    font-size: 2.2em;
+    margin-bottom: 5%;
+
   }
   
   .places {
 
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
+    grid-template-columns: repeat(4, 35vh);
     grid-template-rows: repeat(auto-fill, 500px);
-    grid-row-gap: .5em;
-    grid-column-gap: 1em;
+    padding: 0 9%;
+    // grid-row-gap: .5em;
+    // grid-column-gap: 1em;
 
     .place {
       
@@ -696,6 +714,7 @@ body {
         p {
 
           font-size: 0.8em;
+          margin-top: 29px;
 
         }
         p:nth-of-type(1) {
@@ -723,7 +742,7 @@ body {
 
   .content-container {
 
-    margin-top: 15%;
+    margin-top: 7%;
 
     h2 {
 
@@ -741,8 +760,8 @@ body {
     p {
 
       font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 10vh;
+      margin-top: 14px;
+      margin-bottom: 6vh;
     
     }
 
@@ -751,7 +770,7 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      padding: 0 30px 0 50px;
+      padding: 0 3%;
 
       #sb_instagram {
 
@@ -772,7 +791,7 @@ body {
 
         border: black solid 1px;
         flex: 1;
-        margin-right: 20px;
+        // margin-right: 20px;
 
         img {
 
