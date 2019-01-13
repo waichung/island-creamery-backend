@@ -257,10 +257,21 @@ body {
       /* Hide the images by default */
       .mySlides {
 
-        display: none;
+        // display: none;
+        right: -45vw;
+        position: absolute;
         padding-left: 12%;
         margin-top: 6%;
         margin-bottom: 4.5%;
+
+      }
+
+      .dots {
+
+        position: absolute;
+        bottom: 10vh;
+        width: 10%;
+        right: 45%;
 
       }
       

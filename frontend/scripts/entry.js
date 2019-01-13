@@ -31,13 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
         if (n+1 > slides.length) {n = 0} 
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none"; 
-        }
+        // for (i = 0; i < slides.length; i++) {
+            // slides[i].style.display = "none";
+        // }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[n].style.display = "block"; 
+        
+        slides[n].style.right =  '25vw';
+        slides[n + 1 < slides.length ? n + 1 : 0].style.right = '-45vw';
         dots[n].className += " active";
 
     }
