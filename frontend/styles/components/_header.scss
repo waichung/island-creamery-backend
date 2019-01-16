@@ -9,6 +9,12 @@
  header {
 
   background-color: transparent;
+  
+  @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    max-height: 15vh;
+
+  } 
 
   .nav {
 

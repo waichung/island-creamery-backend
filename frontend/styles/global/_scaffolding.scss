@@ -545,6 +545,12 @@ body {
     height: 245px;
     width: 245px;
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      display: none;
+      
+    } 
+
     svg {
 
       z-index: -1;
