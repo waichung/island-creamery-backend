@@ -15,6 +15,7 @@
     padding: 2% 25px 0 4%;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     a {
 
@@ -44,6 +45,8 @@
 
           display: block;
           position: absolute;
+          top: calc(50% - 15px);
+          left: 30px;
 
         }
 
