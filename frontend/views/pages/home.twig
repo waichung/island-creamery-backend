@@ -25,7 +25,15 @@
 {% block page %}
 
 <section class="page-header">
-  <h1>It's always a<br> good time for ice cream.</h1>
+  <h1>
+    <span>It's</span> 
+    <span>always</span>
+    <span class="mobile-break">a</span>
+    <span id="desktop-break">good</span>
+    <span>time</span>
+    <span class="mobile-break">for</span> 
+    <span>ice cream</span>
+  </h1>
   <p>You should order <span id="{{ featured_product.code }}"><a href="{{ featured_product.link.url }}">{{ featured_product.name }}</a></span></p>
   <div class="announcement">
     {# SVG Static #}

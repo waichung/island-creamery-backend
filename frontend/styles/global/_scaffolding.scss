@@ -21,7 +21,8 @@ html {
 }
 
 body {
-
+  // inserted to normalize mobile view to be within viewport's wdith
+  position: relative;
   font-family: GT-America;
   background-color: white;
   width: 100vw;
@@ -457,6 +458,41 @@ body {
     font-size: 4em;
     margin-bottom: 0;
     line-height: 1;
+
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+      
+      #desktop-break {
+
+        white-space: pre;
+
+      }
+
+      #desktop-break:before {
+
+        content: '\A';
+
+      }
+
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      font-size: 2.8em;
+
+      .mobile-break {
+
+        white-space: pre;
+
+      }
+
+      .mobile-break:before {
+
+        content: '\A';
+
+      }
+
+    }
 
   }
 
