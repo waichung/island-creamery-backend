@@ -444,6 +444,12 @@ body {
   padding-top: 5vh !important;
   height: 117vh !important;
 
+  @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    height: 155vh !important;
+
+  }
+
   svg {
 
     position: absolute;
@@ -496,7 +502,7 @@ body {
 
   }
 
-  p {
+  & > p {
 
     margin-bottom: 45px;
     font-size: 1.4em;
@@ -720,85 +726,140 @@ body {
 
   }
 
-  // .primary-filter {
-  //   margin-top: 75px;
-  //   a {
-  //     margin: 0px 10px;
-  //     color: rgba(255, 255, 255, 0.5);
-  //     text-decoration: none;
-  //     opacity: 100%;
-  //     &.active, {
-  //       color: white;
-  //       text-decoration: underline;
-  //       opacity: 0%;
-  //     }
-  //   }
-  // }
-
   .content-container {
 
     position: absolute;
     left: 50%;
     margin-left: -250px;
     margin-top: 12%;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      position: static;
+      margin: 0;
+
+    }
+      
     
-    p {
+    .flavours-cloud {
 
       margin: 7px;
       font-size: 1em;
+      max-width: 520px;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        margin-bottom: 3vh;
+        max-width: 85vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      
+      }
 
     }
 
     h2 {
+
       font-size: 2.2em;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        max-width: 60vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15vh;
+
+      }
+
     }
+
     span {
+
       font-size: 1.5em;
       margin-left: 10px;
+      white-space: nowrap;
+
     }
+
     #pineapple-tart {
+
       color: $pineapple-tart;
+
     }
+
     #pulut-hitam {
+
       color: $pulut-hitam;
+
     }
+
     #tiger-sorbet {
+      
       color: $tiger-sorbet;
+
     } 
+
     #pear-sake {
+
       color: $pear-sake;
+
     }
+
     #cookies-cream {
+
       color: $cookies-cream;
+
     }
+
     #soursop {
+
       color: $soursop;
+
     } 
+
     #fresh-banana {
+
       color: $fresh-banana;
+
     }
+    
     #horlicks {
+
       color: $horlicks;
+
     }
+
     #kahlua-latte {
+
       color: $kahlua-latte;
+
     }
+
     #mango-sorbet {
+
       color: $mango-sorbet;
+
     }
+
     a {
+
       color: black;
       font-weight: 700;
+
     }
+
   }
-}
-
-.flavours {
-
-  background-color: $primary;
-  z-index: 0;
 
 }
+
+// .flavours {
+
+//   background-color: $primary;
+//   z-index: 0;
+
+// }
 
 .location {
 

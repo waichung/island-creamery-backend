@@ -51,15 +51,17 @@
   <div class="cue"><a href="" id="stop-drip"><strong>Click before<br> it drips!</strong></a></div>
   <div class="content-container">
       <h2>{{ flavours_header }}</h2>
-      {% for flavourRow in featured_flavours %}
-        <p>
-          {% for flavour in flavourRow.featured_flavour %}
-            <span id="{{ flavour.code }}">
-              {{ flavour.name }}
-            </span>
-          {% endfor %}
-        </p>
-      {% endfor %}
+      <div class="flavours-cloud">
+        {% for flavourRow in featured_flavours %}
+          {# <p> #}
+            {% for flavour in flavourRow.featured_flavour %}
+              <span id="{{ flavour.code }}">
+                {{ flavour.name }}
+              </span>
+            {% endfor %}
+          {# </p> #}
+        {% endfor %}
+      </div>
       <a href="{{ view_menu.url }}">{{ view_menu.title }}</a>
   </div>
 </section>
