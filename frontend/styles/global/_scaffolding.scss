@@ -869,10 +869,25 @@ body {
   padding-top: 39vh !important;
   height: 116vh !important;
 
+  @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    padding-top: 25vh !important;
+
+  }
+
   h2 {
 
     font-size: 2.2em;
     margin-bottom: 5%;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      max-width: 60vw;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
 
   }
   
@@ -886,7 +901,57 @@ body {
     // grid-row-gap: .5em;
     // grid-column-gap: 1em;
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      display: flex;
+
+    }
+
     .place {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        position: absolute;
+        width: 64vw;
+        display: none;
+    
+
+        &:nth-child(1) {
+
+          display: block;
+          right: 18vw;
+
+        }
+
+        &:nth-child(2) {
+
+          display: block;
+          right: -40vw;
+          transform: scale(0.7) translateY(2vh);
+
+          .place-info, a {
+
+              color: lightgray !important;
+
+          }
+
+        }
+
+        &:nth-last-child(1) {
+
+          display: block;
+          left: -40vw;
+          transform: scale(0.7) translateY(2vh);
+
+          .place-info, a {
+
+            color: lightgray !important;
+
+          }
+
+        }
+
+      }
       
       img {
 
@@ -900,15 +965,36 @@ body {
         text-align: left;
         padding-left: 25%;
         // check youtube video for how to align in css grid
+
+        @media screen and (max-width: $breakpoint-palm-portrait) { 
+
+          text-align: center;
+          padding-left: 0;
+
+        }
+
         p {
 
           font-size: 0.8em;
           margin-top: 29px;
 
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+            
+            font-size: 1.1em;
+
+          }
+
         }
+
         p:nth-of-type(1) {
 
           font-size: 1.3em;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+
+            font-size: 1.8em;
+
+          }
 
         }
 
@@ -916,6 +1002,12 @@ body {
 
           font-size: 1em;
           color: white;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+            
+            font-size: 1.3em;
+
+          }
 
         }
 
