@@ -17,12 +17,37 @@
     justify-content: space-between;
 
     a {
+
       z-index: 1;
+
     }
 
-    .nav-btn {
+    .nav-btn, #nav-check {
 
       display: none;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        &.nav-btn {
+
+          display: block;
+
+        }
+
+        label {
+
+          span {
+
+            display: block;
+            width: 25px;
+            height: 10px;
+            border-top: 2px solid black;
+
+          }
+
+        }
+
+      }
 
     }
 
