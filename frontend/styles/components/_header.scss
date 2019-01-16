@@ -22,6 +22,18 @@
 
     }
 
+    .logo {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        display: block;
+        margin: auto; 
+        padding-left: 25px; //width of hamburger icon
+
+      }
+
+    }
+
     .nav-btn, #nav-check {
 
       display: none;
@@ -31,6 +43,7 @@
         &.nav-btn {
 
           display: block;
+          position: absolute;
 
         }
 
@@ -55,6 +68,8 @@
 
       display: flex;
       z-index: 1;
+      flex-direction: row;
+      margin-left: auto;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -95,6 +110,13 @@
       margin-right: 15px;
       margin-left: 50px;
       margin-top: 10px;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        margin-right: 0;
+        margin-left: 0; 
+
+      }
 
       label {
 
