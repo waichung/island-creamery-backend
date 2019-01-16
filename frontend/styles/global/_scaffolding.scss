@@ -504,6 +504,13 @@ body {
     span {
 
       font-weight: 700;
+      white-space: pre;
+
+      &:before {
+
+        content: '\A';
+
+      }
 
     }
 
