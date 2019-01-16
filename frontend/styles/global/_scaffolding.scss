@@ -590,10 +590,48 @@ body {
     display: flex;
     flex-direction: row;
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      flex-direction: column;
+      text-align: center;
+
+    }
+
+    img {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+        width: 56vw;
+        height: 52vh;
+        display: block;
+        margin: auto;
+        
+      }
+
+    }
+
     span:nth-of-type(1) {
 
       flex: 1;
       margin-right: 30px;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        order: 2;
+        margin: 0;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        
+        br {
+
+          content: " ";
+          display: none;
+          
+        }
+  
+      }
+
+
       a {
 
         float: right;
@@ -602,14 +640,35 @@ body {
         text-decoration: underline;
         font-size: 1.1em;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+          float: none;
+          font-size: 1.25em;
+
+        }
+
       }
 
     }
 
     span:nth-of-type(2) {
 
-      flex: 1;
+      flex: 2;
       margin-left: 40px;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        order: 2;
+        margin: 0;
+
+        br {
+
+          content: " ";
+          display: none;
+          
+        }
+  
+      }
 
       a {
 
@@ -618,16 +677,30 @@ body {
         color: black;
         text-decoration: underline;
         font-size: 1.1em;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+          float: none;
+          font-size: 1.25em;
+
+        }
+
       }
 
     }
-    
+
   }
 
   .cue {
 
     padding-right: 14vw;
     margin-top: -2em;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      display: none;
+
+    }
 
     a {
 
