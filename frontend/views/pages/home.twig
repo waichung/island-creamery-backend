@@ -20,6 +20,7 @@
 {% set insta_header = post.get_field('insta_header_text') %}
 {% set insta_handle = post.get_field('insta_handle') %}
 {% set insta_gallery = post.get_field('insta_gallery') %}
+{% set insta_gallery_mobile = post.get_field('insta_gallery_mobile') %}
 
 
 {% block page %}
@@ -125,10 +126,13 @@
     <path class="liquid-effect2" d="M0,1170v46.357s33.143,23.319,70.652,20.5,6.342-20.5,92.273-20.5,103.638,63.287,229.86,20.5,191.622,42.34,289.975,49.755,102.337-49.755,152.131-49.755,137.423,38.479,224.567,19.189,72.762-26.831,169.086-19.189,94.38,49.1,216.209,49.755,105.071-78.025,238.311-70.259,257.367-11.484,257.367-11.484V1170Z" transform="translate(0.5 -1169.5)" stroke="#D53940" fill="#D53940" />
   </svg> #}
   <div class="content-container">
-    <h2>{{ insta_header }}</h2>
+    <h2>It's an<br> Ice cream <br>social!</h2>
     <a href="{{ insta_handle.url }}"><p>{{ insta_handle.title }}</p></a>
     <div class="gallery-image">
       {{ insta_gallery }}
+    </div>
+    <div class="gallery-image-mobile">
+      {{ insta_gallery_mobile }}
     </div>
   </div>
 </section>

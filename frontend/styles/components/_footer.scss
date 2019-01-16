@@ -28,6 +28,13 @@
       position: relative;
       z-index: 3;
       margin-top: 7%;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        display: flex;
+        flex-direction: column;
+      
+      }
       
       a {
 
