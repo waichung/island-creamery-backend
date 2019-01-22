@@ -71,21 +71,21 @@ body {
 
   &.page--about {
 
-    header > svg {
+    // header > svg {
 
-      z-index: 3 !important;
+    //   // z-index: 3 !important;
 
-    }
+    // }
 
-    header {
+    // header {
 
-      a, .nav-menu, .nav-menu > a {
+    //   a, .nav-menu, .nav-menu > a {
 
-        z-index: 4;
+    //     z-index: 4;
 
-      }
+    //   }
 
-    }
+    // }
 
     section {
 
@@ -96,7 +96,7 @@ body {
 
         color: white;
         height: 8vh;
-        z-index: 4;
+        // z-index: 4;
         padding-top: 6vh !important;
         
       }
@@ -108,6 +108,7 @@ body {
       padding: 0;
       padding-top: 0vh !important;
       margin-top: 7vh;
+      z-index: -2;
 
       img {
 

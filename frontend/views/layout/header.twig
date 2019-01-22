@@ -56,21 +56,26 @@
     <a class="logo" href="/">
       <img src="{{ logo.url }}">
     </a>
+    <input type="checkbox" id="nav-check">
     <div class="nav-btn">
       <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="{{ (post.name|lower == 'home') ? '' : 'dark'}}"></span>
+        <span class="{{ (post.name|lower == 'home') ? '' : 'dark'}}"></span>
+        <span class="{{ (post.name|lower == 'home') ? '' : 'dark'}}"></span>
       </label>
     </div>
-    <input type="checkbox" id="nav-check">
+    {# <input type="checkbox" id="nav-check"> #}
     <div class="nav-menu">
+      <a href="/" class="home {{ (post.name|lower == 'home') ? 'active' : ''}}">Home</a>
       {% for nav_item in navigation.items %}
-        <a class="{{ (post.name|lower == 'home') ? '' : 'dark'}}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+        <a class="{{ (post.name|lower == 'home') ? '' : 'dark'}} {{ (post.name|lower == nav_item.title|lower) ? 'active' : '' }}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
       {% endfor %}
       {# {{ fn('woocommerce_mini_cart', {
         'type': post.name
       }) }} #}
+      <svg>
+        <path d="M0 0 L0 200 L200 200 L200 0 Z" fill= "#D53940"/>
+      </svg>
     </div>
     {{ fn('woocommerce_mini_cart', {
       'type': post.name
