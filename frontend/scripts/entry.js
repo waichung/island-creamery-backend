@@ -11,11 +11,91 @@
 // import Header from './views/Header';
 
 // import Product from './views/product/Product';
-import Cart from './views/Cart';
 
-/**
- * JavaScript Entry Point
- */
+
+var scrollW = document.getElementById("wrap-scroll");
+var scrollUl = document.getElementById("ul-scroll");
+var itemsScrolled,
+    itemsMax,
+    cloned = false;
+
+var listOpts = {
+  itemCount: null,
+  itemHeight: null,
+  items: [],
+};
+
+function scrollWrap () {
+  
+
+  itemsScrolled = Math.ceil( (scrollW.scrollLeft + listOpts.itemWidth / 2 ) / listOpts.itemWidth);
+ 
+  if (this.scrollLeft < 1) {
+    itemsScrolled = 0;
+  }
+     
+//   listOpts.items.forEach(function (ele) {
+//     ele.classList.remove("active");
+//   })
+  
+//   if (itemsScrolled < listOpts.items.length) {
+//     listOpts.items[itemsScrolled].classList.add("active");
+//     window.location.href = listOpts.items[itemsScrolled].childNodes[1].getAttribute("href")
+//   }
+
+//   if (itemsScrolled > listOpts.items.length - 3) {
+    var node;
+    for ( var _x = 0; _x <= itemsMax - 1; _x++ ) {
+        
+      node = listOpts.items[_x];
+      
+    //   if ( !cloned ) {
+        node = listOpts.items[_x].cloneNode(true);
+    //   }
+            
+      scrollUl.appendChild(node);
+    }
+    
+    initItems(cloned);
+    cloned = true; 
+    itemsScrolled = 0;
+    
+  }
+// }
+
+function initItems (scrollSmooth) {
+  
+  listOpts.items = [].slice.call(scrollUl.querySelectorAll("li"));
+  listOpts.itemHeight = listOpts.items[0].clientHeight;
+  listOpts.itemWidth = listOpts.items[0].clientWidth;
+  listOpts.itemCount = listOpts.items.length;
+  
+  if (!itemsMax) {
+    itemsMax = listOpts.itemCount;
+  }
+  
+  if (scrollSmooth) {
+    var seamLessScrollPoint = ((itemsMax - 3) * listOpts.itemHeight);
+    scrollW.scrollTop = seamLessScrollPoint;
+  }      
+  
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+//   initItems();
+//   scrollW.onscroll = scrollWrap;
+//   document.getElementById("wrap-scroll").scrollLeft = document.getElementById("active-el").offsetLeft;
+// document.getElementById("wrap-scroll").scrollLeft = 
+
+var distanceOfElementFromLeft = document.getElementById("ul-scroll").querySelector('#active-el').offsetLeft;
+var resultingElementFromLeft = (document.body.clientWidth - document.getElementById("ul-scroll").querySelector('#active-el').clientWidth)/2;
+var distanceToScroll = distanceOfElementFromLeft - resultingElementFromLeft + 0.05*document.body.clientWidth;
+document.getElementById("wrap-scroll").scrollLeft = Math.round(distanceToScroll) - 5;
+});
+
+
+/* Entry Point
+import Cart from './views/Cart';
 document.addEventListener('DOMContentLoaded', () => {
 
     var slideIndex = 0;
@@ -97,4 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // if(productContainer) new Product(productContainer, scrollbar);
     // if(cartContainer) new Cart(cartContainer, scrollbar);
     if(cartContainer) new Cart(cartContainer);
-});
+}); 
+*/

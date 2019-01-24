@@ -68,6 +68,7 @@
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
         padding: 0;
+        height: 30vh;
 
       }
 
@@ -183,7 +184,7 @@
           margin-right: 20px;
           
           @media screen and (max-width: $breakpoint-palm-portrait) {
-            
+
             max-width: 100%;
             margin-right: 0;
             text-align: center;
@@ -216,7 +217,8 @@
 
       }
 
-		}
+    }
+    
 		
 		.primary-filter {
 
@@ -226,8 +228,7 @@
       
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
-        margin-top: -72vh;
-        z-index: 5;
+        display: none;
 
       }
 
@@ -240,6 +241,7 @@
       
       @media screen and (max-width: $breakpoint-palm-portrait) {
 
+        display: none;
         margin-top: 10.5vh;
 
       }
@@ -265,6 +267,109 @@
 
     }
 
+    #scroll-container{
+      
+      overflow: auto;
+      max-width: 90vw;
+      margin: auto;
+      margin-top: -2vh;
+      height: 50px;
+      position: relative;
+      &::before {
+
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to right, transparent 55vw, $primary),
+        linear-gradient(to left, transparent 55vw, $primary);
+        width: 90vw;
+        height: 4em;
+
+      }
+    }
+
+    .wrap-container{
+
+      position: relative;
+      margin: auto;
+      overflow: auto;
+      color: white;
+      
+      ul {
+
+        transition: transform .3s;
+        display: flex;
+        flex-direction: row;
+        padding-inline-start: 0;
+        list-style: none;
+
+      }
+
+      li {
+        
+        width: auto;
+        white-space: nowrap;
+        margin-right: 20px;
+        transition: transform .3s;
+
+        &:nth-child(1) {
+
+          // display: none;
+          order: 1;
+
+        }
+
+        &:nth-child(2) {
+          order: 1;
+        }
+
+        &:nth-child(3) {
+
+          order: 4;
+
+        }
+
+        &:nth-child(4) {
+
+          order: 5;
+
+        }
+
+        &.list-item.active {
+
+          order: 2;
+
+          a {
+
+            text-decoration: underline;
+
+          }
+
+        }
+
+        a {
+
+          color: white;
+          text-decoration: none;
+          font-size: 1.3em;
+
+        }
+
+      }
+
+      ul li .item{
+
+        position: relative;
+        transition: transform 200ms;
+        display: inline-block;
+
+      }
+      
+    }
+
     .shop__products {
 
       padding-top: 6vh !important;
@@ -278,7 +383,67 @@
         padding-top: 0 !important;
         height: auto !important;
         margin-bottom: 10vh;
+        margin-top: -230px;
 
+      }
+
+      .select-dropdown-filter {
+
+        display: none;
+        
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          display: block;
+          margin-top: 40vh;
+  
+        }
+  
+        .select {
+  
+          display: block;
+          margin: auto;
+          width: 250px;
+          min-width: 250px;
+          margin-top: 12vh;
+          text-align: center;
+          background-color: white;
+          color: brown;
+          border: solid 1px brown;
+          border-radius: 50px;
+          padding: 20px 0;
+          height: 65px;
+  
+        }
+
+        .select::after {
+
+          content: '\25BC';
+          position: absolute;
+          right: 23vw;
+          top: 22px;
+          pointer-events: none;
+          
+        }
+
+        #slct {
+
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+          appearance: none;
+          outline: 0;
+          box-shadow: none;
+          background-image: none;
+          overflow: hidden;
+          border: 0;
+          background: none;
+          width: 100%;
+          height: 100%;
+          text-align-last:center;
+          text-decoration: underline;
+
+        }
+  
       }
 
       .product-list {

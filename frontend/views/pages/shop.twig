@@ -33,6 +33,18 @@
     </div>
   {% endif %}
 
+  <div id="scroll-container">
+    <div class="wrap-container" id="wrap-scroll">
+      <ul id="ul-scroll">
+        {% for category in categories %}
+          <li id ="{% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%}active-el{% endif %}" class="list-item {% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+            <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
     {# Subcategories #}
     {% if subcategories %}
       <div class="secondary-filter">
@@ -49,6 +61,18 @@
     <section class="shop__products">
 
         {# Product List #}
+
+    <div class="select-dropdown-filter">
+      <div class="select">
+        <select name="slct" id="slct" onchange="window.location.href = this.value;">
+          {% for subcategory in subcategories %}
+            <option value="{{ function('get_term_link', subcategory) }}" {% if virgin and subcategory == 'All' %} selected {% elseif current_subcategory == subcategory %} selected {% endif %}>
+              {{ subcategory }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
 
         {% if products is empty %}
 
