@@ -23,6 +23,12 @@
     width: 100%;
     // height: 110%;
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      height: 60vh;
+
+    }
+
     .footer-links {
       
       position: relative;
@@ -33,6 +39,7 @@
         
         display: flex;
         flex-direction: column;
+        margin-top: 8vh;
       
       }
       
@@ -43,6 +50,12 @@
         margin: 15px;
         font-weight: 700;
         font-size: 1.1em;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          margin: 7px;
+
+        }
 
       }
 

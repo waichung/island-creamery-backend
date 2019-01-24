@@ -403,6 +403,22 @@ body {
     background-color: $primary;
     padding-top: 45vh !important;
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+       
+      height: 40vh;
+      // padding-top: 0vh !important;
+      padding-top: 38% !important;
+
+
+      a.journey-link__url {
+
+        top: 0 !important;
+        font-size: 1.9em;
+
+      }
+
+    }
+
     &.choco {
 
       background-color: #F94623;

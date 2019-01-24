@@ -222,14 +222,27 @@
 
 			margin-top: -69vh;
 			z-index: 0;
-			position: relative;
+      position: relative;
+      
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        margin-top: -72vh;
+        z-index: 5;
+
+      }
 
 		}
 
     .secondary-filter {
 
 			position: relative;
-			margin-top: 20.5vh;
+      margin-top: 20.5vh;
+      
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        margin-top: 10.5vh;
+
+      }
       
       .filter-list {
 
@@ -259,6 +272,15 @@
       padding-left: 11vw;
       height: 105vh !important;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        padding: 0;
+        padding-top: 0 !important;
+        height: auto !important;
+        margin-bottom: 10vh;
+
+      }
+
       .product-list {
 
         .product-excerpt {
@@ -267,9 +289,24 @@
 
           .product-excerpt__inner {
 
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+
+              height: 52vh;
+
+            }
+
             .product-excerpt__image {
 
               width: 355px !important;
+              margin: auto;
+
+              @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                width: 80vw !important;
+                margin-bottom: 0;
+
+              }
+
               height: auto;
               margin-top: 0;
 
