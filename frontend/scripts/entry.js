@@ -12,7 +12,7 @@
 
 // import Product from './views/product/Product';
 
-
+/* SECTION SHOP PAGE PRIMARY FILTER
 var scrollW = document.getElementById("wrap-scroll");
 var scrollUl = document.getElementById("ul-scroll");
 var itemsScrolled,
@@ -92,9 +92,10 @@ var resultingElementFromLeft = (document.body.clientWidth - document.getElementB
 var distanceToScroll = distanceOfElementFromLeft - resultingElementFromLeft + 0.05*document.body.clientWidth;
 document.getElementById("wrap-scroll").scrollLeft = Math.round(distanceToScroll) - 5;
 });
+*/
 
 
-/* Entry Point
+/* Entry Point*/
 import Cart from './views/Cart';
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -178,4 +179,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // if(cartContainer) new Cart(cartContainer, scrollbar);
     if(cartContainer) new Cart(cartContainer);
 }); 
-*/

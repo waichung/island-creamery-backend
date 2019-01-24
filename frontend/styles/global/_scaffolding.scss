@@ -75,6 +75,35 @@ body {
 
   &.page--about {
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      .intro {
+
+        h1 {
+
+          font-size: 2.45em;
+          margin-bottom: 15px;
+
+        }
+
+        p {
+
+          &:nth-of-type(1) {
+
+            display: none;
+
+          }
+
+          font-size: 1.2em;
+          max-width: 50vw;
+          margin: auto;
+
+        }
+
+      }
+
+    }
+
     // header > svg {
 
     //   // z-index: 3 !important;
@@ -114,11 +143,25 @@ body {
       margin-top: 7vh;
       z-index: -2;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: 47vh;
+
+      }
+
       img {
 
         height: 100%;
         width: 100%;
         object-fit: cover;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          height: auto;
+          width: 535px;
+          position: -100px 5px;
+
+        }
 
       }
 
@@ -137,6 +180,13 @@ body {
         margin-top: 10vh;
         font-size: 1.1em;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+          width: 70%;
+          font-size: 0.95em;
+
+        }
+
       }
       
     }
@@ -147,9 +197,26 @@ body {
       flex-direction: row;
       padding-top: 0vh !important;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        flex-direction: column;
+        padding-top: 20vh !important;
+        height: 95vh;
+
+      }
+
       .header {
 
         flex: 5;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+          flex: 1;
+          transform: scale(0.65);
+          margin-bottom: 5vh;
+
+
+        }
 
         h1 {
 
@@ -164,6 +231,12 @@ body {
             margin-left: 0;
             transform: translateY(10px);
 
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+              
+              transform: scale(0.85) translateY(20px);
+
+            }
+
           }
 
         }
@@ -171,6 +244,14 @@ body {
         h1:nth-child(2) {
 
           margin-right: 62px;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            margin-left: 10px;
+            margin-right: 0;
+            margin-top: -10px;
+
+          }
 
         }
 
@@ -180,6 +261,12 @@ body {
           width: 220px;
           margin-left: -255px;
           margin-top: 15%;
+          
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            display: none;
+
+          }
 
         }
 
@@ -196,6 +283,12 @@ body {
           width: 120px;
           float: right;
           transform: translate(-90px, 120px);
+
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            display: none;
+
+          }
 
           &:first-child {
 
@@ -214,11 +307,24 @@ body {
           padding-top: 20px;
           max-width: 73%;
 
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+
+            max-width: 80vw;
+
+          }
+
           .step-number {
 
             flex: 1;
             font-size: 1.7em;
             text-align: center;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+              
+              font-size: 1em;
+              font-weight: 300;
+
+            }
             
           }
 
@@ -228,6 +334,12 @@ body {
             align-self: center;
             margin-left: 30px;
             text-align: left;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+              
+              font-size: 0.9em;
+            
+            }
 
           }
 
@@ -244,14 +356,37 @@ body {
       text-align: center;
       height: 90vh;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: 85vh;
+
+      }
+
       h1 {
 
         font-size: 3.4em;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          font-size: 2.2em;
+          max-width: 80vw;
+          margin: 0 auto 2vh auto;
+
+        }
+
       }
 
       p {
+
         margin-top: 0;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          max-width: 80vw;
+          margin: 3vh auto;
+
+        }
+
       }
 
       .slideshow-container {
@@ -270,6 +405,12 @@ body {
         margin-top: 6%;
         margin-bottom: 4.5%;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          right: 0 !important;
+
+        }
+
       }
 
       .dots {
@@ -278,6 +419,16 @@ body {
         bottom: 10vh;
         width: 10%;
         right: 45%;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          width: 100px;
+          right: calc(50% - 50px);
+          transform: scale(0.6);
+          bottom: 4vh;
+
+        }
+        
 
       }
       
@@ -330,9 +481,24 @@ body {
         height: 30vh;
         width: 65vw;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          flex-direction: column;
+          width: 90%;
+          height: 310px;
+          
+        }
+
         img {
           
-          width: 50%
+          width: 50%;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            width: 100%;
+            height: 135px;
+          
+          }
 
         }
 
@@ -340,6 +506,38 @@ body {
           
           width: 50%;
           background-color: #BE2525;
+
+
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            width: 100%;
+            height: 175px;
+
+            text-align: left;
+            padding: 0 30px;
+
+            h2 {
+
+              font-size: 1.2em;
+              margin: 0;
+              margin-top: 30px;
+
+            }
+
+            p {
+
+              font-size: 0.9em;
+              margin-top: 15px;
+
+              &:nth-of-type(1) {
+
+                display: none !important;
+
+              }
+
+            }
+          
+          }
 
         }
 
@@ -354,9 +552,22 @@ body {
       padding-top: 20vh !important;
       height: 90vh;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        padding-top: 10vh !important;
+        height: 75vh;
+      
+      }
+
       h1 {
 
         font-size: 3.2em;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+          font-size: 2.3em;
+        
+        }
 
       }
 
@@ -367,11 +578,27 @@ body {
         padding: 0 10% 0 17%;
         margin-top: 5%;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+          flex-direction: column;
+          padding: 0;
+
+        }
+
         img {
 
           width: 50%;
           height: 380px;
           width: auto;
+          // margin: auto;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+            height: 195px;
+            width: 195px;
+            margin: auto;
+            
+          }
   
         }
   
@@ -384,9 +611,29 @@ body {
           width: 42%;
           text-align: left;
 
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+
+            width: 80vw;
+            padding: 0;
+            display: block;
+            margin: auto;
+            height: 40vh;
+            text-align: center;
+          
+          }
+
           h2 {
 
             font-size: 1.7em;
+            
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+
+              font-size: 1.3em;
+              max-width: 240px;
+              margin: auto;
+              margin-top: 10px;
+
+            }
 
           }
 
