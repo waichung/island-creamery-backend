@@ -11,6 +11,30 @@
  */
 .page--contact {
 
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        .header {
+
+            #morph {
+                
+                defs > pattern > image {
+
+                    transform: scaleX(2) translate(-446px, 20px);
+
+                }
+
+            }
+
+        }
+
+        .intro > h1 {
+
+            font-size: 2.5em;
+
+        }
+    
+    }
+
     span, select, input, textarea {
 
         outline: none;
@@ -87,11 +111,24 @@
 
     .form-container {
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+            padding-top: 0 !important;
+        
+        }
+
         h1 {
 
             color: #5A3C35;
             font-size: 2.2em;
             margin-bottom: 0;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+                max-width: 300px;
+                margin: auto;
+
+            }
 
         }
 
@@ -102,6 +139,12 @@
             text-align: left;
             display: flex;
             flex-wrap: wrap;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+            
+                width: 80vw;
+            
+            }
 
             p:nth-child(2) {
 
@@ -139,6 +182,12 @@
                 width: 48%;
                 margin-right: 10px;
 
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+                    
+                    width: 100%;
+                
+                }
+
                 span, input, select {
 
                     width: 100%;
@@ -165,8 +214,23 @@
                 text-align: center;
                 width: 100%;
 
-                &.wpcf7-form-control.wpcf7-submit {
+                .wpcf7-form-control.wpcf7-submit {
                     
+                    @media screen and (max-width: $breakpoint-palm-portrait) {
+                        
+                        width: 100%;
+                        height: 10px !important;
+                        background: $primary;
+                        color: white;
+                        padding: 20px 80px 35px 80px;
+
+                        input {
+
+                            width: 100%;
+
+                        }
+                    
+                    }
 
                 }
 
