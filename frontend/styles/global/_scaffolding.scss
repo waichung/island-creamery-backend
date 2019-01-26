@@ -35,6 +35,7 @@ body {
   #teh-tarik {
 
     color: $teh-tarik;
+    white-space: nowrap;
 
     a {
 
@@ -170,7 +171,8 @@ body {
     .write-up {
 
       padding-top: 0 !important;
-      height: 10vh;
+      // height: 10vh;
+      height: 170px;
 
       div {
 
@@ -550,7 +552,8 @@ body {
       background-color: #F4F4F4;
       text-align: center; 
       padding-top: 20vh !important;
-      height: 90vh;
+      // height: 95vh;
+      height: 700px;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -710,7 +713,8 @@ body {
   color: black;
   z-index: 0;
   padding-top: 5vh !important;
-  height: 117vh !important;
+  // height: 117vh !important;
+  height: 1000px;
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1163,7 +1167,7 @@ body {
 
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 35vh);
+    grid-template-columns: repeat(4, calc(260px + 1vw));
     grid-template-rows: repeat(auto-fill, 500px);
     padding: 0 9%;
     // grid-row-gap: .5em;
