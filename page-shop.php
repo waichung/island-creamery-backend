@@ -3,7 +3,7 @@
 include(__DIR__ . '/backend/ProductFilter.php');
 
 /**
- *
+ *  Template Name: Menu Page
  * Template for general menu page
  */
 $context = Timber::get_context();
