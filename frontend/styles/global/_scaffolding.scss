@@ -230,7 +230,7 @@ body {
       flex-direction: row;
       padding-top: 0vh !important;
       height: 86vh;
-      z-index: 1;
+      z-index: 4;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -390,7 +390,7 @@ body {
       color: white;
       text-align: center;
       height: 90vh;
-      z-index: 1;
+      z-index: 3;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -635,7 +635,7 @@ body {
       padding-top: 25vh !important;
       // height: 95vh;
       height: 700px;
-      z-index: 1;
+      z-index: 2;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -795,136 +795,6 @@ body {
 
     }
 
-    svg {
-
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 1;
-      left: 0;
-
-      &#community-svg {
-
-        position: absolute;
-        top: -10vh;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        // transform: translateY(-140px);
-  
-        path {
-  
-          fill: #F4F4F4;
-          transform: scale(0.75);
-  
-          @media screen and (min-width: $breakpoint-laptop-large) {
-          
-            transform: scale(1);
-  
-          }
-  
-          @media screen and (min-width: 2560px) {
-          
-            transform: scale(1.4);
-  
-          }
-  
-        }
-  
-      }
-
-      &#nav-footer-svg {
-
-        position: absolute;
-        top: 75vh;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-        // transform: translateY(-140px);
-  
-        path {
-  
-          fill: $primary;
-          transform: scale(0.75);
-  
-          @media screen and (min-width: $breakpoint-laptop-large) {
-          
-            transform: scale(1);
-  
-          }
-  
-          @media screen and (min-width: 2560px) {
-          
-            transform: scale(1.4);
-  
-          }
-  
-        }
-  
-      }
-
-      &#top-svg {
-
-          top: -30px;
-
-
-        path {
-    
-          fill: white;
-          transform: scale(0.72);
-    
-          @media screen and (min-width: $breakpoint-laptop-large) {
-          
-            transform: scale(1);
-    
-          }
-    
-          @media screen and (min-width: 2560px) {
-          
-            transform: scale(1.4);
-    
-          }
-    
-        }
-
-      }
-
-      &#bottom-svg {
-      
-          top: 79vh;
-
-
-        path {
-    
-          fill: #DB6166;
-          transform: scale(0.72);
-
-          &.orange {
-
-            fill: #F94623;
-
-          }
-
-          @media screen and (min-width: $breakpoint-laptop-large) {
-          
-            transform: scale(1);
-    
-          }
-    
-          @media screen and (min-width: 2560px) {
-          
-            transform: scale(1.4);
-    
-          }
-    
-        }
-
-      }
-  
-    }
-
   }
 
   .footer {
@@ -957,6 +827,190 @@ body {
 
     margin-bottom: 45px;
     font-size: 1.4em;
+
+  }
+
+}
+
+.filler-svg {
+
+  position: absolute;
+  top: -44vh;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+
+  @media screen and (max-width: $breakpoint-palm-portrait) {
+
+    top: -400px;
+
+  }
+
+  path {
+
+    fill: white;
+    transform: scaleX(1.1);
+
+    &.red {
+
+      fill: $primary;
+      
+    }
+
+    @media screen and (min-width: $breakpoint-laptop-large) {
+    
+      transform: scale(1);
+
+    }
+
+    @media screen and (min-width: 2560px) {
+    
+      transform: scale(1.4);
+
+    }
+
+  }
+
+}
+
+.filler-svg.others {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+
+  &.community-svg {
+
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    // transform: translateY(-140px);
+
+    path {
+
+      fill: #F4F4F4;
+      transform: scale(0.75);
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
+
+  }
+
+  &.nav-footer-svg {
+
+    position: absolute;
+    top: 75vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    // transform: translateY(-140px);
+
+    path {
+
+      fill: $primary;
+      transform: scale(0.75);
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
+
+  }
+
+  &.top {
+
+      top: -35vh;
+
+
+    path {
+
+      fill: white;
+      transform: scaleY(0.72);
+
+      &.grey {
+
+        fill: #F4F4F4;
+        
+      }
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
+
+  }
+
+  &.bottom {
+  
+      top: 60vh;
+
+
+    path {
+
+      fill: #DB6166;
+      transform: scale(0.72);
+
+      &.orange {
+
+        fill: #F94623;
+
+      }
+
+      &.primary {
+
+        fill: $primary;
+
+      }
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
 
   }
 
@@ -1383,13 +1437,6 @@ body {
 
 }
 
-// .flavours {
-
-//   background-color: $primary;
-//   z-index: 0;
-
-// }
-
 .location {
 
   color: white;
@@ -1405,41 +1452,41 @@ body {
 
   }
 
-  #flavours-svg {
+  // #flavours-svg {
 
-    position: absolute;
-    top: -44vh;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
+  //   position: absolute;
+  //   top: -44vh;
+  //   left: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   z-index: -1;
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+  //   @media screen and (max-width: $breakpoint-palm-portrait) {
 
-      top: -400px;
+  //     top: -400px;
 
-    }
+  //   }
 
-    path {
+  //   path {
 
-      fill: white;
-      transform: scaleX(1.1);
+  //     fill: white;
+  //     transform: scaleX(1.1);
 
-      @media screen and (min-width: $breakpoint-laptop-large) {
+  //     @media screen and (min-width: $breakpoint-laptop-large) {
       
-        transform: scale(1);
+  //       transform: scale(1);
 
-      }
+  //     }
 
-      @media screen and (min-width: 2560px) {
+  //     @media screen and (min-width: 2560px) {
       
-        transform: scale(1.4);
+  //       transform: scale(1.4);
 
-      }
+  //     }
 
-    }
+  //   }
 
-  }
+  // }
 
   h2 {
 

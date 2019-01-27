@@ -3,9 +3,9 @@ import anime from './lib/anime';
 
 function shapeMorph () {
 
-    if (document.getElementById('flavours-svg')) {
+    if (document.getElementById('filler-svg')) {
         var morphing = anime({
-            targets: '#flavours-svg > path',
+            targets: '.filler-svg > path',
             scale: 1.05, //scaleY: 2.5 for mobile // 1.2 for desktop
             d: [
                 {value: "M0,0H1919.8V144h0s33.056,234.531-329.144,234.531c-297.7,0-368.234,121.047-368.234,121.047s-119.837,162.656-311.437,98.656c-139-46.4-162.45-221.619-358.75-170.219C301.634,506.716,0,332.9,0,332.9Z"},
