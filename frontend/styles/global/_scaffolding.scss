@@ -1408,17 +1408,22 @@ body {
   #flavours-svg {
 
     position: absolute;
-    top: 0;
+    top: -44vh;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: -1;
-    transform: translateY(-140px);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      top: -400px;
+
+    }
 
     path {
 
       fill: white;
-      transform: scale(0.75);
+      transform: scaleX(1.1);
 
       @media screen and (min-width: $breakpoint-laptop-large) {
       
