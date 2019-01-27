@@ -25,7 +25,7 @@
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
       
-      height: 60vh;
+      height: 36vh;
 
     }
 
@@ -62,8 +62,10 @@
     }
 
     p {
+
       position: relative;
       z-index: 3;
+
     }
 
     svg {
@@ -80,6 +82,17 @@
       svg {
 
         display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        path {
+
+          // transform: scale(1.5) translate(-333px, -300px); //1920
+          transform: scale(1.5) translate(-483px, -310px); //1366
+          // transform: scale(1.5) translate(-505px, -300px); //1280
+        }
 
       }
 

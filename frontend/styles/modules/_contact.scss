@@ -82,7 +82,7 @@
 
        svg#morph {
 
-        height: 50vh;
+        height: 100vh;
 
        }
 
@@ -110,6 +110,8 @@
     }
 
     .form-container {
+
+        position: relative;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
             
@@ -242,7 +244,55 @@
 
     #shop-foot-link {
 
-        height: 100vh;
+        height: 80vh;
+        padding-top: 55vh !important;
+
+        svg {
+
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            left: 0;
+
+            &#form-svg {
+
+                top: -30px;
+
+            }
+
+            &#foot-svg {
+            
+                top: 79vh;
+
+            }
+        
+            path {
+        
+              fill: white;
+              transform: scale(0.72);
+
+              &#foot-path {
+
+                fill: #DB6166;
+
+              }
+        
+              @media screen and (min-width: $breakpoint-laptop-large) {
+              
+                transform: scale(1);
+        
+              }
+        
+              @media screen and (min-width: 2560px) {
+              
+                transform: scale(1.4);
+        
+              }
+        
+            }
+        
+          }
 
         span {
             
@@ -254,7 +304,14 @@
 
     .footer {
 
-        visibility: hidden;
+        height: 100vh;
+        // visibility: hidden;
+
+        .footer-links {
+
+            margin-top: 50%;
+
+        }
 
     }
 }

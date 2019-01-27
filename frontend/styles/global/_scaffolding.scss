@@ -166,6 +166,37 @@ body {
 
       }
 
+      #place-bg-svg {
+
+        position: absolute;
+        // top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        transform: rotate(180deg) scaleX(-1) translateY(95vh);
+    
+        path {
+    
+          fill:white;
+          transform: scale(0.72);
+    
+          @media screen and (min-width: $breakpoint-laptop-large) {
+          
+            transform: scale(1);
+    
+          }
+    
+          @media screen and (min-width: 2560px) {
+          
+            transform: scale(1.4);
+    
+          }
+    
+        }
+
+      }
+
     }
 
     .write-up {
@@ -198,6 +229,8 @@ body {
       display: flex;
       flex-direction: row;
       padding-top: 0vh !important;
+      height: 86vh;
+      z-index: 1;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -357,6 +390,7 @@ body {
       color: white;
       text-align: center;
       height: 90vh;
+      z-index: 1;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -364,9 +398,41 @@ body {
 
       }
 
+      #provenance-svg {
+
+        position: absolute;
+        top: -14vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        transform: scale(1);
+    
+        path {
+    
+          fill: white;
+          transform: scale(0.72);
+    
+          @media screen and (min-width: $breakpoint-laptop-large) {
+          
+            transform: scale(1);
+    
+          }
+    
+          @media screen and (min-width: 2560px) {
+          
+            transform: scale(1.4);
+    
+          }
+    
+        }
+
+      }
+
       h1 {
 
         font-size: 3.4em;
+        margin-top: 10vh;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
@@ -410,6 +476,8 @@ body {
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
           right: 0 !important;
+          height: 34vh;
+          padding-left: 9%;
 
         }
 
@@ -418,7 +486,7 @@ body {
       .dots {
 
         position: absolute;
-        bottom: 10vh;
+        bottom: -2vh;
         width: 10%;
         right: 45%;
 
@@ -487,8 +555,19 @@ body {
           
           flex-direction: column;
           width: 90%;
-          height: 310px;
-          
+          // height: 310px;
+          height: 100%;
+          // height: 30vh;
+
+          @media screen and (max-width: $breakpoint-mobile-portrait) {
+
+            flex-direction: column;
+            width: 90%;
+            height: 90%;
+            // transform: scale(0.5);
+
+          }
+        
         }
 
         img {
@@ -498,7 +577,8 @@ body {
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
             width: 100%;
-            height: 135px;
+            // height: 135px;
+            height: 40%;
           
           }
 
@@ -513,7 +593,8 @@ body {
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
             width: 100%;
-            height: 175px;
+            // height: 175px;
+            height: 60%;
 
             text-align: left;
             padding: 0 30px;
@@ -551,15 +632,47 @@ body {
 
       background-color: #F4F4F4;
       text-align: center; 
-      padding-top: 20vh !important;
+      padding-top: 25vh !important;
       // height: 95vh;
       height: 700px;
+      z-index: 1;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
         padding-top: 10vh !important;
         height: 75vh;
       
+      }
+
+      #recipe-svg {
+
+        position: absolute;
+        top: -13vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        transform: scale(1.1);
+    
+        path {
+    
+          fill: $primary;
+          transform: scale(0.72);
+    
+          @media screen and (min-width: $breakpoint-laptop-large) {
+          
+            transform: scale(1);
+    
+          }
+    
+          @media screen and (min-width: 2560px) {
+          
+            transform: scale(1.4);
+    
+          }
+    
+        }
+
       }
 
       h1 {
@@ -681,6 +794,80 @@ body {
 
     }
 
+    #community-svg {
+
+      position: absolute;
+      top: -10vh;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      // transform: translateY(-140px);
+
+      path {
+
+        fill: #F4F4F4;
+        transform: scale(0.75);
+
+        @media screen and (min-width: $breakpoint-laptop-large) {
+        
+          transform: scale(1);
+
+        }
+
+        @media screen and (min-width: 2560px) {
+        
+          transform: scale(1.4);
+
+        }
+
+      }
+
+    }
+
+    #nav-footer-svg {
+
+      position: absolute;
+      top: 75vh;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      // transform: translateY(-140px);
+
+      path {
+
+        fill: $primary;
+        transform: scale(0.75);
+
+        @media screen and (min-width: $breakpoint-laptop-large) {
+        
+          transform: scale(1);
+
+        }
+
+        @media screen and (min-width: 2560px) {
+        
+          transform: scale(1.4);
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .footer {
+
+    height: 100vh;
+    
+    .footer-links {
+
+      margin-top: 40%;
+      
+    }
+    
   }
 
 }
@@ -709,6 +896,7 @@ body {
 
 .page-header {
 
+  z-index: 1 !important;
   text-align: center;
   color: black;
   z-index: 0;
@@ -718,7 +906,7 @@ body {
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
-    height: 155vh !important;
+    height: auto !important;
 
   }
 
@@ -1144,6 +1332,38 @@ body {
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
     padding-top: 25vh !important;
+    height: 880px !important;
+
+  }
+
+  #flavours-svg {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: translateY(-140px);
+
+    path {
+
+      fill: white;
+      transform: scale(0.75);
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
 
   }
 
@@ -1296,6 +1516,37 @@ body {
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
     padding-top: 8vh !important;
+
+  }
+
+  #places-svg {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: translateY(-100px);
+
+    path {
+
+      fill: $primary;
+      transform: scale(0.72);
+
+      @media screen and (min-width: $breakpoint-laptop-large) {
+      
+        transform: scale(1);
+
+      }
+
+      @media screen and (min-width: 2560px) {
+      
+        transform: scale(1.4);
+
+      }
+
+    }
 
   }
 

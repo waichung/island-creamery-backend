@@ -507,6 +507,10 @@
 
       image {
 
+        height: 100%;
+        width: auto;
+        transform: translateY(350px);
+        
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
