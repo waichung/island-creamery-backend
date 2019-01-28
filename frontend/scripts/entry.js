@@ -1,20 +1,103 @@
 //
 import anime from './lib/anime';
 
-function shapeMorph () {
+const isMobile = screen.width < 414;
+const isTablet = screen.width < 1280 && screen.width > 414;
+const isDesk = screen.width >= 1280;
+
+function shapeFillerMorph () {
 
     if (document.getElementById('filler-svg')) {
+        if (isMobile) {
+            var morphing = anime({
+                targets: '.filler-svg > path',
+                scaleY: 2.5,
+                d: [
+                    {value: "M0,0H1919.8V144h0s33.056,234.531-329.144,234.531c-297.7,0-368.234,121.047-368.234,121.047s-119.837,162.656-311.437,98.656c-139-46.4-162.45-221.619-358.75-170.219C301.634,506.716,0,332.9,0,332.9Z"},
+                    {value: "M0,0H1919.8V144h0s119.759,284.016-242.441,284.016c-297.7,0-404.437,33.266-404.437,33.266s-84.744,101.563-276.344,37.563c-139-46.4-247.809-139.166-444.109-87.766C301.869,489.778,0,332.9,0,332.9Z"},
+                    {value: "M0,0H1919.8V144h0s20,195.5-342.2,195.5c-297.7,0-417.4,152.1-417.4,152.1s-68.6,86.7-260.2,22.7c-139-46.4-171.45-113.5-367.75-62.1C281.65,530.9,0,357.906,0,357.906Z"},
+                    
+                ],
+                easing: 'easeOutQuad',
+                duration: 9000,
+                endDelay: 1000,
+                direction: 'alternate',
+                loop: true
+            });
+        } else if (isDesk) {
+            var morphing = anime({
+                targets: '.filler-svg > path',
+                scale: 1.06,
+                d: [
+                    {value: "M0,0H1919.8V144h0s33.056,234.531-329.144,234.531c-297.7,0-368.234,121.047-368.234,121.047s-119.837,162.656-311.437,98.656c-139-46.4-162.45-221.619-358.75-170.219C301.634,506.716,0,332.9,0,332.9Z"},
+                    {value: "M0,0H1919.8V144h0s119.759,284.016-242.441,284.016c-297.7,0-404.437,33.266-404.437,33.266s-84.744,101.563-276.344,37.563c-139-46.4-247.809-139.166-444.109-87.766C301.869,489.778,0,332.9,0,332.9Z"},
+                    {value: "M0,0H1919.8V144h0s20,195.5-342.2,195.5c-297.7,0-417.4,152.1-417.4,152.1s-68.6,86.7-260.2,22.7c-139-46.4-171.45-113.5-367.75-62.1C281.65,530.9,0,357.906,0,357.906Z"},
+                    
+                ],
+                easing: 'easeOutQuad',
+                duration: 9000,
+                endDelay: 1000,
+                direction: 'alternate',
+                loop: true
+            });
+        }
+    }
+
+}
+
+function shapeHeaderMorph () {
+
+    if (document.getElementById('morph')) {
         var morphing = anime({
-            targets: '.filler-svg > path',
-            scale: 1.05, //scaleY: 2.5 for mobile // 1.2 for desktop
+            targets: '.intro-lick > .morph',
+            translateY: 30,
+            scale: 1.3, //scaleY: 2.5 for mobile // 1.2 for desktop
             d: [
-                {value: "M0,0H1919.8V144h0s33.056,234.531-329.144,234.531c-297.7,0-368.234,121.047-368.234,121.047s-119.837,162.656-311.437,98.656c-139-46.4-162.45-221.619-358.75-170.219C301.634,506.716,0,332.9,0,332.9Z"},
-                {value: "M0,0H1919.8V144h0s119.759,284.016-242.441,284.016c-297.7,0-404.437,33.266-404.437,33.266s-84.744,101.563-276.344,37.563c-139-46.4-247.809-139.166-444.109-87.766C301.869,489.778,0,332.9,0,332.9Z"},
-                {value: "M0,0H1919.8V144h0s20,195.5-342.2,195.5c-297.7,0-417.4,152.1-417.4,152.1s-68.6,86.7-260.2,22.7c-139-46.4-171.45-113.5-367.75-62.1C281.65,530.9,0,357.906,0,357.906Z"},
+                {value: "M1919.8,443.2s66.967,172.732-295.233,172.732c-297.7,0-173.343,159.132-347.922,207.43s-185.7,24.659-377.3-39.341c-139-46.4-306.872,35.951-503.172,87.351C145.569,950.072,0,632.1,0,632.1V0H1919.8Z"},
                 
             ],
-            easing: 'easeOutQuad',
+            easing: 'easeInOutSine',
             duration: 9000,
+            delay: 100,
+            endDelay: 1000,
+            direction: 'alternate',
+            loop: true
+        });
+    }
+
+}
+
+function shapeContactMorph () {
+
+    if (document.getElementById('morph')) {
+        var morphing = anime({
+            targets: '.intro-lick > .morph-img',
+            d: [
+                {value: "M1919.8,510.678s90.9,247.1-271.3,247.1c-297.7,0-168.541,62.711-343.12,111.009s-219.883,28.234-411.483-35.766c-139-46.4-271.642,20.974-467.942,72.374C175.351,984.1,0,716.786,0,716.786V0H1919.8Z"},
+            ],
+            easing: 'easeInOutSine',
+            duration: 9000,
+            delay: 100,
+            endDelay: 1000,
+            direction: 'alternate',
+            loop: true
+        });
+    }
+
+}
+
+function shapeFooterMorph() {
+
+    if (document.getElementById('footer-svg-container')) {
+        var morphing = anime({
+            targets: '#footer-svg > path',
+            d: [
+                {value: "M794,343.155s-44.4,18.538-55.2,78.022c-5,24.372-7.6,46.508-7.6,46.508s-2.5,28.57,21.1,42.8,55,42.637,128.5,48.307c163.7,10.468,238.1-42.255,238.1-42.255s86.2-44.981,67.1-83.2c-19.1-38.166-19-43.236-69.6-73.442-50.6-30.151-77.6-40.129-107-38.657-29.3,1.472-43.1.164-84.5-1.418C883.5,318.293,818.713,335.2,794,343.155Z"},
+                {value: "M790.225,362.7s-41.734,34-51.886,143.1c-4.7,44.7-7.144,85.3-7.144,85.3s-2.35,52.4,19.833,78.5,51.7,78.2,120.784,88.6c153.871,19.2,223.8-77.5,223.8-77.5s81.024-82.5,63.071-152.6c-17.953-70-17.859-79.3-65.421-134.7-47.562-55.3-72.94-73.6-100.575-70.9-27.541,2.7-40.512.3-79.426-2.6C874.351,317.1,813.454,348.105,790.225,362.7Z"},
+            ],
+            easing: 'easeInOutSine',
+            duration: 9000,
+            delay: 100,
             endDelay: 1000,
             direction: 'alternate',
             loop: true
@@ -24,26 +107,28 @@ function shapeMorph () {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    shapeMorph();
+    shapeFillerMorph();
+    // shapeHeaderMorph();
+    shapeContactMorph();
+    shapeFooterMorph();
 });
-    // if ($('.shape-morph').length > 0) {
-    //     var morphing = anime({
-    //         targets: '.scene, .scene-small',
-    //         d: [
-    //             { value: 'M 1041,450.4 C 1023,547.7 992.8,667.7 905.7,714.5 793.1,775 639,728.7 524.5,671.8 453.3,636.4 382.2,575.4 360.2,499 329.7,393 344.6,249.2 426,174.9 568.6,44.66 851.1,-8.71 1002,111.8 1091,182.7 1061,338.6 1041,450.4 Z' },
-    //             { value: 'M 1066,436 C 1053,531.1 930.7,580.1 842.2,617.2 734,662.7 598.4,707.8 492.4,657.4 427.6,626.6 387.5,546.9 376.7,476 360.3,368.3 376.9,227.9 462.5,160.5 567.6,77.69 749.9,37.5 863.8,148.8 947.6,230.7 1082,320.1 1066,436 Z' },
-    //             { value: 'M 1066,436 C 1051,543.8 976.5,664.5 873.6,700.1 761,739.1 636.4,655.8 529.5,603.1 441.6,559.8 325.8,520.1 293.8,427.5 263.1,338.4 294.5,213.4 368.2,154.8 520.7,33.48 790.1,23.76 952.4,131.7 1043,191.7 1081,328.8 1066,436 Z' },
-    //             { value: 'M 1066,436 C 1051,543.8 973.2,656.2 873.6,700.1 756.6,751.7 600.9,725 492.4,657.4 431.5,619.5 387.5,546.9 376.7,476 360.3,368.3 377.9,229.2 462.5,160.5 589.5,57.34 815.4,42.24 952.4,131.7 1044,190.8 1081,328.8 1066,436 Z ' }
-    //         ],
-    //         easing: 'easeOutQuad',
-    //         duration: 9000,
-    //         loop: true
-    //     });
-    // }
-//     console.log('start morphing bitch');
-// }
 
-// shapeMorph();
+const flavourCloud = document.getElementsByClassName('flavours-cloud')[0];
+
+flavourCloud.addEventListener('click', (e) => {
+    if (e && e.target) {
+        const flavourId = e.target.getAttribute('id');
+        const allIceCreamFlavours = document.getElementsByClassName('ice-cream');
+        for (var i=0; i<allIceCreamFlavours.length; i++) {
+            allIceCreamFlavours[i].classList.remove('active');
+            if (allIceCreamFlavours[i].classList.contains(flavourId)) {
+                allIceCreamFlavours[i].classList.add('active');
+            }
+        }
+    }
+});
+
+
 
 
 // Lib

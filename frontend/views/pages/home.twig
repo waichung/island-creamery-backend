@@ -2,7 +2,8 @@
 
 {% set site_title = 'Home' %}
 
-{% set featured_product_img = post.get_field('featured_product_img') %}
+{% set featured_product_images = post.get_field('featured_product_images') %}
+{% set cone = post.get_field('cone') %}
 {% set header = post.get_field('header_text') %}
 {% set yes = post.get_field('yes') %}
 {% set no = post.get_field('no') %}
@@ -45,7 +46,12 @@
   </div>
   <div class="highlight">
     <span><a href="{{ yes.link.url }}">{{ yes.line1 }} <br> {{ yes.line2}} </a></span>
-    <img src="{{ featured_product_img.url }}">
+    <div class="highlight-img-container">
+      {% for product_img in featured_product_images %}
+        <img class="ice-cream {{ product_img.code }} {% if loop.index == 1 %}active{% endif %}" src="{{ product_img.image.url }}">
+      {% endfor %}
+      <img class="cone" src="{{ cone.url }}">
+    </div>
     <span><a href="{{ no.link.url }}">{{ no.line1 }} <br> {{ no.line2 }}</a></span>
   </div>
   <div class="cue"><a href="" id="stop-drip"><strong>Click before<br> it drips!</strong></a></div>
@@ -54,7 +60,7 @@
       <div class="flavours-cloud">
         {% for flavourRow in featured_flavours %}
             {% for flavour in flavourRow.featured_flavour %}
-              <span id="{{ flavour.code }}">
+              <span class="flavour-word" id="{{ flavour.code }}">
                 {{ flavour.name }}
               </span>
             {% endfor %}

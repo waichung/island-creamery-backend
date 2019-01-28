@@ -84,7 +84,7 @@
 
   {% if hex_code and not bg_url %}
 
-    <svg id="morph" class="intro-lick" height="100%" width="100%"  viewBox="0 0 1920 1080" preserveAspectRatio="none">
+    <svg id="morph" class="intro-lick" preserveAspectRatio="meet" viewBox="0 0 1920 637.3">
       <path class="morph" d="{{ svg_path }}" transform="{{ transform }}" fill={{ hex_code }} />
     </svg>
 
@@ -96,7 +96,7 @@
           <image xlink:href="{{ bg_url }}" width="100%" height="100%" />             
         </pattern>
       </defs>
-      <path class="morph" d="{{ svg_path }}" transform="{{ transform }}" fill="url(#img1)" fill-opacity="{{ opacity }}"/>
+      <path class="morph-img" d="{{ svg_path }}" transform="{{ transform }}" fill="url(#img1)" fill-opacity="{{ opacity }}"/>
     </svg>
 
   {% endif %}
