@@ -19,7 +19,7 @@
                 
                 defs > pattern > image {
 
-                    transform: scaleX(2) translate(-446px, 20px);
+                    transform: scale(1.7, 0.8) translate(-446px, 55vh);
 
                 }
 
@@ -45,6 +45,12 @@
     span, input {
 
         height: 45px;
+        
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+            height: 40px;
+
+        }
 
     }
 
@@ -84,6 +90,13 @@
 
         height: 100vh;
 
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+            top: -20vh;
+            height: 65vh;
+
+        }
+
        }
 
 
@@ -115,7 +128,7 @@
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
             
-            padding-top: 0 !important;
+            padding-top: 4vh !important;
         
         }
 
@@ -144,7 +157,7 @@
 
             @media screen and (max-width: $breakpoint-palm-portrait) {
             
-                width: 80vw;
+                width: 85vw;
             
             }
 
@@ -153,6 +166,13 @@
                 text-align: center;
                 width: 100%;
                 margin-bottom: 50px;
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                    margin-top: 0;
+                    margin-bottom: 25px;
+
+                }
 
                 .wpcf7-form-control-wrap.menu-843 {
 
@@ -173,6 +193,14 @@
                         background-repeat: no-repeat;
                         font-size: 1.4em;
 
+                        @media screen and (max-width: $breakpoint-palm-portrait) {
+                        
+                            font-size: 1.1em;
+                            // padding: 7px 20px 7px 7px;
+                            padding: 14px 38px 8px 10px;
+
+                        }
+
                     }
 
                 }
@@ -183,16 +211,20 @@
 
                 width: 48%;
                 margin-right: 10px;
+                color: #5A3C35;
 
                 @media screen and (max-width: $breakpoint-palm-portrait) {
                     
                     width: 100%;
+                    font-size: 0.9em;
                 
                 }
 
                 span, input, select {
 
                     width: 100%;
+                    font-size: 1em;
+                    font-weight: 300;
 
                 }
 
@@ -202,10 +234,14 @@
             p:nth-child(5), p:nth-child(8), p:nth-child(9), p:nth-child(12) {
 
                 width: 98%;
+                color: #5A3C35;
+                font-size: 0.9em;
 
                 span, input, select, textarea {
 
                     width: 100%;
+                    font-size: 1em;
+                    font-weight: 300;
 
                 }
 

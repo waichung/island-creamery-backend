@@ -177,11 +177,17 @@ body {
         width: 100%;
         z-index: 0;
         transform: rotate(180deg) scaleX(-1) translateY(95vh);
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          transform: rotate(180deg) scaleX(-1) translateY(30vh);
+        
+        }
     
         path {
     
           fill:white;
-          transform: scale(0.72);
+          // transform: scale(0.72);
     
           @media screen and (min-width: $breakpoint-laptop-large) {
           
@@ -218,7 +224,13 @@ body {
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
           width: 70%;
-          font-size: 0.95em;
+          font-size: 0.91em;
+
+          p:first-child {
+
+            margin-top: 21vh;
+
+          }
 
         }
 
@@ -237,7 +249,7 @@ body {
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
         flex-direction: column;
-        padding-top: 20vh !important;
+        padding-top: 5vh !important;
         height: 95vh;
 
       }
@@ -771,7 +783,7 @@ body {
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
        
-      height: 40vh;
+      height: 40vh !important;
       // padding-top: 0vh !important;
       padding-top: 38% !important;
 
@@ -845,7 +857,7 @@ body {
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
-    top: -400px;
+    top: -300px;
 
   }
 
@@ -948,7 +960,13 @@ body {
 
   &.top {
 
-      top: -35vh;
+    top: -35vh;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      top: -15vh;
+    
+    }
 
 
     path {
@@ -981,6 +999,12 @@ body {
   &.bottom {
   
       top: 60vh;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+        top: 20vh;
+      
+      }
 
 
     path {
@@ -1096,6 +1120,7 @@ body {
     @media screen and (max-width: $breakpoint-palm-portrait) {
     
       font-size: 1.19em;
+      margin-bottom: 15px;
 
     }
 
@@ -1197,6 +1222,7 @@ body {
 
       flex-direction: column;
       text-align: center;
+      margin-top: 0;
 
     }
 
@@ -1226,10 +1252,7 @@ body {
   
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
-          width: 56vw;
-          height: 52vh;
-          display: block;
-          margin: auto;
+          width: 180px;
           
         }
   
@@ -1241,6 +1264,13 @@ body {
         height: auto;
         display: block;
         margin: 150px auto 0 45px;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+          width: 130px;
+          margin: 130px auto 0 120px;
+        
+        }
 
       }
 
@@ -1279,7 +1309,7 @@ body {
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
           float: none;
-          font-size: 1.25em;
+          font-size: 1.2em;
 
         }
 
@@ -1318,7 +1348,7 @@ body {
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
           float: none;
-          font-size: 1.25em;
+          font-size: 1.2em;
 
         }
 
@@ -1497,6 +1527,12 @@ body {
 
     padding-top: 25vh !important;
     height: 880px !important;
+
+    .filler-svg {
+
+      top: -400px !important;
+
+    }
 
   }
 

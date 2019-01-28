@@ -66,6 +66,15 @@
       position: relative;
       z-index: 3;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+        max-width: 150px;
+        font-size: 0.74em;
+        display: block;
+        margin: 30px auto;
+      
+      }
+
     }
 
     svg {

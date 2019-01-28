@@ -11,7 +11,7 @@ function shapeFillerMorph () {
         if (isMobile) {
             var morphing = anime({
                 targets: '.filler-svg > path',
-                scaleY: 2.5,
+                scaleY: 1.8,
                 d: [
                     {value: "M0,0H1919.8V144h0s33.056,234.531-329.144,234.531c-297.7,0-368.234,121.047-368.234,121.047s-119.837,162.656-311.437,98.656c-139-46.4-162.45-221.619-358.75-170.219C301.634,506.716,0,332.9,0,332.9Z"},
                     {value: "M0,0H1919.8V144h0s119.759,284.016-242.441,284.016c-297.7,0-404.437,33.266-404.437,33.266s-84.744,101.563-276.344,37.563c-139-46.4-247.809-139.166-444.109-87.766C301.869,489.778,0,332.9,0,332.9Z"},
@@ -50,7 +50,7 @@ function shapeHeaderMorph () {
     if (document.getElementById('morph')) {
         var morphing = anime({
             targets: '.intro-lick > .morph',
-            translateY: 30,
+            translateY: 3,
             scale: 1.3, //scaleY: 2.5 for mobile // 1.2 for desktop
             d: [
                 {value: "M1919.8,443.2s66.967,172.732-295.233,172.732c-297.7,0-173.343,159.132-347.922,207.43s-185.7,24.659-377.3-39.341c-139-46.4-306.872,35.951-503.172,87.351C145.569,950.072,0,632.1,0,632.1V0H1919.8Z"},
@@ -106,16 +106,41 @@ function shapeFooterMorph() {
 
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function shapeNavMenuMorph () {
+
+    if (document.getElementById('nav-menu-svg')) {
+
+        var morphing = anime({
+            targets: '#nav-menu-svg > path',
+            scaleY: [
+                {value:[0.8,1.25],duration: 4500,easing: 'easeInSine'},
+                {value:0.9,duration: 4500,easing: 'easeOutSine'}
+            ], 
+            easing: 'easeInOutSine',
+            duration: 9000,
+            delay: 1000,
+        });
+
+    }
+
+}
+
+document && document.addEventListener('DOMContentLoaded', () => {
     shapeFillerMorph();
-    // shapeHeaderMorph();
+    shapeHeaderMorph();
     shapeContactMorph();
     shapeFooterMorph();
+    // shapeNavMenuMorph();
+});
+
+const hamburgerIcon = document.getElementsByClassName('nav-btn')[0];
+hamburgerIcon && hamburgerIcon.addEventListener('click', () => {
+    shapeNavMenuMorph();
 });
 
 const flavourCloud = document.getElementsByClassName('flavours-cloud')[0];
 
-flavourCloud.addEventListener('click', (e) => {
+flavourCloud && flavourCloud.addEventListener('click', (e) => {
     if (e && e.target) {
         const flavourId = e.target.getAttribute('id');
         const allIceCreamFlavours = document.getElementsByClassName('ice-cream');

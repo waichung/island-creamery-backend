@@ -47,16 +47,21 @@
 
 }
 
-.product-details__description {
-    font-family: $fontstack-sans-primary;
-    font-size: rem(16px);
+.product-excerpt__description {
 
-    @media screen and (max-width: $breakpoint-tablet-portrait) {
-        font-size: rem(18px);
-    }
-
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    p, .product-details__description {
+        font-family: $fontstack-sans-primary;
         font-size: rem(16px);
+    
+        @media screen and (max-width: $breakpoint-tablet-portrait) {
+            font-size: rem(18px);
+        }
+    
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            font-size: rem(15px);
+            font-weight: 300;
+        }
+    
     }
 
 }
