@@ -181,7 +181,7 @@
         width: 100%;
         background-color: none;
         height: 0px;
-        transition: all 1s ease-in;
+        transition: all 1.5s ease-in-out;
         overflow-y: hidden;
         top: 0;
         left: 0;
@@ -390,6 +390,13 @@
           opacity: 1;
           list-style: none;
 
+          @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+            width: 100vw;
+            padding: 50px 40px;
+          
+          }
+
           li {
                   
             .mini-cart__empty-message {
@@ -501,6 +508,13 @@
               flex-direction: row;
               margin-bottom: 100px;
 
+              @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+                flex-direction: column;
+                margin-bottom: 20px;
+          
+              }
+
               a {
 
                 width: 50%;
@@ -508,6 +522,13 @@
                 text-align: center;
                 font-size: 0.8em;
                 border: $primary solid 1px;
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+                
+                  width: 100%;
+                  margin-bottom: 10px;
+
+                }
                           
               }
 

@@ -1,48 +1,3 @@
-{# <header class="header {{ (post.name|lower == 'ritual') ? 'header--fixed header--ritual' }} {% if header_type %}header--{{ header_type }}{% endif %}" data-header="container">
-
-    <div class="header__inner">
-
-        <div class="header__col header__col--nav">
-
-            <nav class="nav nav--main" data-header="navigation">
-
-                <div class="nav__toggle" data-navigation="toggle">
-                    <span class="nav__toggler"></span>
-                    <span class="nav__toggler"></span>
-                </div>
-
-                <ul class="nav__items" data-navigation="items">
-
-                    {% for nav_item in navigation.items %}
-
-                        <li class="" data-navigation="item">
-                            <a href="{{ nav_item.url }}" class="">{{ nav_item.title }}</a>
-                        </li>
-
-                    {% endfor %}
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-        <div class="header__col header__col--logo">
-            <a href="/" class="header__logo"><img src="{{ assets }}/svg/logo.svg" alt="NestBloom" /></a>
-        </div>
-
-        <div class="header__col header__col--cart">
-
-            <div class="cart-widget">
-                {{ fn('woocommerce_mini_cart') }}
-            </div>
-
-        </div>
-
-    </div>
-
-</header> #}
-
 {% set header_fill = post.get_field('header_fill') %}
 {% set hex_code = header_fill.hex_code ? header_fill.hex_code : global_options.banner.header_fill.hex_code %}
 {% set bg_url = header_fill.image_link.url %}
@@ -52,7 +7,7 @@
 {% set logo = global_options.logo %}
 
 <header class="header">
-  <div class="nav {{ post.name|lower }}">
+  <div class="nav {% if post.name == 'Home' or post.name == 'Contact' or post.name == 'About' %}{{post.name|lower}}{% else %}menu{% endif %}">
     <a class="logo" href="/">
       <img src="{{ logo.url }}">
     </a>
@@ -84,14 +39,14 @@
       'type': post.name
     }) }}
   </div>
-
-  <svg id="mobile-pad" class="{{ post.name|lower }}">
-    <rect class="{{ post.name|lower }}"/>
+  
+  <svg id="mobile-pad" class="{% if post.name == 'Home' or post.name == 'Contact' or post.name == 'About' %}{{post.name|lower}}{% else %}menu{% endif %}">
+    <rect class="{% if post.name == 'Home' or post.name == 'Contact' or post.name == 'About' %}{{post.name|lower}}{% else %}menu{% endif %}"/>
   </svg>
 
   {% if hex_code and not bg_url %}
 
-    <svg id="morph" class="intro-lick {{ post.name|lower }}" preserveAspectRatio="meet" viewBox="0 0 1920 637.3">
+    <svg id="morph" class="intro-lick {% if post.name == 'Home' or post.name == 'Contact' or post.name == 'About' %}{{post.name|lower}}{% else %}menu{% endif %}" preserveAspectRatio="meet" viewBox="0 0 1920 637.3">
       <path class="morph" d="{{ svg_path }}" transform="{{ transform }}" fill={{ hex_code }} />
     </svg>
 

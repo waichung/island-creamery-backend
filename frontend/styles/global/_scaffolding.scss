@@ -32,6 +32,43 @@ body {
   width: 100vw;
   margin: 0;
 
+  .content--intro {
+
+    height: 100vh;
+    z-index: 999;
+    background-color: none;
+    width: 100%;
+    position: relative;
+
+    .shape-wrap {
+
+      position: relative;
+      z-index: 10;
+      margin: -20px 0 0 0; /* Hide the gap */
+
+      .shape {
+
+        height: 100vh;
+	      width: 100%;
+	      display: block;
+	      fill: $primary;
+
+      }
+
+    }
+
+  }
+
+  .main-stuff {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+  }
+
   #teh-tarik {
 
     color: $teh-tarik;
@@ -43,6 +80,66 @@ body {
       color: inherit;
       
     }
+
+  }
+
+  #pineapple-tart {
+
+    color: $pineapple-tart;
+
+  }
+
+  #pulut-hitam {
+
+    color: $pulut-hitam;
+
+  }
+
+  #tiger-sorbet {
+    
+    color: $tiger-sorbet;
+
+  } 
+
+  #pear-sake {
+
+    color: $pear-sake;
+
+  }
+
+  #cookies-cream {
+
+    color: $cookies-cream;
+
+  }
+
+  #soursop {
+
+    color: $soursop;
+
+  } 
+
+  #fresh-banana {
+
+    color: $fresh-banana;
+
+  }
+  
+  #horlicks {
+
+    color: $horlicks;
+
+  }
+
+  #kahlua-latte {
+
+    color: $kahlua-latte;
+
+  }
+
+  #mango-sorbet {
+
+    color: $mango-sorbet;
 
   }
 
@@ -176,7 +273,7 @@ body {
         height: 100%;
         width: 100%;
         z-index: 0;
-        transform: rotate(180deg) scaleX(-1) translateY(95vh);
+        transform: rotate(180deg) scaleX(-1) translateY(60vh);
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
@@ -506,8 +603,8 @@ body {
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
-          width: 100px;
-          right: calc(50% - 50px);
+          width: 200px;
+          right: calc(50% - 100px);
           transform: scale(0.6);
           bottom: 4vh;
 
@@ -1186,7 +1283,7 @@ body {
 
     } 
 
-    svg {
+    svg.ice-cream-rim {
 
       z-index: -1;
       
@@ -1196,14 +1293,24 @@ body {
 
       margin-top: 69px;
 
-      img {
+      svg {
 
-        margin-bottom: 15px;
+        position: static;
+        height: 80px;
+        width: 80px;
+        transform: scaleX(-1) rotate(-20deg);
+
+        path {
+
+          fill: $primary; 
+
+        }
 
       }
 
       p {
-      
+        
+        margin-top: 0;
         font-size: 0.7em;
       }
 

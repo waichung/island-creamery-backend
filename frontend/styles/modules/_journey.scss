@@ -374,8 +374,16 @@
     font-weight: 700;
     font-size: 3.5em;
 
+    img {
+
+        height: 60px;
+        
+    }
+
     @media screen and (max-width: $breakpoint-palm-portrait) {
+        
         font-size: rem(50px);
+
     }
 
 }

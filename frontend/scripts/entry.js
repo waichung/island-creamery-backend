@@ -118,18 +118,57 @@ function shapeNavMenuMorph () {
             ], 
             easing: 'easeInOutSine',
             duration: 9000,
-            delay: 1000,
+            // delay: 1000,
         });
 
     }
 
 }
 
+const DOM = {};
+DOM.intro = document.querySelector('.content--intro');
+DOM.shape = DOM.intro.querySelector('svg.shape');
+DOM.path = DOM.shape.querySelector('path');
+DOM.shape.style.transformOrigin = '50% 0%';
+
+function welcome () {
+
+    anime({ 
+        targets: DOM.intro,
+        duration: 5000,
+        easing: 'easeInOutSine',
+        translateY: '-200vh', 
+    });
+
+    anime({
+        targets: DOM.shape,
+        scaleY: [
+            {value: [5, 0], duration: 5000,easing: 'easeInOutSine'},
+        ], 
+        
+    });
+
+    anime({
+        targets: DOM.path,
+        duration: 4000,
+        easing: 'easeOutSine',
+        d: DOM.path.getAttribute('pathdata:id'),
+        complete: () => {
+            document.getElementsByClassName('main-stuff')[0].style.position = 'static';
+            DOM.intro.style.display = 'none'; 
+            if (document.getElementsByClassName('sore-thumb')[0])document.getElementsByClassName('sore-thumb')[0].style.display = 'block';
+            shapeFillerMorph();
+            shapeHeaderMorph();
+            shapeContactMorph();
+            shapeFooterMorph();
+        }
+    });
+
+}
+
 document && document.addEventListener('DOMContentLoaded', () => {
-    shapeFillerMorph();
-    shapeHeaderMorph();
-    shapeContactMorph();
-    shapeFooterMorph();
+    if (document.getElementsByClassName('sore-thumb')[0])document.getElementsByClassName('sore-thumb')[0].style.display = 'none';
+    setTimeout(() => welcome(), 0);
     // shapeNavMenuMorph();
 });
 
@@ -143,6 +182,9 @@ const flavourCloud = document.getElementsByClassName('flavours-cloud')[0];
 flavourCloud && flavourCloud.addEventListener('click', (e) => {
     if (e && e.target) {
         const flavourId = e.target.getAttribute('id');
+        const shouldOrderSpan = document.getElementsByClassName('should-order')[0];
+        shouldOrderSpan.id = flavourId;
+        shouldOrderSpan.innerHTML = flavourId;
         const allIceCreamFlavours = document.getElementsByClassName('ice-cream');
         for (var i=0; i<allIceCreamFlavours.length; i++) {
             allIceCreamFlavours[i].classList.remove('active');
@@ -158,7 +200,7 @@ flavourCloud && flavourCloud.addEventListener('click', (e) => {
 
 // Lib
 // import Scrollbar from 'smooth-scrollbar';
-// import HubSlider from './lib/HubSlider';
+import HubSlider from './lib/HubSlider';
 
 // // Utils
 // import InteractionManager from './utils/InteractionManager';
@@ -170,7 +212,7 @@ flavourCloud && flavourCloud.addEventListener('click', (e) => {
 
 // import Product from './views/product/Product';
 
-/* SECTION SHOP PAGE PRIMARY FILTER
+/* SECTION SHOP PAGE PRIMARY FILTER */
 var scrollW = document.getElementById("wrap-scroll");
 var scrollUl = document.getElementById("ul-scroll");
 var itemsScrolled,
@@ -250,10 +292,9 @@ var resultingElementFromLeft = (document.body.clientWidth - document.getElementB
 var distanceToScroll = distanceOfElementFromLeft - resultingElementFromLeft + 0.05*document.body.clientWidth;
 document.getElementById("wrap-scroll").scrollLeft = Math.round(distanceToScroll) - 5;
 });
-*/
 
 
-/* Entry Point
+/* Entry Point */
 import Cart from './views/Cart';
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -277,8 +318,15 @@ document.addEventListener('DOMContentLoaded', () => {
             dots[i].className = dots[i].className.replace(" active", "");
         }
         
-        if(slides[n]) slides[n].style.right =  '25vw';
-        if(slides[n]) slides[n + 1 < slides.length ? n + 1 : 0].style.right = '-45vw';
+        if(slides[n]) {
+            slides[n].style.right =  '25vw';
+            slides[n + 1 < slides.length ? n + 1 : 0].style.right = '-45vw';
+            if (isMobile) {
+                slides[n].style.display = 'none';
+                slides[n + 1 < slides.length ? n + 1 : 0].style.display = 'block';
+            }
+            
+        }
         dots[n].className += " active";
 
     }
@@ -288,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlides(slideNumber);
         setTimeout(() => {
             autoSlide(slideNumber + 1)
-        }, 2000);
+        }, 3000);
     }
       
     const listOfDots = document.getElementsByClassName('dot');
@@ -305,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartBtn.click();
     });
 
-    // HubSlider();
+    HubSlider();
 
     // const announcementBar = document.getElementById('announcements');
     // const closeButton = document.getElementById('close-announcements');
@@ -337,5 +385,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // if(cartContainer) new Cart(cartContainer, scrollbar);
     if(cartContainer) new Cart(cartContainer);
 }); 
-
-*/
