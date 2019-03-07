@@ -17,10 +17,6 @@
     margin: auto;
 }
 
-.product-buy {
-    border-bottom: 1px solid #faf1ec;
-}
-
 .product-details {
     text-align: center;
     color: #97837a;
@@ -51,7 +47,8 @@
 
     p, .product-details__description {
         font-family: $fontstack-sans-primary;
-        font-size: rem(16px);
+        font-size: 0.65em;
+        font-weight: 300;
     
         @media screen and (max-width: $breakpoint-tablet-portrait) {
             font-size: rem(18px);

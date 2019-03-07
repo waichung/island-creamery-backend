@@ -1,0 +1,73 @@
+// Config
+@import '../config/breakpoints';
+
+.page--gallery {
+
+    .gallery-section {
+
+        max-width: 100%;
+        display: block;
+        margin: -71vh auto 29vh auto;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+            padding-top: 0vh !important;
+            margin: -50vh auto -22px auto;
+        }
+
+        .collage-layout {
+
+            .Image_Wrapper {
+
+                height: 220px !important;
+                width: 360px !important;
+                padding: 20px;
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                    height: 100px !important;
+                    width: 45vw !important;
+                    padding: 4px;
+
+                }
+
+                &:nth-child(2), &:nth-child(5), &:nth-child(8), &:nth-child(11) {
+
+                    transform: translateY(30px);
+
+                    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                        transform: translateY(0px);
+    
+                    }
+
+                }
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                    &:nth-child(2), &:nth-child(4), &:nth-child(6), &:nth-child(8), &:nth-child(10), &:nth-child(12) {
+
+                        transform: translateY(30px);
+
+                    }
+                
+                }
+
+
+                a {
+
+                    img {
+
+                        height: 220px !important;
+                        width: 360px !important;    
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

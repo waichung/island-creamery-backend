@@ -15,8 +15,8 @@
 {% block page %}
 
   <section class="intro">
-    <h1>That's an</h1>
-    <h1>ice cream flavour?</h1>
+    <h1>{{ intro_header.line_1 }}</h1>
+    <h1>{{ intro_header.line_2 }}</h1>
     <p>{{ intro_subheader }}</p>
   </section>
 
@@ -25,7 +25,7 @@
     {# List Categories #}
       <ul class="filter-list">
         {% for category in categories %}
-          <li class="list-item {% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+          <li class="list-item {% if current_primary_filter == category.slug|lower|replace({' ': '-'})%} active {% endif %}">
             <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
           </li>
         {% endfor %}
@@ -37,7 +37,17 @@
     <div class="wrap-container" id="wrap-scroll">
       <ul id="ul-scroll">
         {% for category in categories %}
-          <li id ="{% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%}active-el{% endif %}" class="list-item {% if current_category == category|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+          <li id ="{% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%}active-el{% endif %}" class="list-item {% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+            <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
+          </li>
+        {% endfor %}
+                {% for category in categories %}
+          <li id ="{% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%}active-el{% endif %}" class="list-item {% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
+            <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
+          </li>
+        {% endfor %}
+                {% for category in categories %}
+          <li id ="{% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%}active-el{% endif %}" class="list-item {% if current_primary_filter == category.slug|lower|replace({' ': '-'}) or parent_cat == category|lower|replace({' ': '-'})%} active {% endif %}">
             <a href="{{ function('get_term_link', category) }}">{{ category }}</a>
           </li>
         {% endfor %}
@@ -46,17 +56,20 @@
   </div>
 
     {# Subcategories #}
-    {% if subcategories %}
-      <div class="secondary-filter">
+    <div class="secondary-filter">
         <ul class="filter-list">
+            <li class="list-item {% if current_secondary_filter == null %}active{% endif %}">
+                <a href="{{ function('get_term_link', categories[0]) }}">All</a>
+            </li>
+        {% if subcategories %}
           {% for subcategory in subcategories %}
-            <li class="list-item {% if virgin and subcategory == 'All' %} active {% elseif current_subcategory == subcategory %} active{% endif %}">
+            <li class="list-item {% if current_secondary_filter == subcategory.slug %}active{% endif %}">
               <a href="{{ function('get_term_link', subcategory) }}">{{ subcategory }}</a>
             </li>
           {% endfor %}
+        {% endif %}
         </ul>
-      </div>
-    {% endif %}
+    </div>
 
     <section class="shop__products">
 
@@ -65,6 +78,9 @@
     <div class="select-dropdown-filter">
       <div class="select">
         <select name="slct" id="slct" onchange="window.location.href = this.value;">
+          <option value="{{function('get_term_link', categories[0])}}" {% if current_secondary_filter == null %}selected{% endif %}>
+              All
+            </option>
           {% for subcategory in subcategories %}
             <option value="{{ function('get_term_link', subcategory) }}" {% if virgin and subcategory == 'All' %} selected {% elseif current_subcategory == subcategory %} selected {% endif %}>
               {{ subcategory }}
@@ -98,7 +114,8 @@
 
           {% include 'components/product-excerpt.twig' with {
             product: product,
-            currency: currency
+            currency: currency, 
+            nfs: current_primary_filter == 'bricknmortar'
           } only %}
 
         {% endfor %}
@@ -113,13 +130,35 @@
       <svg id="filler-svg" class="filler-svg others top" preserveAspectRatio="meet" viewBox="0 0 1920 637.3" >
         <path d="M0,0H1919.8V144h0s20,195.5-342.2,195.5c-297.7,0-417.4,152.1-417.4,152.1s-68.6,86.7-260.2,22.7c-139-46.4-311.1-60.5-507.4-9.1C142,583.9,0,332.9,0,332.9Z" />
       </svg>
-      <a class="journey-link__url" href="{{ nav_footer.url }}" >
+      {# <a class="journey-link__url" href="{{ nav_footer.url }}" >
         <span>{{ nav_footer.title }}</span>
         <br>
         <img src="{{ assets }}/svg/arrow.svg"></img>
-      </a>
+      </a> #}
+      <a href="{{ nav_footer.url }}" class="journey-link__url">
+
+      <span class="button__text">
+          {{ nav_footer.title }}
+      </span>
+
+      <div class="button__icon">
+                <!--?xml version="1.0" encoding="UTF-8"?-->
+        <svg width="28px" height="11px" viewBox="0 0 28 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="arrow-animated">
+          <g class="arrow-animated__arrow arrow-animated__arrow--faded" stroke-width="1.5">
+            <path d="M13,5.5 L26,5.5 L22,1.5"></path>
+            <path d="M13,5.5 L26,5.5 L22,9.5"></path>
+          </g>
+
+          <g class="arrow-animated__arrow arrow-animated__arrow--main" stroke-width="1.5">
+            <path d="M1,5.5 L26,5.5 L22,1.5"></path>
+            <path d="M1,5.5 L26,5.5 L22,9.5"></path>
+          </g>
+        </svg>
+      </div>
+
+    </a>
       <svg id="filler-svg" class="filler-svg others bottom" preserveAspectRatio="meet" viewBox="0 0 1920 637.3" >
-        <path  class="orange" d="M0,0H1919.8V144h0s20,195.5-342.2,195.5c-297.7,0-417.4,152.1-417.4,152.1s-68.6,86.7-260.2,22.7c-139-46.4-311.1-60.5-507.4-9.1C142,583.9,0,332.9,0,332.9Z" />
+        <path  class="orange" d="M0.2,135.8c0,0-20,72,342.2,72c297.7,0,420.8,61.7,420.8,61.7s170,89.3,361.7,25.3c139-46.4,214-70.4,410.3-19 c280,42.1,384.8-46.2,384.8-46.2V0H0.2V135.8z" />
       </svg>
     </section>
 

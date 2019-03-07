@@ -11,7 +11,7 @@
 
         <label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></label>
 
-        <div class="quantity-field__adjuster quantity-field__adjuster--dec" data-quantity="adjuster" data-adjust="dec"><span></span></div>
+        <div class="quantity-field__adjuster quantity-field__adjuster--dec" data-quantity="adjuster" data-adjust="dec"><span class="straggler"></span></div>
 
         <input type="number" id="<?php echo esc_attr( $input_id ); ?>" class="quantity-field__input qty quantity-adjust-value"
                step="<?php echo esc_attr( $step ); ?>" min="<?php echo esc_attr( $min_value ); ?>"
@@ -20,7 +20,7 @@
                title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>"
                size="1" pattern="<?php echo esc_attr( $pattern ); ?>" inputmode="<?php echo esc_attr( $inputmode ); ?>" data-quantity="input" />
 
-        <div class="quantity-field__adjuster quantity-field__adjuster--inc" data-quantity="adjuster" data-adjust="inc"><span></span></div>
+        <div class="quantity-field__adjuster quantity-field__adjuster--inc" data-quantity="adjuster" data-adjust="inc"><span class="straggler"></span></div>
 
     </div>
 

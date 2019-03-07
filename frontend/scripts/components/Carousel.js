@@ -45,8 +45,6 @@ export default class Carousel {
         this.currentItem = this.opts.initialItem || 0;
         this.previousItem = this.currentItem;
 
-        console.log(this.items);
-
     }
 
 

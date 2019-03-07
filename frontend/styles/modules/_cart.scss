@@ -28,13 +28,16 @@
 
 .cart-form {
     display: block;
-    width: 70%;
+    width: 100%;
     padding: 0 20px;
 
     @media screen and (max-width: $breakpoint-tablet-landscape) {
+        
         width: 100%;
         max-width: $breakpoint-tablet-portrait;
         margin: auto;
+        padding: 0 10px;
+
     }
 
 }
@@ -363,12 +366,12 @@
 
 .cart__update-btn {
 
-
     @media screen and (max-width: $breakpoint-palm-portrait) {
-        display: block;
+        
         margin: 25px 0 0 0;
         text-align: center;
         padding: 0;
+
     }
 
 }

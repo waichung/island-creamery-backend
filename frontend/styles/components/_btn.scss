@@ -2,12 +2,6 @@
  * Components / Buy
  */
 
-
-.btn {
-    position: relative;
-    display: block;
-}
-
 .btn--buy {
     font-family: $fontstack-sans-primary;
     text-transform: uppercase;
@@ -53,8 +47,38 @@
 .btn--cart {
 
     border: none;
-    text-decoration: underline;
     outline: none;
+    backface-visibility: hidden; 
+    transition: background 500ms linear, color 500ms linear;
+    position: relative;
+    
+
+    &:before {
+
+      background: black;
+      left: 5%; 
+      content: ''; 
+      height: 2px; 
+      bottom: -2px; 
+      position: absolute; 
+      transform: scaleX(0); 
+      will-change: transform; 
+      transform-origin: right; 
+      backface-visibility: hidden; 
+      width: 90%;
+      transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
+    }
+
+    &:hover:before {
+
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transform-origin: left;
+      transform-origin: left;
+
+    }
+
 
 }
 

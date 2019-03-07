@@ -9,7 +9,7 @@
 /**
  * Modules / Contact
  */
-.page--contact {
+.page--contact, .page--jobs, .page--catering, .page--community {
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -39,6 +39,43 @@
 
         outline: none;
         background: #F4F3F0;
+
+        &.wpcf7-form-control { 
+
+            background-color: white !important;
+
+            .first {
+
+                margin-top: 20px;
+
+            }
+
+            .wpcf7-list-item {
+
+                background-color: white !important;
+                // height: 12px !important;
+                display: flex;
+                flex-direction: row;
+                
+
+                input {
+
+                    height: 12px;
+                    flex: 1;
+                    margin-top: 5px;
+
+                }
+
+                .wpcf7-list-item-label {
+
+                    flex: 7;
+                    background-color: white !important;
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -83,12 +120,14 @@
         font-size: 1.2em;
 
     }
+
     
     header {
 
        svg#morph {
 
         height: 100vh;
+        top: -34vh;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -118,6 +157,12 @@
             margin-top: 0;
             margin-bottom: 100px;
 
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                margin-bottom: 23px;
+
+            }
+
         }
 
     }
@@ -125,10 +170,14 @@
     .form-container {
 
         position: relative;
+        z-index: 2;
+        padding-top: 9vh !important;
+        padding-bottom: 10vh;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
             
-            padding-top: 4vh !important;
+            padding-top: 8vh !important;
+            padding-bottom: 8vh;
         
         }
 
@@ -147,25 +196,29 @@
 
         }
 
-        .wpcf7-form {
+        .form-selector {
+        
+            transform: translateY(-10px);
 
-            width: 40%;
-            margin: auto;
-            text-align: left;
-            display: flex;
-            flex-wrap: wrap;
+        }
+
+        .wpcf7-form, .form-selector {
+
+            width: 42%;
+            margin: auto auto 20px auto;
 
             @media screen and (max-width: $breakpoint-palm-portrait) {
             
                 width: 85vw;
+                transform: translateY(0px);
             
             }
 
-            p:nth-child(2) {
+            .form-selector-p {
 
                 text-align: center;
                 width: 100%;
-                margin-bottom: 50px;
+                margin-bottom: 43px;
 
                 @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -174,10 +227,11 @@
 
                 }
 
-                .wpcf7-form-control-wrap.menu-843 {
+                .form-selector-p-span {
 
                     select {
 
+                        text-align-last: center;
                         border: none;
                         border-radius: 0;
                         background-color: white;
@@ -187,8 +241,7 @@
                         padding: 14px 40px 14px 20px;
                         color: #5A3C35;
                         background-image: linear-gradient(45deg, transparent 50%, #5A3C35 50%),linear-gradient(135deg, #5A3C35 50%, transparent 50%);
-                        background-position: calc(100% - 25px) calc(1em + 2px),
-                        calc(100% - 15px) calc(1em + 2px);
+                        background-position: calc(100% - 20px) calc(1em + 2px),calc(100% - 10px) calc(1em + 2px);
                         background-size: 10px 10px;
                         background-repeat: no-repeat;
                         font-size: 1.4em;
@@ -207,69 +260,304 @@
 
             }
 
-            p:nth-child(3), p:nth-child(4), p:nth-child(6), p:nth-child(7), p:nth-child(10), p:nth-child(11) {
+            .enquiry {
 
-                width: 48%;
-                margin-right: 10px;
-                color: #5A3C35;
+                text-align: left;
+                display: flex;
+                flex-wrap: wrap;
 
-                @media screen and (max-width: $breakpoint-palm-portrait) {
-                    
-                    width: 100%;
-                    font-size: 0.9em;
-                
-                }
+                p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4), p:nth-child(7), p:nth-child(9),  p:nth-child(10) {
 
-                span, input, select {
-
-                    width: 100%;
-                    font-size: 1em;
-                    font-weight: 300;
-
-                }
-
-
-            }
-            
-            p:nth-child(5), p:nth-child(8), p:nth-child(9), p:nth-child(12) {
-
-                width: 98%;
-                color: #5A3C35;
-                font-size: 0.9em;
-
-                span, input, select, textarea {
-
-                    width: 100%;
-                    font-size: 1em;
-                    font-weight: 300;
-
-                }
-
-            }
-            
-            p:nth-child(13) {
-
-                text-align: center;
-                width: 100%;
-
-                .wpcf7-form-control.wpcf7-submit {
-                    
+                    width: 48%;
+                    margin-right: 10px;
+                    color: #5A3C35;
+    
                     @media screen and (max-width: $breakpoint-palm-portrait) {
                         
                         width: 100%;
-                        height: 10px !important;
-                        background: $primary;
-                        color: white;
-                        padding: 20px 80px 35px 80px;
-
-                        input {
-
-                            width: 100%;
-
-                        }
+                        font-size: 0.9em;
                     
                     }
+    
+                    span, input, select {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+    
+                }
+                
+                p:nth-child(5) {
+    
+                    width: 98%;
+                    color: #5A3C35;
+                    font-size: 0.9em;
+    
+                    span, input, select, textarea {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+                }
+                
+                p:nth-child(6) {
+    
+                    text-align: center;
+                    width: 100%;
+    
+                    .wpcf7-form-control.wpcf7-submit {
+                        
+                        @media screen and (max-width: $breakpoint-palm-portrait) {
+                            
+                            width: 100%;
+                            height: 10px !important;
+                            background: #DB6166 !important;
+                            color: white;
+                            padding: 20px 80px 35px 80px;
+    
+                            input {
+    
+                                width: 100%;
+    
+                            }
+                        
+                        }
+    
+                    }
+    
+                }
 
+                
+            }
+
+            .jobs {
+
+                
+                text-align: left;
+                display: flex;
+                flex-wrap: wrap;
+
+                p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4) {
+
+                    width: 48%;
+                    margin-right: 10px;
+                    color: #5A3C35;
+    
+                    @media screen and (max-width: $breakpoint-palm-portrait) {
+                        
+                        width: 100%;
+                        font-size: 0.9em;
+                    
+                    }
+    
+                    span, input, select {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+    
+                }
+                
+                p:nth-child(5), p:nth-child(6) {
+    
+                    width: 98%;
+                    color: #5A3C35;
+                    font-size: 0.9em;
+    
+                    span, input, select, textarea {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+                }
+                
+                p:nth-child(7) {
+    
+                    text-align: center;
+                    width: 100%;
+    
+                    .wpcf7-form-control.wpcf7-submit {
+                        
+                        @media screen and (max-width: $breakpoint-palm-portrait) {
+                            
+                            width: 100%;
+                            height: 10px !important;
+                            background: #DB6166 !important;
+                            color: white;
+                            padding: 20px 80px 35px 80px;
+    
+                            input {
+    
+                                width: 100%;
+    
+                            }
+                        
+                        }
+    
+                    }
+    
+                }
+
+            }
+
+            .community {
+
+                text-align: left;
+                display: flex;
+                flex-wrap: wrap;
+
+                p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4) {
+
+                    width: 48%;
+                    margin-right: 10px;
+                    color: #5A3C35;
+    
+                    @media screen and (max-width: $breakpoint-palm-portrait) {
+                        
+                        width: 100%;
+                        font-size: 0.9em;
+                    
+                    }
+    
+                    span, input, select {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+    
+                }
+                
+                p:nth-child(5), p:nth-child(6) {
+    
+                    width: 98%;
+                    color: #5A3C35;
+                    font-size: 0.9em;
+    
+                    span, input, select, textarea {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+                }
+                
+                p:nth-child(7) {
+    
+                    text-align: center;
+                    width: 100%;
+    
+                    .wpcf7-form-control.wpcf7-submit {
+                        
+                        @media screen and (max-width: $breakpoint-palm-portrait) {
+                            
+                            width: 100%;
+                            height: 10px !important;
+                            background: #DB6166 !important;
+                            color: white;
+                            padding: 20px 80px 35px 80px;
+    
+                            input {
+    
+                                width: 100%;
+    
+                            }
+                        
+                        }
+    
+                    }
+    
+                }
+
+            }
+
+            .catering {
+
+                text-align: left;
+                display: flex;
+                flex-wrap: wrap;
+
+                p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4), p:nth-child(5), p:nth-child(6) {
+
+                    width: 48%;
+                    margin-right: 10px;
+                    color: #5A3C35;
+    
+                    @media screen and (max-width: $breakpoint-palm-portrait) {
+                        
+                        width: 100%;
+                        font-size: 0.9em;
+                    
+                    }
+    
+                    span, input, select {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+    
+                }
+                
+                p:nth-child(7), p:nth-child(8) {
+    
+                    width: 98%;
+                    color: #5A3C35;
+                    font-size: 0.9em;
+    
+                    span, input, select, textarea {
+    
+                        width: 100%;
+                        font-size: 1em;
+                        font-weight: 300;
+    
+                    }
+    
+                }
+                
+                p:nth-child(9) {
+    
+                    text-align: center;
+                    width: 100%;
+    
+                    .wpcf7-form-control.wpcf7-submit {
+                        
+                        @media screen and (max-width: $breakpoint-palm-portrait) {
+                            
+                            width: 100%;
+                            height: 10px !important;
+                            background: #DB6166 !important;
+                            color: white;
+                            padding: 20px 80px 35px 80px;
+    
+                            input {
+    
+                                width: 100%;
+    
+                            }
+                        
+                        }
+    
+                    }
+    
                 }
 
             }
@@ -290,12 +578,24 @@
 
     .footer {
 
-        height: 100vh;
+        // height: 80vh;
         // visibility: hidden;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+            height: 50vh !important;
+
+        }
 
         .footer-links {
 
-            margin-top: 50%;
+            margin-top: 50vh;
+
+            @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                margin-top: 10vh;
+
+            }
 
         }
 

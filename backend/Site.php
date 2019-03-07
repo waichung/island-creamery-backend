@@ -56,7 +56,9 @@ class NestBloomSite extends TimberSite
         //     wp_enqueue_script( 'nb-experience-js', get_home_url() . '/assets/nestbloom-experience.js?v='. time(), [], null, true );
 
         // }
+        wp_enqueue_script('tns', "https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.js", null, null, true);
         wp_localize_script( 'js', 'wp', ['theme' => get_stylesheet_directory_uri()]);
+
     }
 
 

@@ -367,12 +367,108 @@
     color: white;
     text-decoration: none;
     position: relative;
-    top: 0;
+    top: 76vh;
     left: 0;
     right: 0;
     margin: auto;
     font-weight: 700;
-    font-size: 3.5em;
+    font-size: 2.95em;
+    z-index: 99;
+    display: flex; 
+    flex-direction: column;
+
+    &.contact {
+
+        top: 45vh;
+
+    }
+
+    &.gallery {
+
+        top: 60vh;
+        
+    }
+
+    &.about {
+
+        top: 42vh;
+        z-index: 2;
+
+    }
+
+    &:hover {
+
+        opacity: 1;
+        outline: 0;
+
+        .arrow-animated__arrow--faded {
+  
+            opacity: .3 !important;
+            transition: opacity .5s ease;
+            
+        }
+
+        .arrow-animated__arrow--main {
+  
+            stroke-dashoffset: -12 !important;
+            transition: stroke-dashoffset .75s .375s ease-out;
+            
+        }
+
+    }
+
+    .button__text {
+
+        // text-align: center;
+        // display: inline-block;
+        // left: 0;
+        // position: relative;
+        // transition: left .5s ease,right .5s ease,transform .5s ease;
+        //  border: 0;
+        // box-sizing: border-box;
+        // font: inherit;
+        // font-weight: inherit;
+        // margin: 0;
+        // padding: 0;
+        // vertical-align: baseline;
+
+    }
+
+    .button__icon {
+
+        display: inline-block;
+        margin: auto;
+        transition: transform .5s ease;
+        vertical-align: middle;
+        // width: 100px;
+        // transform: scale(5) translateY(-10px);  
+        
+        svg {
+
+            transform: scale(5);   
+
+        }
+
+        .arrow-animated__arrow {
+
+            fill: none;
+            opacity: 1;
+            stroke: currentColor;
+            stroke-linejoin: round;
+
+        }
+
+        .arrow-animated__arrow--main {
+
+            stroke-dasharray: 50 50;
+            stroke-dashoffset: 50;
+            fill: none;
+            opacity: 1;
+            stroke: currentColor;
+            stroke-linejoin: round;
+
+        }
+    }
 
     img {
 

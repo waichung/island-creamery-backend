@@ -63,7 +63,7 @@
 
       padding-left: 30%;
       padding-right: 30%;
-      padding-top: 2vh !important;
+      padding-top: 0vh !important;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -74,7 +74,7 @@
 
       h1 {
 
-        font-size: 3.9em;
+        font-size: 2.9em;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
@@ -86,8 +86,10 @@
 
       p {
 
-        font-size: 0.9em;
-        margin-top: 20px;
+        font-size: 0.79em;
+        max-width: 460px;
+        margin: 20px auto 45px auto;
+        line-height: 1.2;
         
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
@@ -198,7 +200,37 @@
 
             color: #CEC9CB;
             text-decoration: none;
-            font-size: 1.3em;
+            font-size: 1.2em;
+            backface-visibility: hidden; 
+            transition: background 500ms linear, color 500ms linear;
+            position: relative;
+            
+    
+            &:before {
+    
+              background: #CEC9CB;
+              left: 0; 
+              content: ''; 
+              height: 2px; 
+              bottom: -2px; 
+              position: absolute; 
+              transform: scaleX(0); 
+              will-change: transform; 
+              transform-origin: right; 
+              backface-visibility: hidden; 
+              width: calc(100% - 0.27vw);
+              transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+    
+            }
+    
+            &:hover:before {
+    
+              -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+              -webkit-transform-origin: left;
+              transform-origin: left;
+    
+            }
 
           }
 
@@ -207,7 +239,32 @@
             a {
 
               color: white;
-              text-decoration: underline;
+              text-decoration: none;
+              backface-visibility: hidden; 
+              transition: background 500ms linear, color 500ms linear;
+              position: relative;
+              
+      
+              &:before {
+      
+                background: white;
+                left: 0; 
+                content: ''; 
+                height: 2px; 
+                bottom: -2px; 
+                position: absolute; 
+                transform: scaleX(0); 
+                will-change: transform; 
+                transform-origin: right; 
+                backface-visibility: hidden; 
+                width: calc(100%);
+                transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+                -webkit-transform-origin: left;
+                transform-origin: left;
+      
+              }
 
             }
 
@@ -222,7 +279,7 @@
 		
 		.primary-filter {
 
-			margin-top: -69vh;
+			margin-top: -75vh;
 			z-index: 0;
       position: relative;
       
@@ -237,7 +294,7 @@
     .secondary-filter {
 
 			position: relative;
-      margin-top: 20.5vh;
+      margin-top: 12vh;
       
       @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -255,7 +312,32 @@
             a {
 
 							color: #5A3C35;
-							text-decoration: underline;
+              text-decoration: none;
+              backface-visibility: hidden; 
+              transition: background 500ms linear, color 500ms linear;
+              position: relative;
+              
+      
+              &:before {
+      
+                background: #5A3C35;
+                left: 0; 
+                content: ''; 
+                height: 2px; 
+                bottom: -2px; 
+                position: absolute; 
+                transform: scaleX(0); 
+                will-change: transform; 
+                transform-origin: right; 
+                backface-visibility: hidden; 
+                width: calc(100%);
+                transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+                -webkit-transform-origin: left;
+                transform-origin: left;
+      
+              }
 
 						}
 
@@ -313,6 +395,7 @@
         flex-direction: row;
         padding-inline-start: 0;
         list-style: none;
+        overflow-x: scroll;
 
       }
 
@@ -323,32 +406,32 @@
         margin-right: 20px;
         transition: transform .3s;
 
-        &:nth-child(1) {
+        // &:nth-child(1) {
 
-          // display: none;
-          order: 1;
+        //   // display: none;
+        //   order: 1;
 
-        }
+        // }
 
-        &:nth-child(2) {
-          order: 1;
-        }
+        // &:nth-child(2) {
+        //   order: 1;
+        // }
 
-        &:nth-child(3) {
+        // &:nth-child(3) {
 
-          order: 4;
+        //   order: 4;
 
-        }
+        // }
 
-        &:nth-child(4) {
+        // &:nth-child(4) {
 
-          order: 5;
+        //   order: 5;
 
-        }
+        // }
 
         &.list-item.active {
 
-          order: 2;
+          // order: 2;
 
           a {
 
@@ -380,10 +463,11 @@
 
     .shop__products {
 
-      padding-top: 6vh !important;
+      padding-top: 0vh !important;
       padding-right: 11vw;
       padding-left: 11vw;
-      height: 105vh !important;
+      height: auto !important;
+      margin-bottom: 50px;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -392,6 +476,7 @@
         height: auto !important;
         margin-bottom: 10vh;
         margin-top: -145px;
+        z-index: 1;
 
       }
 
@@ -470,13 +555,15 @@
 
             .product-excerpt__image {
 
-              width: 355px !important;
+              width: 325px !important;
               margin: auto;
+              z-index: 2;
 
               @media screen and (max-width: $breakpoint-palm-portrait) {
 
                 width: 78vw !important;
                 margin-bottom: 0;
+                z-index: 0;
 
               }
 
@@ -494,7 +581,11 @@
 
     .footer > .footer-links {
 
-      margin-top: 50%;
+      margin-top: 34vh;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        margin-top: 0;
+      }
 
     }
 

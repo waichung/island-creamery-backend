@@ -50,6 +50,9 @@
     "twig": "^1.10.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.9.0"
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "tiny-slider": "^2.9.1"
   }
 }

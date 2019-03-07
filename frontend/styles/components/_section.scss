@@ -54,29 +54,44 @@
     border-bottom: 1px solid #51413a;
 }
 
-.section-content {
-    margin-top: 75px;
-    padding: 100px;
-    background-color: #f1e7e6;
-
-    @media screen and (max-width: $breakpoint-tablet-portrait) {
-        padding: 75px;
-    }
+.faq-section {
+    // height: 100vh !important;
+    width: 800px;
+    display: block;
+    margin: auto;
+    text-align: left;
+    height: auto !important;
+    z-index: 1;
+    padding-top: 40vh !important;
+    // background-color: #f1e7e6;
 
     @media screen and (max-width: $breakpoint-palm-landscape) {
-        padding: 25px;
+
+        width: 90vw;
+        padding-top: 20vh !important;
+
     }
 
       /* Acordeon styles */
       .tabs {
-          margin-top: 30px 0 0 20px;
+
+          margin-top: 30px 0 20px 20px;
+          
         .tab {
             position: relative;
             margin-bottom: 1px;
             width: 100%;
             overflow: hidden;
-            color: #51413a;
-            padding: 0 0 1.4em 0;
+            color: $secondary;
+            border-top: #CACBCC solid 1px;
+            font-weight: 700;
+            padding: 1em 0 2.5em 0;
+
+            @media screen and (max-width: $breakpoint-palm-landscape) {
+
+                padding: 0em 0 1.5em 0;
+        
+            }
     
             input {
                 position: absolute;
@@ -88,10 +103,16 @@
                 font-size: 1.2em;
                 position: relative;
                 display: block;
-                padding: 1.4em 0 0 1em;
-                line-height: 3;
+                padding: 1.4em 2em 0 1em;
+                line-height: 1.2;
                 border-top: 1px solid white;
                 cursor: pointer;
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                    font-size: 0.99em;
+            
+                }
             }
           }
         
@@ -103,9 +124,16 @@
             transition: max-height .35s;
     
             p {
-                margin: -2px 1em 2em 0.2em;
-                color: #a8968d;
-                line-height: 1;
+                margin: 20px 1em 0em 1.2em;
+                color: #888;
+                line-height: 1.2;
+                font-weight: 500;
+
+                @media screen and (max-width: $breakpoint-palm-portrait) {
+
+                    font-size: 0.8em;
+
+                }
             }
           }
          
@@ -125,17 +153,20 @@
             height: 3em;
             line-height: 0;
             text-align: center;
-            -webkit-transition: all .35s;
-            -o-transition: all .35s;
-            transition: all .35s;
+            // -webkit-transition: all .35s;
+            // -o-transition: all .35s;
+            // transition: all .35s;
+            color: black;
+            opacity: 0.6;
           }
           .tab input[type=checkbox] + label::after {
-            content: "+";
+            content: "\002B";
             top: 53%;
+            right: -30px;
           }
           .tab input[type=checkbox]:checked + label::after {
-            content: "_";
-            top: 50%;
+            content: "\203E";
+            top: 75%;
           }
       }
 

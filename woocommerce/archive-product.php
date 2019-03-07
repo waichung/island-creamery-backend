@@ -30,8 +30,13 @@ $context['post'] = new Timber\Post();
 $context['categories'] = Timber::get_terms([ 'taxonomy' => 'product_cat', 'include' => $context['global_options']['categories'] ]);
 $context['currency'] = get_woocommerce_currency_symbol();
 
+
+
+$context['current_primary_filter'] =  (get_term(get_queried_object()->parent)->slug != 'shop' and  get_queried_object()->slug != 'bricknmortar') ? get_term(get_queried_object()->parent)->slug : get_queried_object()->slug;
+$context['current_secondary_filter'] =  (get_term(get_queried_object()->parent)->slug != 'shop' and  get_queried_object()->slug != 'bricknmortar') ? get_queried_object()->slug : null;
+
 $context['queried_category'] = get_queried_object()->name;
-$context['virgin'] = get_queried_object()->slug === 'customised-cakes' ? 1 : get_queried_object()->slug === 'ice-cream'? 1 : get_queried_object()->slug === 'ice-cream-cakes'? 1 : get_queried_object()->slug === 'shop'? 1 : false;
+// $context['virgin'] = get_queried_object()->slug === 'customised-cakes' ? 1 : get_queried_object()->slug === 'ice-cream'? 1 : get_queried_object()->slug === 'ice-cream-cakes'? 1 : get_queried_object()->slug === 'shop'? 1 : false;
 $args = array(
     'hierarchical' => 1,
     'show_option_none' => '',

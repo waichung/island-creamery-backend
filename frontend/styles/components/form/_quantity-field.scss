@@ -9,12 +9,14 @@
  * Quantity field for adjusting quantity of an item
  */
 .quantity-field {
-    width: 130px;
+    width: 57px;
     display: block;
     margin: auto;
+    float: right;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
-        width: 100px;
+        width: 50px;
+        transform: translate(10px, -2px);
     }
 
 }
@@ -25,22 +27,23 @@
 }
 
 .quantity-field__adjuster {
-    width: 25%;
+    width: 33%;
     display: inline-block;
     text-align: center;
+    padding: 0 5px 0 5px;
 
     span {
         position: relative;
         top: 50%;
         display: block;
         margin: auto;
-        transform: translateY(-50%);
-        width: 20px;
+        transform: translateY(-42%);
+        width: 35px;
         height: 20px;
         border-radius: 50%;
         background-color: none;
         cursor: pointer;
-        font-size: rem(18px);
+        font-size: 0.9rem;
     }
 
 }
@@ -54,7 +57,7 @@
 }
 
 .quantity-field__adjuster--dec {
-
+    transform: translateX(-15px);
     span::before {
         content: '-';
     }
@@ -62,17 +65,18 @@
 }
 
 .quantity-field__input {
-    width: 50%;
+    width: 45%;
     display: inline-block;
     outline: none;
     border: 0;
     text-align: center;
-    font-size: rem(16px);
+    font-size: 0.8rem;
     font-family: $fontstack-sans-primary;
-    color: #766361;
+    color: black;
     appearance: textfield;
     margin: 0;
-    font-weight: 300;
+    font-weight:700;
+    transform: translateX(5px);
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
@@ -81,7 +85,6 @@
     }
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
-        font-size: rem(20px);
     }
 
 }

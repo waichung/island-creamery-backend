@@ -21,6 +21,7 @@ html {
   margin: 0;
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 
 }
 
@@ -34,11 +35,33 @@ body {
 
   .content--intro {
 
-    height: 100vh;
-    z-index: 999;
-    background-color: none;
+    z-index: 100;
+    /* height: 200vh;  for demo3_1*/
+    /* height: 100vh; for no cover */
+    height: 200vh;
     width: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // display: none;
+    // background-color: white;
+
+    .content__inner {
+
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      // background-color: $primary;
+      // background-color: $orange;
+      background-color: $strawberry;
+
+    }
 
     .shape-wrap {
 
@@ -51,7 +74,42 @@ body {
         height: 100vh;
 	      width: 100%;
 	      display: block;
-	      fill: $primary;
+        // fill: $primary;
+        // fill: $orange;
+        fill: $strawberry;
+        
+        path {
+
+          // transform: translateY(20px);
+
+        }
+
+      }
+
+    }
+
+    .shape-wrap-2 {
+
+      position: absolute;
+      z-index: 9;
+      width: 100vw;
+      top: 100vh;
+      left: 20%;
+
+      .shape-2 {
+
+        height: 100vh;
+	      width: 100%;
+	      display: block;
+        fill: $cookies-cream;
+        // fill: white;
+        // fill: $pear-sake;
+        
+        path {
+
+          // transform: translateY(20px);
+
+        }
 
       }
 
@@ -61,11 +119,13 @@ body {
 
   .main-stuff {
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: auto;
+
+    overflow: hidden;
 
   }
 
@@ -146,6 +206,7 @@ body {
   section {
 
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: 1em;
     align-items: center;
     text-align: center;
@@ -171,6 +232,102 @@ body {
     position: absolute; 
     pointer-events: none; 
     z-index: 2; 
+  }
+
+  &.page--faq {
+
+    .intro {
+
+      height: auto;
+      padding-top: 5vh !important;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        font-size: 0.8em;
+      
+      }
+
+    }
+
+    .header {
+
+      #mobile-pad {
+
+        height: 10vh;
+
+      }
+
+      #morph {
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+
+          top: -50vh;
+        
+        }
+        
+      }
+
+    }
+
+    .footer {
+
+      transform: translateY(38vh);
+      z-index: 2;
+      
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: 38vh !important;
+        transform: translateY(0vh);
+      
+      }
+
+    }
+
+  }
+
+
+  &.page--gallery {
+
+    .main-stuff .intro {
+
+      padding-top: 5vh !important;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        height: 93vh !important;
+
+        h1 {
+  
+          font-size: 2.45em;
+          margin-bottom: 15px;
+
+        }
+
+        p {
+
+          font-size: 1.2em;
+
+        }
+
+      }
+
+    }
+
+    .footer {
+
+      transform: translateY(38vh);
+      z-index: 2;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: 200vh;
+        transform: translateY(3vh);
+        margin-top: 8vh;
+      
+      }
+
+    }
+
   }
 
   &.page--about {
@@ -260,6 +417,7 @@ body {
           height: auto;
           width: 535px;
           position: -100px 5px;
+          transform: translate(-100px, -40px);
 
         }
 
@@ -277,8 +435,14 @@ body {
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
-          transform: rotate(180deg) scaleX(-1) translateY(30vh);
-        
+          transform: rotate(180deg) scaleY(1.2) translateY(27vh);
+
+          @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+          
+            transform: rotate(180deg) scaleY(1.2) translateY(35vh);
+  
+          }
+
         }
     
         path {
@@ -310,13 +474,25 @@ body {
       // height: 10vh;
       height: 170px;
 
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        margin-top: -82px;
+      
+      }
+
+      @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+          
+        height: 200px;
+
+      }
+
       div {
 
         width: 32.35%;
         display: block;
         margin: auto;
         margin-top: 10vh;
-        font-size: 1.1em;
+        font-size: 1.01em;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -326,6 +502,12 @@ body {
           p:first-child {
 
             margin-top: 21vh;
+
+            @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+          
+              margin-top: 28vh;
+    
+            }
 
           }
 
@@ -347,13 +529,15 @@ body {
         
         flex-direction: column;
         padding-top: 5vh !important;
-        height: 95vh;
+        // height: 80vh;
+        padding-bottom: 5vh !important;
 
       }
 
       .header {
 
         flex: 5;
+        margin-top: -31px;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
             
@@ -366,7 +550,7 @@ body {
 
         h1 {
 
-          font-size: 3.5em;
+          font-size: 2.9em;
           margin: 0;
           line-height: 1;
 
@@ -389,7 +573,7 @@ body {
 
         h1:nth-child(2) {
 
-          margin-right: 62px;
+          margin-right: 47px;
 
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
@@ -403,10 +587,10 @@ body {
 
         > img {
 
-          height: 220px;
-          width: 220px;
+          height: 180px;
+          width: 180px;
           margin-left: -255px;
-          margin-top: 15%;
+          margin-top: 60px;
           
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
@@ -421,14 +605,19 @@ body {
       .steps {
 
         flex: 6;
-        margin-top: -6vh;
+        margin-top: 100px;
+
+        @media screen and (max-width: $breakpoint-palm-portrait){
+        
+          margin-top: -30px;
+        }
 
         img {
 
-          height: 120px;
-          width: 120px;
+          height: 110px;
+          width: 110px;
           float: right;
-          transform: translate(-90px, 120px);
+          transform: translate(-62px, 7px);
 
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
@@ -480,6 +669,7 @@ body {
             align-self: center;
             margin-left: 30px;
             text-align: left;
+            font-size: 0.85em;
 
             @media screen and (max-width: $breakpoint-palm-portrait) {
               
@@ -505,7 +695,8 @@ body {
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
-        height: 85vh;
+        // height: 85vh;
+        height: auto;
 
       }
 
@@ -542,7 +733,7 @@ body {
 
       h1 {
 
-        font-size: 3.4em;
+        font-size: 3.15em;
         margin-top: 10vh;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
@@ -573,28 +764,32 @@ body {
         position: relative;
         margin: auto;
       }
-      
-      /* Hide the images by default */
-      .mySlides {
 
-        // display: none;
-        right: -45vw;
-        position: absolute;
-        padding-left: 12%;
-        margin-top: 6%;
-        margin-bottom: 4.5%;
+      .slide-container {
 
-        @media screen and (max-width: $breakpoint-palm-portrait) {
-          
-          right: 0 !important;
-          height: 34vh;
-          padding-left: 9%;
-
-        }
+        display: flex;
 
       }
 
-      .dots {
+      .tns-controls {
+
+        display: none;
+
+      }
+
+      button[data-action="stop"], button[data-action="start"] {
+
+        display: none;
+
+      }
+
+      .tns-liveregion.tns-visually-hidden {
+
+        display: none;
+        
+      }
+
+      .tns-nav {
 
         position: absolute;
         bottom: -2vh;
@@ -606,60 +801,68 @@ body {
           width: 200px;
           right: calc(50% - 100px);
           transform: scale(0.6);
-          bottom: 4vh;
+          bottom: -3vh;
 
         }
+
+        button {
+
+          cursor: pointer;
+          height: 10px;
+          width: 10px;
+          padding: 0;
+          border: none;
+          background-color: #E25C5F;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+          margin: 0 8px;
+          vertical-align: middle;
+
+          &.tns-nav-active {
+
+            height: 18px;
+            width: 18px;
+            background-color: #FFFFFF;
+    
+          }
+
+        }
+
+      }
+      
+      /* Hide the images by default */
+      .mySlides {
         
+        margin-top: 36px;
+        transform: translateX(-15%);
 
-      }
-      
-      /* The dots/bullets/indicators */
-      .dot {
+        &.tns-slide-active {
 
-        cursor: pointer;
-        height: 10px;
-        width: 10px;
-        // margin: 0 2px;
-        background-color: #E25C5F;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-        margin: 0 8px;
-        vertical-align: middle;
+          transform: translateX(15%);
 
-      }
-      
-      .active, .dot:hover {
+        }
 
-        height: 18px;
-        width: 18px;
-        background-color: #FFFFFF;
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          
+          margin-top: 0;
+          transform: translateX(18px);
 
-      }
-      
-      /* Fading animation */
-      .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-      
-      @-webkit-keyframes fade {
-        from {opacity: .4} 
-        to {opacity: 1}
-      }
-      
-      @keyframes fade {
-        from {opacity: .4} 
-        to {opacity: 1}
+          &.tns-slide-active {
+
+            transform: translateX(18px);
+  
+          }
+
+        }
+
       }
 
       .recipe-slider-card {
         
         display: flex;
         flex-direction: row;
-        height: 30vh;
+        height: 34vh;
         width: 65vw;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
@@ -689,7 +892,7 @@ body {
             
             width: 100%;
             // height: 135px;
-            height: 40%;
+            height: 150px;
           
           }
 
@@ -699,13 +902,19 @@ body {
           
           width: 50%;
           background-color: #BE2525;
+          padding-top: 30px;
 
+          p {
+
+            font-size: 0.9em;
+
+          }
 
           @media screen and (max-width: $breakpoint-palm-portrait) {
             
             width: 100%;
             // height: 175px;
-            height: 60%;
+            min-height: 170px;
 
             text-align: left;
             padding: 0 30px;
@@ -743,7 +952,7 @@ body {
 
       background-color: #F4F4F4;
       text-align: center; 
-      padding-top: 25vh !important;
+      padding-top: 150px !important;
       // height: 95vh;
       height: 700px;
       z-index: 2;
@@ -751,7 +960,13 @@ body {
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
         padding-top: 10vh !important;
-        height: 75vh;
+        height: auto;
+
+        // @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+
+        //   height: auto;
+
+        // }
       
       }
 
@@ -788,7 +1003,8 @@ body {
 
       h1 {
 
-        font-size: 3.2em;
+        font-size: 2.8em;
+        margin-top: 54px;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -815,7 +1031,7 @@ body {
         img {
 
           width: 50%;
-          height: 380px;
+          height: 325px;
           width: auto;
           // margin: auto;
 
@@ -831,7 +1047,7 @@ body {
   
         .write-up {
 
-          margin-top: 5%;
+          margin-top: 1%;
           padding-right: 1%;
           padding-left: 9%;
           flex-direction: column;
@@ -844,14 +1060,14 @@ body {
             padding: 0;
             display: block;
             margin: auto;
-            height: 40vh;
+            height: auto;
             text-align: center;
           
           }
 
           h2 {
 
-            font-size: 1.7em;
+            font-size: 1.53em;
             
             @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -864,10 +1080,38 @@ body {
 
           }
 
+          p {
+
+            font-size: 0.85em;
+
+          }
+
         }
 
       }
 
+    }
+
+    .footer {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: auto !important;
+
+        // @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+
+        //   height: au !important;
+        
+        // }
+        
+      }
+
+      .footer-links {
+
+        margin-top: 30%;
+  
+      }
+      
     }
 
   }
@@ -875,8 +1119,44 @@ body {
   .nav-shortcut {
 
     background-color: $primary;
-    padding-top: 45vh !important;
-    height: 70vh !important;
+    padding-top: 0vh !important;
+    height: 104vh !important;
+
+    &.gallery {
+
+      height: 90vh !important;
+      
+    }
+
+    &.about {
+
+      height: 60vh !important;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+        height:  32vh !important;
+
+        .journey-link__url.about {
+
+          top: -17px !important;
+
+        }
+        
+      }
+
+    }
+
+    &.strawberry {
+
+      height: 80vh !important;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        height: 40vh !important;
+      
+      }
+
+    }
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
        
@@ -896,7 +1176,14 @@ body {
 
     &.choco {
 
+      margin-bottom: 30vh;
       background-color: #F94623;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+       
+        margin-bottom: 23vh;
+
+      }
 
     }
 
@@ -910,9 +1197,9 @@ body {
 
   .footer {
 
-    height: 100vh;
-    
-    .footer-links {
+    // height: 100vh;
+
+    &.footer-links {
 
       // margin-top: 40%;
       
@@ -939,6 +1226,43 @@ body {
     margin-bottom: 45px;
     font-size: 1.4em;
 
+    a {
+
+      color: white;
+      text-decoration: none;
+      backface-visibility: hidden; 
+      transition: background 500ms linear, color 500ms linear;
+      position: relative;
+      
+
+      &:before {
+
+        background: white;
+        left: 0; 
+        content: ''; 
+        height: 2px; 
+        bottom: -2px; 
+        position: absolute; 
+        transform: scaleX(0); 
+        will-change: transform; 
+        transform-origin: right; 
+        backface-visibility: hidden; 
+        width: calc(100% - 0.27vw);
+        transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
+      }
+
+      &:hover:before {
+
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: left;
+        transform-origin: left;
+
+      }
+
+    }
+
   }
 
 }
@@ -946,11 +1270,71 @@ body {
 .filler-svg {
 
   position: absolute;
-  top: -44vh;
+  top: -58vh;
   left: 0;
   height: 100%;
   width: 100%;
   z-index: -1;
+  transform: scaleX(1.2);
+
+  @media screen and (min-width: $breakpoint-desktop-large) {
+
+    top: -54vh;
+    transform: scaleX(1);
+    
+    
+
+  }
+
+  &.community-svg {
+
+    top: -31vh;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      // top: -30vh;
+      top: calc(-225px - 1.5vh);
+
+      // @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+
+      //   top: -43vh;
+
+      // }
+    
+    }
+
+  }
+
+  &.recipe-svg {
+
+    top: -30vh;
+    transform: scaleX(1.04);
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+     
+      top: -39vh;
+
+      @media screen and (max-width: $breakpoint-mobile-small-portrait) {
+       
+        top: -43vh;
+      
+      }
+
+    }
+
+  }
+
+  &.gallery {
+    
+    top: -32vh;
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+      top: calc(-50px - 10vh);
+    
+    }
+
+  }
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -961,7 +1345,6 @@ body {
   path {
 
     fill: white;
-    transform: scaleX(1.1);
 
     &.red {
 
@@ -971,7 +1354,7 @@ body {
 
     @media screen and (min-width: $breakpoint-laptop-large) {
     
-      transform: scale(1);
+      transform: scale(1.06);
 
     }
 
@@ -1057,11 +1440,42 @@ body {
 
   &.top {
 
-    top: -35vh;
+    top: -47vh;
+    transform: scale(1.1);
+
+    &.contact {
+
+      top: -21vh;
+      
+    }
+
+    &.about {
+
+      top: -14vh;
+      transform: scale(1.2);
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+      
+        top: -7vh !important;
+      
+      }
+
+    }
+
+    &.gallery {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        top: -37vh !important;
+
+      }
+
+    }
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
       
-      top: -15vh;
+      top: -14vh !important;
+      z-index: 0;
     
     }
 
@@ -1069,7 +1483,7 @@ body {
     path {
 
       fill: white;
-      transform: scaleY(0.72);
+      // transform: scaleY(0.72);
 
       &.grey {
 
@@ -1095,11 +1509,33 @@ body {
 
   &.bottom {
   
-      top: 60vh;
+      top: 73vh;
+
+      &.contact {
+        
+        top: 64vh;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+          top: 25vh;
+        }
+
+      }
+
+      &.about {
+
+        top: 34vh;
+        transform: scaleX(1.2);
+
+        @media screen and (max-width: $breakpoint-palm-portrait){
+          top: 17vh;
+        
+        }
+
+      }
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
       
-        top: 20vh;
+        top: 25vh;
       
       }
 
@@ -1107,7 +1543,7 @@ body {
     path {
 
       fill: #DB6166;
-      transform: scale(0.72);
+      // transform: scale(0.72);
 
       &.orange {
 
@@ -1148,7 +1584,7 @@ body {
   z-index: 0;
   padding-top: 5vh !important;
   // height: 117vh !important;
-  height: 1000px;
+  height: 950px;
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1167,7 +1603,7 @@ body {
 
   h1 {
 
-    font-size: 4em;
+    font-size: 3.4em;
     margin-bottom: 0;
     line-height: 1;
 
@@ -1212,7 +1648,7 @@ body {
   & > p {
 
     margin-bottom: 45px;
-    font-size: 1.4em;
+    font-size: 1.43em;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
     
@@ -1268,14 +1704,14 @@ body {
 
     position: absolute;
     right: 0;
-    top: 12%;
+    top: 11%;
     width: fit-content;
     display: flex;
     flex-direction: column;
     float: right;
-    margin-right: -10px;
-    height: 245px;
-    width: 245px;
+    margin-right: -2px;
+    height: 220px;
+    width: 220px;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1291,14 +1727,14 @@ body {
 
     .announcement-container {
 
-      margin-top: 69px;
+      margin-top: 35px;
 
       svg {
 
         position: static;
-        height: 80px;
-        width: 80px;
-        transform: scaleX(-1) rotate(-20deg);
+        height: 71px;
+        width: 71px;
+        transform: scaleX(-1) rotate(-16deg);
 
         path {
 
@@ -1311,7 +1747,7 @@ body {
       p {
         
         margin-top: 0;
-        font-size: 0.7em;
+        font-size: 0.73em;
       }
 
     }
@@ -1343,7 +1779,7 @@ body {
         z-index: 1;
         position: absolute;
         height: auto;
-        width: 200px;
+        width: 180px;
         visibility: hidden;
         right: 0;
         left: 0;
@@ -1360,22 +1796,35 @@ body {
         @media screen and (max-width: $breakpoint-palm-portrait) {
           
           width: 180px;
+          margin-right: 27vw;
+
+          @media screen and (min-width: 360px) and (max-width: 375px){
+
+            margin-right: 24.5vw;
           
+          }
+
+          @media screen and (max-width: 329px){
+            
+            margin-right: 21vw;
+
+          }
+
         }
   
       }
 
       .cone {
 
-        width: 140px;
+        width: 125px;
         height: auto;
         display: block;
-        margin: 150px auto 0 45px;
+        margin: 139px auto 0 39px;
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
           width: 130px;
-          margin: 130px auto 0 120px;
+          margin: 130px auto 0 auto;
         
         }
 
@@ -1408,10 +1857,60 @@ body {
       a {
 
         float: right;
-        margin-top: 10%;
+        margin-top: 15%;
         color: black;
-        text-decoration: underline;
+        text-decoration: none;
         font-size: 1.1em;
+        width: 157px;
+        backface-visibility: hidden; 
+        transition: background 500ms linear, color 500ms linear;
+        position: relative;
+
+        &:before {
+
+          background: black;
+          left: 0; 
+          content: ''; 
+          height: 2px; 
+          bottom: -2px; 
+          position: absolute; 
+          transform: scaleX(0); 
+          will-change: transform; 
+          transform-origin: right; 
+          backface-visibility: hidden; 
+          width: calc(100% - 0.27vw);
+          transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
+        }
+
+        &:hover:before {
+
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+          -webkit-transform-origin: left;
+          transform-origin: left;
+
+        }
+
+        // &:before, &:after {
+        //   left: 0;
+        //   top: 0;
+        //   width: 100%;
+        //   height: 100%;
+        //   border-style: solid;
+        //   border-color: black;
+        // }
+        // &:before {
+        //   border-width: 2px 0 2px 0;
+        //   transform:  scaleX(0);
+        // }
+        // &:after {
+        //   border-width: 0 2px 0 2px;
+        //   transform:  scaleY(0);
+        // }
+        // &:hover:before, &:hover:after {
+        //   transform:  scale(1, 1);
+        // }
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1447,10 +1946,40 @@ body {
       a {
 
         float: left;
-        margin-top: 10%;
+        margin-top: 15%;
         color: black;
-        text-decoration: underline;
+        text-decoration: none;
         font-size: 1.1em;
+        width: 90px;
+        backface-visibility: hidden; 
+        transition: background 500ms linear, color 500ms linear;
+        position: relative;
+
+        &:before {
+
+          background: black;
+          left: 0; 
+          content: ''; 
+          height: 2px; 
+          bottom: -2px; 
+          position: absolute; 
+          transform: scaleX(0); 
+          will-change: transform; 
+          transform-origin: right; 
+          backface-visibility: hidden; 
+          width: calc(100% - 0.27vw);
+          transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
+        }
+
+        &:hover:before {
+
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+          -webkit-transform-origin: left;
+          transform-origin: left;
+
+        }
 
         @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1468,7 +1997,7 @@ body {
   .cue {
 
     padding-right: 14vw;
-    margin-top: -2em;
+    margin-top: -3em;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
       
@@ -1481,24 +2010,48 @@ body {
       color: black;
       float: right;
       font-size: 0.8em;
+      text-decoration: none;
+      backface-visibility: hidden; 
+      transition: background 500ms linear, color 500ms linear;
+      position: relative;
 
-      &:hover {
+      &:before {
 
-        text-decoration: underline;
-      
+        background: black;
+        left: 17.5%; 
+        content: ''; 
+        height: 2px; 
+        bottom: -2px; 
+        position: absolute; 
+        transform: scaleX(0); 
+        will-change: transform; 
+        transform-origin: right; 
+        backface-visibility: hidden; 
+        width: 65%;
+        transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
       }
 
-      text-decoration: none;
+      &:hover:before {
+
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: left;
+        transform-origin: left;
+
+      }
+
+      
 
     }
 
   }
 
-  .content-container {
+  .flavours-content-container {
 
     position: absolute;
     left: 50%;
-    margin-left: -250px;
+    margin-left: -300px;
     margin-top: 12%;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
@@ -1511,17 +2064,18 @@ body {
     
     .flavours-cloud {
 
-      margin: 7px;
-      font-size: 1em;
-      max-width: 520px;
+      margin: 7px 7px 50px 7px;
+      font-size: 1.2em;
+      max-width: 600px;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
 
-        margin-bottom: 3vh;
+        margin-bottom: 6vh;
         max-width: 85vw;
         display: block;
         margin-left: auto;
         margin-right: auto;
+        font-size: 0.85em;
       
       }
 
@@ -1529,7 +2083,9 @@ body {
 
     h2 {
 
-      font-size: 2.2em;
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 65px;
 
       @media screen and (max-width: $breakpoint-palm-portrait) {
         
@@ -1538,6 +2094,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         margin-top: 15vh;
+        margin-bottom: 26px;
 
       }
 
@@ -1614,7 +2171,44 @@ body {
     a {
 
       color: black;
-      font-weight: 700;
+      text-decoration: none;
+      backface-visibility: hidden; 
+      transition: background 500ms linear, color 500ms linear;
+      position: relative;
+      
+
+      &:before {
+
+        background: black;
+        left: 0; 
+        content: ''; 
+        height: 2px; 
+        bottom: -2px; 
+        position: absolute; 
+        transform: scaleX(0); 
+        will-change: transform; 
+        transform-origin: right; 
+        backface-visibility: hidden; 
+        width: calc(100% - 0.27vw);
+        transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+
+      }
+
+      &:hover:before {
+
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: left;
+        transform-origin: left;
+
+      }
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+
+        font-weight: 500;
+        font-size: 1.1em;
+        
+      }
 
     }
 
@@ -1627,62 +2221,80 @@ body {
   color: white;
   background-color: $primary;
   z-index: 0;
-  padding-top: 39vh !important;
+  padding-top: 35vh !important;
   height: 116vh !important;
 
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
-    padding-top: 25vh !important;
-    height: 880px !important;
+    padding-top: 21vh !important;
+    height: auto !important;
 
     .filler-svg {
 
-      top: -400px !important;
+      top: calc(-278px - 1vh) !important;
 
     }
 
   }
 
-  // #flavours-svg {
+  .location--content--intro {
 
-  //   position: absolute;
-  //   top: -44vh;
-  //   left: 0;
-  //   height: 100%;
-  //   width: 100%;
-  //   z-index: -1;
+    z-index: 100;
+    /* height: 200vh;  for demo3_1*/
+    /* height: 100vh; for no cover */
+    height: 220vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
 
-  //   @media screen and (max-width: $breakpoint-palm-portrait) {
+    .location--content__inner {
 
-  //     top: -400px;
+      width: 100%;
+      height: 120vh;
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
 
-  //   }
+    }
 
-  //   path {
+    .location--shape-wrap {
 
-  //     fill: white;
-  //     transform: scaleX(1.1);
+      position: relative;
+      z-index: 10;
+      // margin: -20px 0 0 0; /* Hide the gap */
+      margin: -20px 0 0 0;
 
-  //     @media screen and (min-width: $breakpoint-laptop-large) {
-      
-  //       transform: scale(1);
+      .location--shape {
 
-  //     }
+        height: 100vh;
+	      width: 100%;
+	      display: block;
+        fill: white;
+        
+        path {
 
-  //     @media screen and (min-width: 2560px) {
-      
-  //       transform: scale(1.4);
+          // transform: translateY(20px);
 
-  //     }
+        }
 
-  //   }
+      }
 
-  // }
+    }
+
+  }
 
   h2 {
 
-    font-size: 2.2em;
+    font-size: 2.9em;
     margin-bottom: 5%;
+    margin-top: 0;
 
     @media screen and (max-width: $breakpoint-palm-portrait) {
 
@@ -1690,85 +2302,104 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
+      font-size: 1.9em;
 
     }
 
   }
-  
-  .places {
 
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, calc(260px + 1vw));
-    grid-template-rows: repeat(auto-fill, 500px);
-    padding: 0 9%;
-    // grid-row-gap: .5em;
-    // grid-column-gap: 1em;
+  .tns-nav {
 
-    @media screen and (max-width: $breakpoint-palm-portrait) {
+    transform: translateY(calc(400px + 1vh));
 
-      display: flex;
+    button {
+
+      cursor: pointer;
+      height: 10px;
+      width: 10px;
+      padding: 0;
+      border: none;
+      background-color: #E25C5F;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      margin: 0 8px;
+      vertical-align: middle;
+
+
+      &.tns-nav-active {
+
+        height: 18px;
+        width: 18px;
+        background-color: #FFFFFF;
+
+      }
 
     }
 
+  }
+
+  .tns-controls {
+
+    display: none;
+
+  }
+
+  .tns-liveregion {
+
+    display: none;
+
+  }
+
+  .places-mobile {
+
+    display: flex;
+    margin-top: 23px;
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+
+      display: none;
+
+    }
+
+
     .place {
 
-      @media screen and (max-width: $breakpoint-palm-portrait) {
-        
-        position: absolute;
-        width: 64vw;
-        display: none;
-    
-
-        &:nth-child(1) {
-
-          display: block;
-          right: 18vw;
-
-        }
-
-        &:nth-child(2) {
-
-          display: block;
-          right: -40vw;
-          transform: scale(0.7) translateY(2vh);
-
-          .place-info, a {
-
-              color: lightgray !important;
-
-          }
-
-        }
-
-        &:nth-last-child(1) {
-
-          display: block;
-          left: -40vw;
-          transform: scale(0.7) translateY(2vh);
-
-          .place-info, a {
-
-            color: lightgray !important;
-
-          }
-
-        }
-
-      }
-      
       img {
 
-        height: 251px;
-        width: 252px;
+        height: 120px;
 
       }
 
       .place-info {
 
-        text-align: left;
-        padding-left: 25%;
-        // check youtube video for how to align in css grid
+        opacity: 0.5;
+        transform: scale(0.8) translateY(20px);
+
+      }
+
+      &.active {
+
+        opacity: 1;
+
+        img {
+
+          transform: scale(1.55);
+          transition: all 500ms ease-in-out 350ms;
+          
+        }
+
+        .place-info {
+
+          opacity: 1;
+          transition: all 500ms ease-in-out 350ms;
+          transform: scale(1) translateY(30px);
+
+        }
+
+      }
+
+      .place-info {
 
         @media screen and (max-width: $breakpoint-palm-portrait) { 
 
@@ -1780,11 +2411,12 @@ body {
         p {
 
           font-size: 0.8em;
-          margin-top: 29px;
+          margin-top: 15px;
+          min-width: 55vw;
 
           @media screen and (max-width: $breakpoint-palm-portrait) { 
             
-            font-size: 1.1em;
+            font-size: 0.88em;
 
           }
 
@@ -1792,11 +2424,11 @@ body {
 
         p:nth-of-type(1) {
 
-          font-size: 1.3em;
+          font-size: 1.24em;
 
           @media screen and (max-width: $breakpoint-palm-portrait) { 
 
-            font-size: 1.8em;
+            font-size: 1.51em;
 
           }
 
@@ -1809,7 +2441,191 @@ body {
 
           @media screen and (max-width: $breakpoint-palm-portrait) { 
             
-            font-size: 1.3em;
+            font-size: 1.2em;
+
+          }
+
+        }
+
+      }
+
+
+    }
+
+    
+
+
+  }
+  
+  .places {
+
+    @media screen and (min-width: $breakpoint-tablet-portrait) {
+
+      justify-content: center;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, calc(260px + 1vw));
+      grid-template-rows: repeat(auto-fill, 500px);
+      padding: 0 9%;
+      grid-row-gap: .5em;
+      grid-column-gap: 1em;
+    
+    }
+
+    @media screen and (max-width: $breakpoint-palm-portrait) {
+
+      display: none;
+
+    }
+
+    .place {
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        // transform: scale(0.8) translate(45vw, -5vh);
+
+        // .place-info {
+
+        //   margin-top: 75px;
+
+        // }
+
+        // .place-info, a {
+
+        //   color: #E16C70 !important;
+        // }
+
+
+        // &.tns-slide-active + .place {
+
+        //   transform: scale(0.8) translate(-55vw, -5vh);
+
+        //   .place-info {
+
+        //     margin-top: 75px;
+
+        //   }
+
+        //   .place-info, a {
+
+        //       color: #E16C70 !important;
+
+        //   }
+
+        // }
+        
+
+        // &.tns-slide-active {
+
+        //   transform: scale(1) translate(0, 0);
+
+        //   .place-info {
+            
+        //     margin-top: 0;
+  
+        //   }
+  
+        //   .place-info, a {
+  
+        //     color: white !important;
+        //   }
+
+        // }
+
+      }
+      
+      img {
+
+        height: 230px;
+        width: 230px;
+        margin-bottom: 11px;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+          height: 180px;
+          width: 180px;
+
+        }
+
+      }
+
+      .place-info {
+
+        text-align: left;
+        padding-left: 25%;
+
+        @media screen and (max-width: $breakpoint-palm-portrait) { 
+
+          text-align: center;
+          padding-left: 0;
+
+        }
+
+        p {
+
+          font-size: 0.8em;
+          margin-top: 15px;
+          line-height: 1.2;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+            
+            font-size: 0.88em;
+
+          }
+
+        }
+
+        p:nth-of-type(1) {
+
+          font-size: 1.24em;
+
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+
+            font-size: 1.51em;
+
+          }
+
+        }
+
+        a {
+
+          font-size: 1em;
+          color: white;
+          text-decoration: none;
+          backface-visibility: hidden; 
+          transition: background 500ms linear, color 500ms linear;
+          position: relative;
+          
+    
+          &:before {
+    
+            background: white;
+            left: 0; 
+            content: ''; 
+            height: 2px; 
+            bottom: -2px; 
+            position: absolute; 
+            transform: scaleX(0); 
+            will-change: transform; 
+            transform-origin: right; 
+            backface-visibility: hidden; 
+            width: calc(100% - 0.27vw);
+            transition: transform .4s ease-out,background 500ms linear,-webkit-transform .4s ease-out;
+    
+          }
+    
+          &:hover:before {
+    
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+            -webkit-transform-origin: left;
+            transform-origin: left;
+    
+          }
+
+          @media screen and (max-width: $breakpoint-palm-portrait) { 
+            
+            font-size: 1.2em;
 
           }
 
@@ -1818,16 +2634,20 @@ body {
       }
 
     }
-
+    
   }
 
 }
 
 .gallery {
 
+  margin-bottom: 100px;
+
   @media screen and (max-width: $breakpoint-palm-portrait) {
 
-    padding-top: 8vh !important;
+    padding-top: 17vh !important;
+    margin-bottom: 0;
+    height: auto !important;
 
   }
 
@@ -1870,6 +2690,15 @@ body {
 
       font-size: 2.2em;
       margin-bottom: 0;
+      margin-top: 138px;
+
+      @media screen and (max-width: $breakpoint-palm-portrait)
+      {
+
+        font-size: 1.9em;
+        margin-top: 0px;
+        font-weight: 500;
+      }
 
       br {
 
@@ -1897,6 +2726,14 @@ body {
       font-weight: 700;
       margin-top: 14px;
       margin-bottom: 6vh;
+
+      @media screen and (max-width: $breakpoint-palm-portrait) {
+        
+        margin-bottom: 3vh;
+        font-size: 1.15em;
+        font-weight: 500;
+      
+      }
     
     }
 

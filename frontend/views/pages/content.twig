@@ -1,39 +1,80 @@
 {% extends 'layout.twig' %}
 
 {% set site_title = post.title %}
-
+{% set nav_footer = post.get_field('footer_link') %}
+{% set header_link = post.get_field('header_link') %}
+{% set qna_list = post.get_field('faq_generator') %}
 {% block page %}
-    {% set questionsAnswers = post.get_field('accordion') %}
 
-    <section class="section">
+  <section class="intro">
+    <h1>{{post.title}}</h1>
+    {% if post.title == 'Gallery' %}
+      <p>Check out the images from our <a href="{{ header_link.url }}">{{header_link.title}}</a> page </p>
+    {% endif %}
+  </section>
 
-        <h1 class="section__title">{{ post.title }}</h1>
 
-        <ul class="section__links">
-            {% if post.get_field('page_links') %}
-
-                {% for item in post.get_field('page_links') %}
-
-                    <li class="section__link"><a href="{{ item.link.url }}">{{ item.link.title }}</a></li>
-                {% endfor %}
-
-            {% endif %}
-        </ul>
-
-        <section class="section-content">
-            <div class="tabs">
-                {% for questionAnswer in questionsAnswers %}
-                    <div class="tab">
-                        <input id="{{ questionAnswer.header }}" type="checkbox" name="tabs">
-                        <label for="{{ questionAnswer.header }}">{{ questionAnswer.header }}</label>
-                        <div class="tab-content">
-                            <p>{{ questionAnswer.content }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </section>
-
+  {% if post.title == 'Gallery' %}
+    <section class="gallery-section">
+      {{ post.content }}
     </section>
+  {% else %}
+    <section class="faq-section">
+      <div class="tabs">
+      {% for qna in qna_list %}
+        <div class="tab">
+          <input id="{{loop.index}}" type="checkbox" name="tabs">
+          <label for="{{loop.index}}">{{qna.question}}</label>
+          <div class="tab-content">
+            <p>{{qna.answer}}</p>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <section id="shop-foot-link" class="nav-shortcut contact">
+      <svg id="filler-svg" class="filler-svg others top contact" preserveAspectRatio="meet" viewBox="0 0 1920 637.3" >
+        <path d="M0.2,135.8c0,0-20,72,342.2,72c297.7,0,420.8,61.7,420.8,61.7s170,89.3,361.7,25.3c139-46.4,214-70.4,410.3-19c280,42.1,384.8-46.2,384.8-46.2V0H0.2V135.8z" />
+      </svg>
+      {# <a class="journey-link__url gallery" href="{{ nav_footer.url }}" >
+        {% if post.title == 'Gallery' %}
+          <span>See more on {{ nav_footer.title }}</span>
+        {% else %}
+          <span>Can't find what you're looking for? {{ nav_footer.title }}<br>Contact Us</span>
+        {% endif %}
+
+        <br>
+
+        <img src="{{ assets }}/svg/arrow.svg"></img>
+      </a> #}
+      <a href="{{ nav_footer.url }}" class="journey-link__url gallery">
+
+        {% if post.title == 'Gallery' %}
+          <span>See more on {{ nav_footer.title }}</span>
+        {% else %}
+          <span>Can't find what you're looking for? {{ nav_footer.title }}<br>Contact Us</span>
+        {% endif %}
+
+        <div class="button__icon">
+                  <!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg width="28px" height="11px" viewBox="0 0 28 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="arrow-animated">
+            <g class="arrow-animated__arrow arrow-animated__arrow--faded" stroke-width="1.5">
+              <path d="M13,5.5 L26,5.5 L22,1.5"></path>
+              <path d="M13,5.5 L26,5.5 L22,9.5"></path>
+            </g>
+
+            <g class="arrow-animated__arrow arrow-animated__arrow--main" stroke-width="1.5">
+              <path d="M1,5.5 L26,5.5 L22,1.5"></path>
+              <path d="M1,5.5 L26,5.5 L22,9.5"></path>
+            </g>
+          </svg>
+        </div>
+      </a>
+      <svg id="filler-svg" class="filler-svg others bottom contact" preserveAspectRatio="meet" viewBox="0 0 1920 637.3" >
+        <path class="primary" d="M0.2,135.8c0,0-20,72,342.2,72c297.7,0,420.8,61.7,420.8,61.7s170,89.3,361.7,25.3c139-46.4,214-70.4,410.3-19c280,42.1,384.8-46.2,384.8-46.2V0H0.2V135.8z" />
+      </svg>
+  </section>
 
 {% endblock %}

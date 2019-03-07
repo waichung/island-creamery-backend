@@ -104,8 +104,8 @@
 }
 
 .product-excerpt__name {
-    font-size: rem(20px);
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 500;
     color: black;
 
     @media screen and (max-width: $breakpoint-mobile-landscape) {
@@ -117,8 +117,8 @@
 .product-excerpt__price {
 
     margin-top: 10px;
-    font-size: rem(18px);
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 500;
     font-family: $fontstack-sans-primary;
     line-height: 22px;
 
@@ -135,6 +135,12 @@
         button {
 
             background: none;
+
+        }
+
+        .added_to_cart.wc-forward {
+
+            display: none;
 
         }
 
